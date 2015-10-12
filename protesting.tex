@@ -2,7 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[natbib,style=alphabetic]{biblatex}
-\addbibresource{protesting.bib}
+\addbibresource{surveillance.bib}
+
+\usepackage[std]{libbib}
 
 \title{%
   Future Technologies for\\
@@ -23,53 +25,127 @@
 \begin{document}
 \maketitle
 
-Nowadays, there is more data stored in online services than ever, mainly 
-because of the widespread use of the Internet and the maturing of communication 
-technologies, but also due to the popularization of Online Social Networks 
-(OSNs).
+% XXX Types of protests
+% - Arranging a real-world protest
+% - Having an online protest
+\begin{abstract}
+  We propose a chapter on the possibilities of the future technologies that can 
+  be used for protests.
+  We focus on privacy-preserving tools that can be used before, under and after 
+  a protest:
+  \begin{itemize}
+    \item before, to organize a public protest, either online or in the real 
+      world;
+    \item during, for the organizers and participants to communicate;
+    \item after, possibly following up an event by verifying the participation 
+      and computing verifiable statistics, e.g.\ how many participants and in 
+      what area.
+  \end{itemize}
+  We give an overview of the current state-of-the-art and an outlook for the 
+  future possibilities.
+\end{abstract}
+
+
+\section{Introduction}
+% XXX The below doesn't connect with the above
+
+Online technologies are used more and more by citizens all over the world.
+This is both good and bad.
+The bad thing is that there is more data stored in these online services than 
+ever and these data are used by oppressive regimes against the citizens using 
+them.
+The good thing is that there are technologies which remedy some of the problems 
+and researchers are trying to remedy the rest of the problems.
 
 Most of these services are run in a centralized manner such that the provider 
 of the service acts as the communication channel between the users.
 Being such a hub allows the providers to oversee a large amount of information, 
-and in the case of OSNs, much of it of a personal and sensitive kind, e.g., 
-life events, geolocated pictures or simply professional life.
+and in the case of \acp{OSN}, much of it of a personal and sensitive kind, 
+e.g.\ planning of events or geolocated pictures.
+We have seen in the media of recent years how the security agencies also use 
+these technologies: they tap into the data streams and monitor 
+everybody~\cite{BoundlessInformant,XKeyscore} and even attack targets through 
+these technologies~\cite{Quantum}.
+Although not all nation-states' surveillance agencies have direct access to 
+these data, there are other ways for them to achieve this detailed 
+surveillance: e.g.\ the Great Firewall of China and similar systems set up by 
+governments.
+The result is that activists can be tracked down and jailed for posting 
+critical comments about the ruling regime.
 
-OSNs have an unfortunate and controversial history of privacy issues, e.g., 
-accidental and intentional data leakages, and security problems, e.g., 
-censorship, discrimination.
-Such dependence on the provider has gained relevance, and become a great 
-concern for the general population in the recent years, especially after the 
-news of the global mass surveillance program by the United States National 
-Security Agency in collaboration with some of these providers and other
-governmental intelligence agencies.
+We can conclude from the above that we need stronger privacy properties for 
+online technologies to protect citizens voicing their opinions in surveillance 
+states.
+One interesting branch of research is decentralized \acp{PET} or other 
+privacy-preserving solutions where users can have full control over their data:
+\begin{itemize}
+  \item decentralized to reach provider independence and censorship resistance;
+  \item privacy-preserving to provide data protection by prevention, e.g.\ by 
+    cryptographic means.
+\end{itemize}
 
-Users are fairly aware of the business model supporting, improving and 
-maintaining these systems, i.e., advertisement or customer profiling.
-However, these business models also create an incentive to keep collecting and 
-mining more data, and a disincentive to protect the privacy of the user.
 
-For such highly connected data-intensive services we propose a shift to 
-decentralized and privacy-preserving solutions where users can have full 
-control over their data.
-Decentralized to reach provider independence, and privacy-preserving
-to provide data protection by prevention, i.e., by cryptographic means
-and access control.
+\section{Before a Protest}
+% XXX Write about mechanisms used before a protest
 
-Our proposal of a privacy-preserving decentralized OSN aims at implementing 
-current functionality present in modern OSNs with privacy-preserving properties 
-and exploring what other features can be implemented in such decentralized 
-scenario.
-We also analyse the trade-offs that have to be made in terms of meta-data 
-inferences, heterogeneity, availability, scalability, robustness and 
-efficiency.
+Events coordination mechanism without the need of \iac{TTP}.
+Scheduling events in a privacy-preserving manner without the need for 
+interaction.
+We need these to be able to organize a protest.
+We don't want to risk a oppressive regime killing the protest before it 
+happens.
+We also don't want the same regime to learn of who have committed to 
+participate.
 
-We have designed some important building blocks: access control by applying 
-a policy-hiding cryptographic scheme, usable password authentication in P2P 
-networks, targeted user search by means of user defined knowledge threshold, 
-and events coordination mechanism without the need of a trusted third party.
-Currently, we are investigating the implications of aggregating the 
-friend-activity feed, the scheduling of events in a privacy-preserving manner, 
-and other efficient access control alternatives in our decentralized setting.
+
+\section{During a Protest}
+% XXX Write about mechanisms used during a protest
+
+Privacy-preserving access-control for distributed storage.
+This is interesting because we want to post photos and messages during the 
+protest, e.g.\ photos of police brutality etc.
+However, we don't want to be identifiable as a participating protester, as this 
+might yield repercussions.
+
+
+\section{After a Protest}
+% XXX Write about mechanisms used after a protest
+% - Verify the authenticity of the participation of a protest
+
+We might want to verify the participation of a protest, not identifying 
+individuals who participated, but we want to compute the number of participants 
+to verify the scale of the protest.
+This can be useful for e.g.\ the UN to verify protests happening in a country, 
+then the UN can apply pressure.
+At the moment, countries can deny the protests ever happened or at least the 
+extent of the protest.
+
+Purely online protests are essentially petitions.
+This can be compared to electronic voting, to vote for or against something.
+For this we should be able to use anonymous credentials, blind signatures and 
+similar techniques, together with electronic voting protocols.
+
+For real-world protests we should be able to use anonymous credentials, blind 
+signatures and distance-bounding protocols with smartphones for the 
+participants to build a network of verified participants.
+Due to the distance-bounding protocol we can bind them all to having been at 
+the same place.
+With a time-stamping service we can make this a transitive relation, thus 
+verifying the total number of participants of a real-world protest in 
+a physical location.
+
+
+\section{General Attacks against Activists}
+
+Usable password authentication in \ac{P2P} networks.
+Users need secure and usable authentication systems.
+Protesters are usually ordinary people, not all rebellious people are 
+cryptographers.
+
+Targeted user search by means of user defined knowledge threshold.
+Protesters must be able to find each other in the networks, but we don't want 
+the oppressive regime to do the same.
+This probably require some adaption and extension of the user-search mechanism.
 
 
 \printbibliography{}
