@@ -36,7 +36,8 @@
   \begin{itemize}
     \item before, to organize a public protest, either online or in the real 
       world;
-    \item during, for the organizers and participants to communicate;
+    \item during, for the organizers and participants to communicate, within 
+      the group or to the outside world;
     \item after, possibly following up an event by verifying the participation 
       and computing verifiable statistics, e.g.\ how many participants and in 
       what area.
@@ -55,13 +56,13 @@ The bad thing is that there is more data stored in these online services than
 ever and these data are used by oppressive regimes against the citizens using 
 them.
 The good thing is that there are technologies which remedy some of the problems 
-and researchers are trying to remedy the rest of the problems.
+and that researchers are trying to remedy the rest of the problems.
 
 Most of these services are run in a centralized manner such that the provider 
 of the service acts as the communication channel between the users.
 Being such a hub allows the providers to oversee a large amount of information, 
 and in the case of \acp{OSN}, much of it of a personal and sensitive kind, 
-e.g.\ planning of events or geolocated pictures.
+e.g.\ planning of events or geolocated pictures revealing physical positions.
 We have seen in the media of recent years how the security agencies also use 
 these technologies: they tap into the data streams and monitor 
 everybody~\cite{BoundlessInformant,XKeyscore} and even attack targets through 
@@ -70,8 +71,9 @@ Although not all nation-states' surveillance agencies have direct access to
 these data, there are other ways for them to achieve this detailed 
 surveillance: e.g.\ the Great Firewall of China and similar systems set up by 
 governments.
-The result is that activists can be tracked down and jailed for posting 
-critical comments about the ruling regime.
+Some of the data is simply public and linkable to a physical person.
+The result is that activists can be tracked down and sentenced without trial 
+for posting critical comments about the ruling regime.
 
 We can conclude from the above that we need stronger privacy properties for 
 online technologies to protect citizens voicing their opinions in surveillance 
@@ -95,7 +97,7 @@ We need these to be able to organize a protest.
 We don't want to risk a oppressive regime killing the protest before it 
 happens.
 We also don't want the same regime to learn of who have committed to 
-participate.
+participate or who organized the event.
 
 
 \section{During a Protest}
@@ -106,6 +108,11 @@ This is interesting because we want to post photos and messages during the
 protest, e.g.\ photos of police brutality etc.
 However, we don't want to be identifiable as a participating protester, as this 
 might yield repercussions.
+Thus we can to share the data anonymously, but we still want to verify 
+authenticity as it might otherwise be the regime spreading disinformation.
+
+This also benefits the activist bloggers or twitterers, as they also need this 
+type of privacy to not be persecuted.
 
 
 \section{After a Protest}
@@ -141,6 +148,15 @@ Usable password authentication in \ac{P2P} networks.
 Users need secure and usable authentication systems.
 Protesters are usually ordinary people, not all rebellious people are 
 cryptographers.
+
+Some secure authentication schemes allows for \ac{DoS} attacks against the 
+proper account holder.
+Although it prevents the attacker from gaining access, it also prevents the 
+authentic user.
+E.g.\ what should happen if multiple users try to access an account at the same 
+time?
+One code at a time yields denial of service, whereas one code per session 
+yields easier guessing.
 
 Targeted user search by means of user defined knowledge threshold.
 Protesters must be able to find each other in the networks, but we don't want 
