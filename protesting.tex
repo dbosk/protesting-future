@@ -25,9 +25,6 @@
 \begin{document}
 \maketitle
 
-% XXX Types of protests
-% - Arranging a real-world protest
-% - Having an online protest
 \begin{abstract}
   We propose a chapter on the possibilities of the future technologies that can 
   be used for protests.
@@ -89,6 +86,8 @@ privacy-preserving solutions where users can have full control over their data:
 
 \section{Before a Protest}
 % XXX Write about mechanisms used before a protest
+% - Events Invitations (EI)
+% - Privacy-Preserving Event Scheduling (PPES)
 
 Events coordination mechanism without the need of \iac{TTP}.
 Scheduling events in a privacy-preserving manner without the need for 
@@ -102,6 +101,7 @@ participate or who organized the event.
 
 \section{During a Protest}
 % XXX Write about mechanisms used during a protest
+% - Access Control paper (ANOBE)
 
 Privacy-preserving access-control for distributed storage.
 This is interesting because we want to post photos and messages during the 
@@ -117,7 +117,9 @@ type of privacy to not be persecuted.
 
 \section{After a Protest}
 % XXX Write about mechanisms used after a protest
-% - Verify the authenticity of the participation of a protest
+% - PPES computation part
+% - Electronic voting
+% - EI + distance bounding + time-stamping
 
 We might want to verify the participation of a protest, not identifying 
 individuals who participated, but we want to compute the number of participants 
@@ -143,6 +145,9 @@ a physical location.
 
 
 \section{General Attacks against Activists}
+% XXX Rewrite about general attacks
+% - Are the general attacks relevant to mention?  Probably in a later stage as 
+%   some of these prevents the adversary from DoS during the protest.
 
 Usable password authentication in \ac{P2P} networks.
 Users need secure and usable authentication systems.
@@ -157,6 +162,9 @@ E.g.\ what should happen if multiple users try to access an account at the same
 time?
 One code at a time yields denial of service, whereas one code per session 
 yields easier guessing.
+The adversary can lock the activists out of their accounts, forcing them to 
+resolve to less secure means of communication.
+The \ac{DoS} applies to all scenarios: the before, during and after stages.
 
 Targeted user search by means of user defined knowledge threshold.
 Protesters must be able to find each other in the networks, but we don't want 
