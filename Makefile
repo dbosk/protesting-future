@@ -1,8 +1,11 @@
-.PHONY: all
+.PHONY: all wc
 all: protesting.pdf
 
 protesting.pdf: protesting.tex
 protesting.pdf: llncs libbib.sty surveillance.bib
+
+wc: protesting.tex
+	for f in $^; do echo -n "$${f}: "; detex $${f} | wc -w; done
 
 INCLUDE_MAKEFILES=makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
