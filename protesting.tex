@@ -13,13 +13,13 @@
 \author{%
   Daniel Bosk
   \and
-  the Group
+  Sonja Buchegger
 }
 \institute{%
   School of Computer Science and Communication,\\
   KTH Royal Institute of Technology,
   Stockholm\\
-  \email{dbosk@kth.se}
+  \email{\{dbosk,buc\}@kth.se}
 }
 
 \begin{document}
@@ -108,8 +108,6 @@ or after a protest:
 
 \subsection{Before a Protest}
 % XXX Write about mechanisms used before a protest
-% - Events Invitations (EI)
-% - Privacy-Preserving Event Scheduling (PPES)
 
 Events coordination mechanism without the need of \iac{TTP}.
 Scheduling events in a privacy-preserving manner without the need for 
@@ -119,6 +117,19 @@ We don't want to risk a oppressive regime killing the protest before it
 happens.
 We also don't want the same regime to learn of who have committed to 
 participate or who organized the event.
+
+An extension of the scheduling would be to find a joint location for the 
+protest too.
+This would help against the problem of announcing the location in advance.
+\citet{EventsInivations} developed a scheme with accountability to provide 
+these details once a participant committed.
+This scheme must be adapted to also provide deniability against the state 
+adversary.
+It would be advantageous also if this wasn't an interactive protocol.
+
+The privacy-preserving events scheduling aims at a non-interactive mechanism 
+for scheduling meetings.
+This would be beneficial since not everyone is online all the time.
 
 
 \subsection{During a Protest}
@@ -135,12 +146,14 @@ authenticity as it might otherwise be the regime spreading disinformation.
 
 This also benefits the activist bloggers or twitterers, as they also need this 
 type of privacy to not be persecuted.
+In another context this system can be used by whistle-blowers.
+This is desirable as the system would be independent from any authority, news 
+agencies included.
 
 
 \subsection{After a Protest}
 % XXX Write about mechanisms used after a protest
 % - PPES computation part
-% - Electronic voting
 % - EI + distance bounding + time-stamping
 
 We might want to verify the participation of a protest, not identifying 
@@ -165,6 +178,12 @@ With a time-stamping service we can make this a transitive relation, thus
 verifying the total number of participants of a real-world protest in 
 a physical location.
 
+\citet{LocationProofs} developed a decentralized location-proof system which 
+provides a proof of a participant being at the location.
+
+This system can be combined with the scheduling system for feedback into 
+a reputation system.
+
 
 \subsection{General Attacks against Activists}
 % XXX Rewrite about general attacks
@@ -187,11 +206,13 @@ yields easier guessing.
 The adversary can lock the activists out of their accounts, forcing them to 
 resolve to less secure means of communication.
 The \ac{DoS} applies to all scenarios: the before, during and after stages.
+\citet{DistributedPasswords} developed a mechanism which solves this problem.
+However, we need to look into the problem of \ac{DoS}.
 
 Targeted user search by means of user defined knowledge threshold.
 Protesters must be able to find each other in the networks, but we don't want 
 the oppressive regime to do the same.
-This probably require some adaption and extension of the user-search mechanism.
+The mechanism of \citet{UserSearch} solves this problem.
 
 
 \printbibliography{}
