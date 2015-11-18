@@ -1,10 +1,21 @@
 \documentclass[a4paper]{llncs}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[natbib,style=alphabetic]{biblatex}
-\addbibresource{surveillance.bib}
+\usepackage[defblank]{paralist}
+\usepackage{cleveref}
 
-\usepackage[std]{libbib}
+\usepackage[natbib,style=alphabetic]{biblatex}
+\addbibresource{crypto.bib}
+\addbibresource{otrmsg.bib}
+\addbibresource{ppes.bib}
+\addbibresource{ac.bib}
+\addbibresource{location.bib}
+\addbibresource{reputation.bib}
+\addbibresource{auth.bib}
+
+\usepackage[crypto,std]{libbib}
+
+\pagestyle{plain}
 
 \title{%
   Future Technologies for\\
@@ -45,18 +56,35 @@
 
 
 \section{Motivation}
-% XXX Write motivation
-% - How does this chapter engage with the main theme of the call
-% - Provide details of the theoretical framework of your work, methodology.
-% - Will analyze how new communication and information technologies impact 
-%   the way protests are carried out and controlled.
-% - Will pose questions towards the future of protests and digital landscapes.
-\dots
+\label{Motivation}
+
+The book aims to analyse the use of \acp{ICT} for protests from the Arab Spring 
+and onwards.
+Our current research aims at privacy-preserving protocols and mechanisms that 
+can be used before, during and after a protest.
+Our research is in the domain of computer science, but we believe that it would 
+be fruitful for the research communities interested in this area to have 
+a chapter giving an overview of the cutting-edge technical possibilities.
+We therefore propose to write such an overview, targeted at researchers without 
+a background in computer science, to be included as e.g.\ a last chapter in the 
+book.
+
+Some of the research is already done and the technical results are published in 
+peer-reviewed scientific venues.
+These results will naturally be included in the overview.
+Some research is ongoing, for these results we plan to publish the technical 
+results in the peer-reviewed venues that are usual for security and privacy.
+Then we will include a non-technical overview in the chapter of these as well.
+We will use the standard methodology of security research; namely to formalize 
+the desired properties, formulate a theorem that says they hold and finally 
+prove said theorem.
+However, these details will not be included in the chapter, we will simply 
+explain what these results mean to provide an outlook to the future 
+possibilities for protests in the information age.
 
 
 \section{Outline}
-% XXX The outline doesn't connect with the above.
-% XXX Is it necessary to have this much background?
+\label{Outline}
 
 Online technologies are used more and more by citizens all over the world.
 This is both good and bad.
@@ -66,153 +94,179 @@ them.
 The good thing is that there are technologies which remedy some of the problems 
 and that researchers are trying to remedy the rest of the problems.
 
-Most of these services are run in a centralized manner such that the provider 
-of the service acts as the communication channel between the users.
+Most of these services are run in a centralized manner, i.e.\ the provider of 
+the service acts as the communication channel between the users.
 Being such a hub allows the providers to oversee a large amount of information, 
-and in the case of \acp{OSN}, much of it of a personal and sensitive kind, 
-e.g.\ planning of events or geolocated pictures revealing physical positions.
-We have seen in the media of recent years how the security agencies also use 
-these technologies: they tap into the data streams and monitor 
-everybody~\cite{BoundlessInformant,XKeyscore} and even attack targets through 
-these technologies~\cite{Quantum}.
-Although not all nation-states' surveillance agencies have direct access to 
-these data, there are other ways for them to achieve this detailed 
-surveillance: e.g.\ the Great Firewall of China and similar systems set up by 
-governments.
-Some of the data is simply public and linkable to a physical person.
-The result is that activists can be tracked down and sentenced without trial 
-for posting critical comments about the ruling regime.
+and in the case of \acp{OSN}, much of it is of personal and sensitive kind ---  
+e.g.\ planning of events or geolocated pictures which reveal physical 
+positions.
+This also makes these providers the target of attackers who want to get that 
+data.
+We have seen in the media of recent years how the security agencies of many 
+countries target these services to gain information about their citizens.
 
-We can conclude from the above that we need stronger privacy properties for 
-online technologies to protect citizens voicing their opinions in surveillance 
-states.
-One interesting branch of research is decentralized \acp{PET} or other 
-privacy-preserving solutions where users can have full control over their data:
+We can conclude that we need stronger privacy properties for online 
+technologies to protect citizens in all countries.
+One interesting branch of research is decentralized \acp{PET}:
 \begin{itemize}
-  \item decentralized to reach provider independence and censorship resistance;
-  \item privacy-preserving to provide data protection by prevention, e.g.\ by 
-    cryptographic means.
+  \item decentralized or distributed solutions yield provider independence and 
+    censorship resistance;
+  \item privacy-preserving solutions provide data protection by prevention, 
+    e.g.\ by cryptographic means rather than that some entity must maintain 
+    a secure system.
 \end{itemize}
-Of these, we focus on privacy-preserving tools that can be used before, under 
-or after a protest:
+In this chapter we propose to focus on privacy-preserving tools that can be 
+used before, under or after a protest:
 \begin{itemize}
-  \item before, to organize a public protest, either online or in the real 
-    world;
-  \item during, for the organizers and participants to communicate, within 
-    the group or to the outside world;
-  \item after, possibly following up an event by verifying the participation 
-    and computing verifiable statistics, e.g.\ how many participants and in 
-    what area.
+  \item before, e.g.\ to organize a public protest, either online or in the 
+    real world;
+  \item during, e.g.\ for the organizers and participants to communicate, 
+    within the group or to the outside world;
+  \item after, e.g.\ possibly following up an event by verifying the 
+    participation and computing verifiable statistics, e.g.\ how many 
+    participants and in what area.
 \end{itemize}
 
 
 \subsection{Before a Protest}
-% XXX Write about mechanisms used before a protest
+\label{BeforeProtest}
 
-Events coordination mechanism without the need of \iac{TTP}.
-Scheduling events in a privacy-preserving manner without the need for 
-interaction.
-We need these to be able to organize a protest.
-We don't want to risk a oppressive regime killing the protest before it 
-happens.
-We also don't want the same regime to learn of who have committed to 
-participate or who organized the event.
+There are several issues related to protesting in the stage before.
+First comes the initial discussion between potential organizers, second comes 
+the problem of scheduling this with participants.
+For the initial discussion, the potential organizers don't want the regime's 
+intelligence services to identify them as such.
+One of the most popular secure-messaging protocols is \ac{OTR}, latelt 
+popularized in smartphones through Signal (formerly TextSecure).
+\citet{OTPKX} proposed a scheme with the same properties as \ac{OTR} but with 
+more deniability.
+Another problem in this stage is to find other's user profiles.
+\citet{ThresholdUserSearch} designed a scheme for targeted user search by means 
+of user defined knowledge threshold.
+Protesters must be able to find each other in the networks, but we don't want 
+the oppressive regime to do the same.
 
-An extension of the scheduling would be to find a joint location for the 
-protest too.
+For the scheduling of a protest, there are in turn several problems that must 
+be addressed.
+From the organizer Alice's perspective, she wants to protect herself from being 
+arrested for organizing a protest.
+So Alice needs to protect herself from the possible participants, as one of 
+them can be agent Eve of the intelligence services of the regime.
+From the participant Bob's perspective, he wants to protect himself from being 
+arrested for committing to participate in a protest.
+So Bob needs to protect himself from the organizer and the other participants, 
+as any of them can be Eve.
+
+When organizing a protest, what Alice and Bob want to agree on is a time, 
+a place and to ensure enough people will show up at that time and place.
+Alice and Bob also wants Eve to learn as little as possible of the plans so 
+that she cannot curtail the protest.
+
+\citet{EventsInvitations} presented a distributed protocol without the need of 
+\iac{TTP}.
+This protocols allows for different privacy settings:
+\begin{itemize}
+\item Alice discloses nothing to Bob, except the time and the place;
+\item Alice discloses everything --- who the invitees are, who of those have 
+  already committed etc.;
+\item and every combination of settings in between.
+\end{itemize}
+Further, if Alice doesn't keep her promises, Bob has a proof which he can 
+publish to everyone to show that Alice cheated.
+Likewise, if Bob commits to attending, Alice has proof that Bob has done so and 
+can show to everyone that Bob isn't present although he said he would.
+
+One topic that must be explored is to adapt this protocol to introduce 
+deniability.
+Another interesting feature to include would be the choice of location.
+With this, all participants can jointly agree on not only a time, but also 
+a location.
 This would help against the problem of announcing the location in advance.
-\citet{EventsInivations} developed a scheme with accountability to provide 
-these details once a participant committed.
-This scheme must be adapted to also provide deniability against the state 
-adversary.
-It would be advantageous also if this wasn't an interactive protocol.
-
-The privacy-preserving events scheduling aims at a non-interactive mechanism 
-for scheduling meetings.
-This would be beneficial since not everyone is online all the time.
-
 
 \subsection{During a Protest}
-% XXX Write about mechanisms used during a protest
-% - Access Control paper (ANOBE)
+\label{DuringProtest}
 
-Privacy-preserving access-control for distributed storage.
-This is interesting because we want to post photos and messages during the 
-protest, e.g.\ photos of police brutality etc.
-However, we don't want to be identifiable as a participating protester, as this 
-might yield repercussions.
-Thus we can to share the data anonymously, but we still want to verify 
-authenticity as it might otherwise be the regime spreading disinformation.
+During a protest, organizers and demonstrators might want to communicate, 
+either among themselves or to the outside world.
+There are a few problems with communication during a protest.
+If the participants use the phone network, which generally is in the hands of 
+the government, they can be tracked and bound to the location by their phone.
+If they communicate over the phone network they can still use the techniques 
+outlined in \cref{BeforeProtest}.
+If they don't want to be tracked, they must use another network infrastructure 
+that is not controlled by the government.
 
-This also benefits the activist bloggers or twitterers, as they also need this 
-type of privacy to not be persecuted.
-In another context this system can be used by whistle-blowers.
-This is desirable as the system would be independent from any authority, news 
-agencies included.
+The communication to the outside world can have at least two purposes.
+The first one is simply to try to get more people to come to the demonstration.
+The second is when a demonstrator wants to store something for posterity.
+This can be a photo capturing police brutality or a part of 
+a proof-of-demonstration (explained in \cref{AfterProtest}).
+\citet{DistStorAccessControl} presents work done in the area of 
+privacy-preserving access control in distributed storage systems.
+This is important since it outlines some possibilities and limits for such 
+systems.
+The problem in this scenario is that we don't want to be identifiable as 
+a demonstrator, as this might yield repercussions.
+Thus we can to share the data anonymously, no one can tell with whom we've 
+shared what or if they've read it.
+However, we still want to verify authenticity as it might otherwise be the 
+regime spreading disinformation.
 
+In this case it is also not straight forward to just apply the techniques in 
+\cite{OTPKX} to achieve deniability.
 
 \subsection{After a Protest}
-% XXX Write about mechanisms used after a protest
-% - PPES computation part
-% - EI + distance bounding + time-stamping
+\label{AfterProtest}
 
-We might want to verify the participation of a protest, not identifying 
-individuals who participated, but we want to compute the number of participants 
-to verify the scale of the protest.
-This can be useful for e.g.\ the UN to verify protests happening in a country, 
-then the UN can apply pressure.
-At the moment, countries can deny the protests ever happened or at least the 
-extent of the protest.
+There are at least two things that are interesting after a protest:
+\begin{inparaenum}[(a)]
+\item that a third-party can verify the authenticity of the participation of 
+  a protest;
+\item for the organizers to use the participation as feedback into a reputation 
+  system.
+\end{inparaenum}
+We want to verify the participation of a protest, but not identifying 
+individuals who participated.
+E.g.\ we want to compute the number of participants to verify the scale of the 
+protest.
+This can be useful for e.g.\ the UN to verify protests happening in a country; 
+the country cannot deny it and the UN can apply pressure if needed.
 
 Purely online protests are essentially petitions.
-This can be compared to electronic voting, to vote for or against something.
-For this we should be able to use anonymous credentials, blind signatures and 
-similar techniques, together with electronic voting protocols.
+This can be compared to electronic voting --- to vote for or against something.
+For this purpose we should be able to adapt existing electronic voting 
+protocols.
+In this case all participants and third-parties can verify the authenticity of 
+the result, but cannot verify the vote of an individual.
 
-For real-world protests we should be able to use anonymous credentials, blind 
-signatures and distance-bounding protocols with smartphones for the 
-participants to build a network of verified participants.
-Due to the distance-bounding protocol we can bind them all to having been at 
-the same place.
-With a time-stamping service we can make this a transitive relation, thus 
-verifying the total number of participants of a real-world protest in 
-a physical location.
+For real-world protests we need to bind participants to the same physical 
+location at a reasonably similar time (within the duration of the protest).
+\citet{PROPS} developed a decentralized location-proof system which provides 
+a participant with a proof of being at the location.
+However, we would like that any participant can prove the demonstration's 
+authenticity to a third-party, the scenario for this would be that only one 
+demonstrator survives and manages to flee the country.
 
-\citet{LocationProofs} developed a decentralized location-proof system which 
-provides a proof of a participant being at the location.
-
-This system can be combined with the scheduling system for feedback into 
-a reputation system.
-
+This location-proof system should be possible to combine with the scheduling 
+system in \cref{BeforeProtest} for feedback into a reputation system.
+One problem in these distributed systems is the possibility for the 
+intelligence services to create multiple identities and thus perform a Sybil 
+attack~\cite{SybilAttack} on the activists.
 
 \subsection{General Attacks against Activists}
-% XXX Rewrite about general attacks
-% - Are the general attacks relevant to mention?  Probably in a later stage as 
-%   some of these prevents the adversary from DoS during the protest.
+\label{GeneralAttacks}
 
-Usable password authentication in \ac{P2P} networks.
-Users need secure and usable authentication systems.
-Protesters are usually ordinary people, not all rebellious people are 
-cryptographers.
-
+In general, there are some more properties that are relevant for these systems.
 Some secure authentication schemes allows for \ac{DoS} attacks against the 
 proper account holder.
 Although it prevents the attacker from gaining access, it also prevents the 
-authentic user.
-E.g.\ what should happen if multiple users try to access an account at the same 
+authentic user:
+e.g.\ what should happen if multiple users try to access an account at the same 
 time?
-One code at a time yields denial of service, whereas one code per session 
-yields easier guessing.
-The adversary can lock the activists out of their accounts, forcing them to 
-resolve to less secure means of communication.
-The \ac{DoS} applies to all scenarios: the before, during and after stages.
-\citet{DistributedPasswords} developed a mechanism which solves this problem.
-However, we need to look into the problem of \ac{DoS}.
-
-Targeted user search by means of user defined knowledge threshold.
-Protesters must be able to find each other in the networks, but we don't want 
-the oppressive regime to do the same.
-The mechanism of \citet{UserSearch} solves this problem.
+If the intelligence services can lock the activists out of their accounts and 
+thus forcing them to resolve to less secure means of communication, then the 
+intelligence services have won.
+\citet{P2PPasswords} developed mechanisms towards solving this problem.
 
 
 \printbibliography{}
@@ -220,9 +274,22 @@ The mechanism of \citet{UserSearch} solves this problem.
 
 \appendix
 \section{Biography}
+\label{Biography}
 % XXX Write a <300 word biography
 
-\dots
+Daniel Bosk received a Master of Science in Computer Science from KTH Royal 
+Institute of Technology and a Master of Education in Mathematics and Computer 
+Science from Stockholm University in 2011.
+From 2011 he is a Lecturer in Computer Engineering at the Department of 
+Information and Communication Systems at Mid Sweden University and from 2014 he 
+is also a doctoral student at the School of Computer Science and Communication 
+at KTH Royal Institute of Technology under the supervision of Sonja Buchegger.
+His research focus is in security and privacy of decentralized online social 
+networks.
+
+Sonja Buchegger \dots
+From 2010 she is an Associate Professor in Computer Science at the School of 
+Computer Science and Communication at KTH Royal Institute of Technology.
 
 
 \end{document}
