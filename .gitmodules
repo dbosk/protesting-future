@@ -6,7 +6,3 @@
 	path = libbib
 	url = https://github.com/dbosk/libbib.git
 	branch = master
-[submodule "protest-auth"]
-	path = PPProtestAuth
-	url = git@github.com:dbosk/protest-auth.git
-	branch = master
