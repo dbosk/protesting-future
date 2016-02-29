@@ -1,0 +1,9 @@
+compile_pdf:
+    image: tianon/latex
+    before_script:
+        - git submodule update --init --recursive
+    script:
+        - make all
+    artifacts:
+        paths:
+            - protesting.pdf
