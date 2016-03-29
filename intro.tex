@@ -9,40 +9,69 @@ them.
 The good thing is that there are technologies which remedy some of the problems 
 and that researchers are trying to remedy the rest of the problems.
 
-We will focus on \acp{OSN} in this context.
+We will focus on the broad category of \acp{OSN} in this context.
 Most of these services are today run in a centralized manner, i.e.\ the 
 provider of the service acts as the communication channel between the users.
-Being such a hub allows the providers to oversee a large amount of information, 
-and in the case of \acp{OSN}, much of it is of personal and sensitive kind ---  
-e.g.\ planning of events or geolocated pictures which reveal physical 
-positions.
+Such a hub structure allows the providers to oversee a large amount of 
+information, and in the case of \acp{OSN}, much of it is of personal and 
+sensitive kind ---  e.g.\ planning of events or geolocated pictures which 
+reveal physical positions.
 This also makes these providers the target of attackers who want to get those 
-data.
-As we have seen in the media of recent years, the security agencies of many 
-countries also target these services to gain information about their citizens.
+data:
+as we have seen in the media of recent years, the security agencies of many 
+countries also target these services to gain information about their 
+citizens~\cite{Prism}.
 
-We can conclude that we need stronger privacy properties for online 
-technologies to protect citizens in all countries of the world.
-In this chapter we focus on privacy-preserving tools that exist in the research 
-literature of the security and privacy field but have not yet seen widespread 
-use in practice.
-We categorize them as useful before, under or after a protest:
-\begin{itemize}
-  \item before, e.g.\ to organize a public protest, either online or in the 
-    real world;
-  \item during, e.g.\ for the organizers and participants to communicate, 
-    within the group or to the outside world;
-  \item after, e.g.\ possibly following up an event by verifying the 
-    participation and computing verifiable statistics, e.g.\ how many 
-    participants and in what area.
-\end{itemize}
+We can conclude that we need strong privacy properties for online technologies 
+to protect citizens in all countries of the world.
+One interesting branch of research is decentralized \acp{PET}.
+Decentralized solutions yield provider independence and censorship resistance.
+Privacy-preserving solutions provide data protection by prevention, e.g.\ by 
+cryptographic means rather than that some organization must maintain a secure 
+system.
 
-One interesting branch of research is decentralized \acp{PET}:
-\begin{itemize}
-  \item decentralized or distributed solutions yield provider independence and 
-    censorship resistance;
-  \item privacy-preserving solutions provide data protection by prevention, 
-    e.g.\ by cryptographic means rather than that some entity must maintain 
-    a secure system.
-\end{itemize}
+This chapter focuses on technical tools that can be useful for protesting.
+We focus on privacy-preserving tools that exist in the research literature of 
+the security and privacy field but have not yet seen widespread use in practice 
+and some future research directions.
+Protesting can be done physically, as we have known protests traditionally, 
+they can also be done purely online in the form of \enquote{petitions}.
+The latter is essentially the problem of electronic voting, we can transform 
+the petition into a vote.
+This would not be straight-forward and would include interesting research 
+problems to be solved, however, we will focus this chapter on physical 
+protests.
+
+We categorize the topics we will cover as useful before, under or after 
+a protest.
+We will also treat the topics in that order, starting with tools useful before 
+a protest and ending with tools useful after.
+Some tools are of course useful both before and during a protest, we will point 
+out how, but only cover the topic once.
+Other tools that are useful afterwards requires us to perform some action 
+during the protest, we will cover such a topic as a unit and simply point out 
+what must be performed during and what must be done after the protest.
+We will now give a short summarizing overview of the topics we will cover and 
+which category they belong to.
+Then, throughout the chapter, we will treat each topic in more details.
+
+\subsection{Before a Protest}
+
+E.g.\ to organize a public protest, we must be able to solve several problems.
+
+\subsection{During a Protest}
+
+During, e.g.\ for the organizers and participants to communicate, within the 
+group or to the outside world;
+
+\subsection{After a Protest}
+
+After, e.g.\ possibly following up an event by verifying the participation and 
+computing verifiable statistics, e.g.\ how many participants and in what area.
+
+We have to deal with the problem of \emph{one} person being counted twice by 
+signing the petition using \emph{two identities}.
+This is generally known as the problem of Sybil attacks, and it has been proven 
+impossible to solve without \emph{logically} central control of the creation of 
+identities~\cite{SybilAttack}.
 
