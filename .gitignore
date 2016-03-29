@@ -142,6 +142,7 @@ libbib.sty
 
 # libbib: bib-files
 ac.bib
+auth.bib
 anon.bib
 be.bib
 crypto.bib
@@ -154,6 +155,8 @@ ppes.bib
 privacy.bib
 rfc.bib
 surveillance.bib
+location.bib
+reputation.bib
 
 # libbib: lncs
 aliascnt.sty
