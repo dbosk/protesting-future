@@ -1,10 +1,12 @@
 .PHONY: all
 all: protesting.pdf
 
-FILES=		protesting.tex
-FILES+= 	intro.tex before.tex during.tex after.tex
+SRC+=	protesting.tex abstract.tex
+SRC+= 	intro.tex before.tex during.tex after.tex
+SRC+=	UserSearch.tex
+SRC+=	EventInvitations.tex
 
-protesting.pdf: ${FILES}
+protesting.pdf: ${SRC}
 protesting.pdf: llncs libbib.sty
 protesting.pdf: crypto.bib otrmsg.bib
 protesting.pdf: ppes.bib
@@ -13,8 +15,9 @@ protesting.pdf: location.bib
 protesting.pdf: reputation.bib
 protesting.pdf: auth.bib
 protesting.pdf: osn.bib
+protesting.pdf: privacy.bib
 
-wc: ${FILES}
+wc: ${SRC}
 
 INCLUDE_MAKEFILES=makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk

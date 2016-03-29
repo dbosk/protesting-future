@@ -1,10 +1,25 @@
-\documentclass[a4paper]{llncs}
+\documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[british]{babel}
 \usepackage[defblank]{paralist}
 \usepackage{cleveref}
+\usepackage{csquotes}
 
-\usepackage[natbib,style=alphabetic]{biblatex}
+\usepackage{authblk}
+\usepackage{xparse}
+\DeclareDocumentCommand{\keywords}{m}{%
+  \textbf{Keywords:} #1%
+}
+\DeclareDocumentCommand{\email}{m}{%
+  \texttt{#1}%
+}
+
+% Taylor & Francis
+%\usepackage{parskip}
+%\usepackage{times}
+
+\usepackage[natbib,style=authoryear,maxbibnames=99]{biblatex}
 \addbibresource{crypto.bib}
 \addbibresource{otrmsg.bib}
 \addbibresource{ppes.bib}
@@ -13,53 +28,37 @@
 \addbibresource{reputation.bib}
 \addbibresource{auth.bib}
 \addbibresource{osn.bib}
+\addbibresource{privacy.bib}
 
 \usepackage[crypto,std]{libbib}
-
-\pagestyle{plain}
 
 \title{%
   Future Technologies for\\
   Protests in the Information Age
 }
-\author{%
-  Daniel Bosk
-  \and
-  Sonja Buchegger
-}
-\institute{%
+\author{Daniel Bosk}
+\author{Guillermo Rodr\'{\i}guez-Cano}
+\author{Benjamin Greschbach}
+\author{Sonja Buchegger}
+\affil{%
   School of Computer Science and Communication,\\
   KTH Royal Institute of Technology,
   Stockholm\\
-  \email{\{dbosk,buc\}@kth.se}
+  \email{\{dbosk,gurc,bgre,buc\}@kth.se}
 }
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-  We give an overview of the possible future technologies that can be used for 
-  protests.
-  We focus on privacy-preserving tools that can be used before, under and after 
-  a protest:
-  \begin{itemize}
-    \item before, to organize a public protest, either online or in the real 
-      world;
-    \item during, for the organizers and participants to communicate, within 
-      the group or to the outside world;
-    \item after, possibly following up an event by verifying the participation 
-      and computing verifiable statistics, e.g.\ how many participants and in 
-      what area.
-  \end{itemize}
-
-  \keywords{%
-    protesting;
-    overview;
-    privacy primitives;
-    \acl{OSN}
-  }
+  \input{abstract.tex}
 \end{abstract}
 
+\clearpage
+\tableofcontents
+\clearpage
+
+% Maximum 7000 words
 
 \input{intro}
 \input{before}
@@ -109,6 +108,8 @@ Valladolid, Spain.
 His research interests lie in the area of privacy and security in social 
 systems and modelling, data mining, and information propagation in social 
 networks.
+
+Benjamin Greschbach \dots
 
 Sonja Buchegger is an associate professor of Computer Science at KTH Royal 
 Institute of Technology.

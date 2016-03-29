@@ -1,0 +1,40 @@
+There are some tasks to accomplish prior to the protest itself that the organizers 
+of the gathering need to arrange, for example, decide who are the most suitable 
+candidates to attend the event, how to let them know about the protest and what 
+preliminary information they should get or, later on, learn about the attendance of 
+the invited ones in a privacy-preserving fashion.
+
+However, realizing this standard feature of OSNs in a decentralized manner is not trivial 
+because there is not a trusted third party to which both organizers and, invited and 
+attending protesters can rely on. Because they all depend on themselves, an 
+implementation of this feature must provide security properties that guarantee fairness 
+to all parties involved, e.g.\  a protester can verify that the invitation she received 
+was actually sent by the organizers. Moreover, the implementation should also provide 
+with privacy settings to protect personal information such as the identities of 
+the participants, for example, the organizers can restrict to only the invited participants 
+to learn how many others have been invited, and only after a protester has agreed 
+and committed formally to attend the event, she can learn the identities of other 
+invited protesters.
+
+The challenge of implementing this feature without a trusted third party becomes 
+greater when the organizers want to allow different types of information about the 
+event to be shared with different groups of protesters in a secure way because any 
+participant should be able to verify the results to detect any possible cheating. 
+For example, a neutral trusted broker, such as the organizers, could keep certain 
+information secret, such as the identities of the invited protesters, and only disclose 
+it to those ones who commit to attend the protest. 
+
+In our scheme, we describe and formalize a set of security and privacy properties 
+to configure who can learn the identities of the invited or attending participants, 
+or a more restrictive version in the count of invitees or attendees, and an attendee-only 
+property that guarantees exclusive access to some information, for example, the 
+location of the protest. By means of a set of privacy enhancing tools, such as storage 
+location indirection, to control not only who can read some the contents of some 
+encrypted information but also who can access the ciphertext; or the controlled 
+ciphertext inference, to allow for controlled information leaks such as learning 
+the number of invited participants but not their identities; and a commit-disclose 
+protocol, to make some secret available for only those participants who committed 
+to attend the protest while detecting at the same time any misbehaving party; we 
+propose a trusted-third party free architecture, together with standard cryptographic 
+primitives in our decentralized scenario.
+
