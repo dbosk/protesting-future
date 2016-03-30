@@ -1,7 +1,22 @@
 \section{Before a Protest}
 \label{BeforeProtest}
 
-There are several issues related to protesting in the stage before.
+We are interested in solving several problems before a protest.
+Essentially, the goal in this stage is to organize a protest, once we have 
+solved this problem we can move on to having a protest.
+Organizing a protest introduces several problems that must be solved.
+Assume that Alice wants to organize a protest, then she must solve at least the 
+following problems:
+\begin{enumerate}
+  \item Alice must find other interested people, i.e.\ potential fellow 
+    organizers.
+  \item The organizers must be able to communicate securely with each other.
+  \item Alice must \enquote{spread the word} to other interested people, i.e.\ 
+    potential participants.
+  \item Finally, Alice and everyone interested must agree on a time and a place
+    to have the protest.
+\end{enumerate}
+
 First comes the initial discussion between potential organizers, second comes 
 the problem of scheduling this with participants.
 For the initial discussion, the potential organizers don't want the regime's 
@@ -16,25 +31,18 @@ of user defined knowledge threshold.
 Protesters must be able to find each other in the networks, but we don't want 
 the oppressive regime to do the same.
 
-%% User Search contribution :: START
+\subsection{Searching for Your Friends}
+\label{UserSearch}
+
 \input{UserSearch.tex}
-%% User Search contribution :: END
 
-\subsection{Having a Decentralized Account}
+\subsection{Gossiping about Common Interests}
+\label{Gossple}
 
-In general, there are some more properties that are relevant for these systems.
-Some secure authentication schemes allows for \ac{DoS} attacks against the 
-proper account holder.
-Although it prevents the attacker from gaining access, it also prevents the 
-authentic user:
-e.g.\ what should happen if multiple users try to access an account at the same 
-time?
-If the intelligence services can lock the activists out of their accounts and 
-thus forcing them to resolve to less secure means of communication, then the 
-intelligence services have won.
-\citet{P2PPasswords} developed mechanisms towards solving this problem.
+\input{Gossple.tex}
 
 \subsection{Scheduling a Protest}
+\label{Scheduling}
 
 For the scheduling of a protest, there are in turn several problems that must 
 be addressed.
@@ -73,7 +81,8 @@ With this, all participants can jointly agree on not only a time, but also
 a location.
 This would help against the problem of announcing the location in advance.
 
-%% EI contribution :: START
+% Event Invitations
 \input{EventInvitations.tex}
-%% EI contribution :: END
 
+% Passwords in P2P
+\input{passwd.tex}
