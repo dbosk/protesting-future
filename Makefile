@@ -3,11 +3,17 @@ all: protesting.pdf
 
 SRC+=	protesting.tex abstract.tex
 SRC+= 	intro.tex
+# before
 SRC+=	before.tex
 SRC+=	UserSearch.tex Gossple.tex
+SRC+=	OTPKX.tex
+SRC+=	DecentAC.tex
 SRC+=	EventInvitations.tex
 SRC+=	passwd.tex
-SRC+=	during.tex after.tex
+# during
+SRC+=	during.tex
+# after
+SRC+=	after.tex
 
 protesting.pdf: ${SRC}
 protesting.pdf: llncs libbib.sty
