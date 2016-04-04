@@ -1,32 +1,40 @@
 \section{During a Protest}
 \label{DuringProtest}
 
+There are a few aspects that we must cover which relate to this part of our 
+treatment.
 During a protest, organizers and demonstrators might want to communicate, 
 either among themselves or to the outside world.
-There are a few problems with communication during a protest.
-If the participants use the phone network, which generally is controlled by the 
-government, they can be tracked and bound to the location by their phone.
-If they communicate over the phone network they can still use the techniques 
-outlined in \cref{BeforeProtest}.
-If they don't want to be tracked, they must use another network infrastructure 
-that is not controlled by the government.
-
 The communication to the outside world can have at least two purposes.
 The first one is simply to try to get more people to come to the demonstration.
 The second is when a demonstrator wants to store something for posterity.
 This can be a photo capturing police brutality or a part of 
 a proof-of-demonstration (explained in \cref{AfterProtest}).
-\citet{PPACforPubFS} presents work done in the area of privacy-preserving 
-access control in distributed storage systems.
-This is important since it outlines some possibilities and limits for such 
-systems.
-The problem in this scenario is that we don't want to be identifiable as 
-a demonstrator, as this might yield repercussions.
-Thus we can to share the data anonymously, no one can tell with whom we've 
-shared what or if they've read it.
-However, we still want to verify authenticity as it might otherwise be the 
-regime spreading disinformation.
 
-In this case it is also not straight forward to just apply the techniques in 
-\cite{OTPKX} to achieve deniability.
+There are a few problems with communication during a protest.
+If the participants use the phone network, which generally is controlled by the 
+government, they can be tracked and bound to the location by their phone.
+If they communicate over the phone network they can still use the techniques 
+outlined in \cref{BeforeProtest}.
+However, if they don't want to be tracked, there are two options:
+\begin{enumerate}
+  \item they must use another network infrastructure that is not controlled by 
+    the government,
+  \item the mechanisms in \cref{BeforeProtest,AfterProtest} must allow 
+    executions without access to a global communications infrastructure during 
+    the demonstration.
+\end{enumerate}
+
+There are solutions to the first problem: wireless ad-hoc networks.
+The area of ad-hoc networks is far too wide for us to convey more than the 
+general idea of the field in this chapter.
+\input{AdhocNetworks.tex}
+
+For the second problem listed above, we can achieve local communication, e.g.\ 
+pair-wise communication through bluetooth or \ac{NFC}.
+So we can assume that this possibility exists.
+However, communicating certain data to the outside world will still be the 
+ultimate goal, but we will use the local communication possibilities to ensure 
+the authenticity of the data after the demonstration is over.
+We will discuss this further in \cref{AfterProtest}.
 
