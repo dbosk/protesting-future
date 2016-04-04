@@ -17,27 +17,49 @@ following problems:
     to have the protest.
 \end{enumerate}
 
-First comes the initial discussion between potential organizers, second comes 
-the problem of scheduling this with participants.
-For the initial discussion, the potential organizers don't want the regime's 
-intelligence services to identify them as such.
-One of the most popular secure-messaging protocols is \ac{OTR}, lately 
-popularized in smartphones through Signal (formerly TextSecure).
-\citet{OTPKX} proposed a scheme with the same properties as \ac{OTR} but with 
-more deniability.
-Another problem in this stage is to find other's user profiles.
-\citet{ThresholdUserSearch} designed a scheme for targeted user search by means 
-of user defined knowledge threshold.
-Protesters must be able to find each other in the networks, but we don't want 
-the oppressive regime to do the same.
+Finding other people who have similar interests can be difficult in general.
+It is even more difficult if the interests are not socially accepted, e.g.\ 
+being HBTQ or wanting change in a totalitarian regime.
+These interests can be punished by death in several countries.
+Thus Alice is very reluctant to reveal her interests in organizing a protest 
+against the regime, the consequences of talking to the wrong person can be 
+severe.
+There are technical solutions which can make this easier, we will discuss these 
+in \cref{UserSearch}.
+
+Once Alice has found some people who has expressed interest she can proceed to 
+the next problem.
+We say \enquote{expressed interest} since there is no way for Alice to ensure 
+this, a person can always lie about their interests to Alice.
+This brings us to Alice's privacy expectations for communication.
+The organizers do not want the regime's intelligence services to identify them 
+as such.
+We will discuss two-party conversations in \cref{Communicating}.
+However, sometimes we desire a discussion between more than two participants at 
+a time.
+We will focus on this in \cref{Discussions}.
+
+Eventually it is time for the protest.
+None of the organizers and none of the participants want to show up for 
+a demonstration alone or with just a few others.
+This would make them an easy prey for the regime.
+We will discuss the different aspects of scheduling the event in 
+\cref{Scheduling}, i.e.\ choosing a time and a place, committing to participate 
+etc.
+
+Finally, many of these techniques requires the user to authenticate in some 
+way.
+This means that a user must keep their credentials.
+This can be done by storing keys in a device, such as a smartphone.
+However, a device can be lost and, as was lately shown~\cite{AppleVsFBI}, can 
+easily attract attacks.
+We will discuss the aspects of how to protect \enquote{accounts} and data in 
+the decentralized setting in \cref{passwd}.
 
 \subsection{Searching for Your Friends}
 \label{UserSearch}
 
 \input{UserSearch.tex}
-
-\subsection{Gossiping about Common Interests}
-\label{Gossple}
 
 \input{Gossple.tex}
 
@@ -48,6 +70,8 @@ the oppressive regime to do the same.
 
 \subsection{Holding Discussions}
 \label{Discussions}
+
+\citet{multiotr2009} \dots
 
 \input{DecentAC.tex}
 
