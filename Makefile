@@ -12,6 +12,7 @@ SRC+=	EventInvitations.tex
 SRC+=	passwd.tex
 # during
 SRC+=	during.tex
+SRC+=	AdhocNetworks.tex
 # after
 SRC+=	after.tex
 
