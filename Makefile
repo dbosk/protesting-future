@@ -17,7 +17,7 @@ SRC+=	AdhocNetworks.tex
 SRC+=	after.tex
 
 protesting.pdf: ${SRC}
-protesting.pdf: llncs libbib.sty
+protesting.pdf: libbib.sty
 protesting.pdf: crypto.bib otrmsg.bib
 protesting.pdf: ppes.bib
 protesting.pdf: ac.bib
