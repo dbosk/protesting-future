@@ -1,8 +1,12 @@
 .PHONY: all
 all: protesting.pdf
 
-SRC+=	protesting.tex abstract.tex
+SRC+=	protesting.tex
+SRC+=	abstract.tex
+# intro
 SRC+= 	intro.tex
+SRC+=	DoubleAgentProblem.tex
+SRC+=	sybil.tex
 # before
 SRC+=	before.tex
 SRC+=	UserSearch.tex Gossple.tex

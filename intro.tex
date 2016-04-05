@@ -35,43 +35,48 @@ We focus on privacy-preserving tools that exist in the research literature of
 the security and privacy field but have not yet seen widespread use in practice 
 and some future research directions.
 Protesting can be done physically, as we have known protests traditionally, 
-they can also be done purely online in the form of \enquote{petitions}.
-The latter is essentially the problem of electronic voting, we can transform 
+they can also be done purely online in the form of \enquote{petitions} or, more 
+generally, by expressing support for an expressed opinion.
+The petitions can be seen as the problem of electronic voting, we can transform 
 the petition into a vote.
 This would not be straight-forward and would include interesting research 
-problems to be solved, however, we will focus this chapter on physical 
+problems to be solved, however, we will not discuss this in the chapter.
+The more general case of expressing support for an expressed opinion is 
+something that can be done using social media, which is more related to the 
+\ac{OSN} mechanisms that we will discuss.
+We will focus on the latter, and especially its use related to physical 
 protests.
 
 We categorize the topics we will cover as useful before, under or after 
 a protest.
-We will also treat the topics in that order, starting with tools useful before 
-a protest and ending with tools useful after.
-Some tools are of course useful both before and during a protest, we will point 
-out how, but only cover the topic once.
-Other tools that are useful afterwards requires us to perform some action 
-during the protest, we will cover such a topic as a unit and simply point out 
-what must be performed during and what must be done after the protest.
-We will now give a short summarizing overview of the topics we will cover and 
-which category they belong to.
-Then, throughout the chapter, we will treat each topic in more details.
+The before stage treats problems related to how to organize a public protest, 
+this is discussed in \cref{BeforeProtest}.
+The problems in the during the protest, e.g.\ how the organizers and 
+participants can communicate securely within the group or to the outside world, 
+is treated in \cref{DuringProtest}.
+Finally, in the after stage we are interested in achieving different 
+authenticity and verifiability properties, e.g.\ possibly following up an event 
+by verifying the participation and computing verifiable statistics, such as how 
+many participants and in what area.
+This is treated in \cref{AfterProtest}.
+Some tools are of course useful in more than one stage, so the categorization 
+is not strict in that sense.
+Furthermore, some tools that are useful afterwards requires us to perform some 
+action during the protest, we will cover such a topic as a unit and simply 
+point out what must be performed during and what must be done after the 
+protest.
 
-\subsection{Before a Protest}
+Before we begin our treatment of what was just outlined, there are two 
+fundamental problems that we must discuss.
+These are the problem of double agents and the problem of Sybil attacks.
 
-E.g.\ to organize a public protest, we must be able to solve several problems.
+\subsection{The Double Agent Problem}
+\label{DoubleAgentProblem}
 
-\subsection{During a Protest}
+\input{DoubleAgentProblem.tex}
 
-During, e.g.\ for the organizers and participants to communicate, within the 
-group or to the outside world;
+\subsection{The Sybil Attack}
+\label{SybilAttacks}
 
-\subsection{After a Protest}
-
-After, e.g.\ possibly following up an event by verifying the participation and 
-computing verifiable statistics, e.g.\ how many participants and in what area.
-
-We have to deal with the problem of \emph{one} person being counted twice by 
-signing the petition using \emph{two identities}.
-This is generally known as the problem of Sybil attacks, and it has been proven 
-impossible to solve without \emph{logically} central control of the creation of 
-identities~\cite{SybilAttack}.
+\input{sybil.tex}
 
