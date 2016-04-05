@@ -1,9 +1,7 @@
-before_script:
-    - git submodule update --init --recursive
-
 compile_pdf:
-    image: tianon/latex
+    image: wileeam/latex
     script:
+        - git submodule update --init --recursive
         - make all
     artifacts:
         paths:
