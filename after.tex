@@ -1,52 +1,34 @@
 \section{After a Protest}
 \label{AfterProtest}
 
-There are at least two things that are interesting after a protest:
-\begin{inparaenum}[(a)]
-\item that a third-party can verify the authenticity of the participation of 
-  a protest;
-\item for the organizers to use the participation as feedback into a reputation 
-  system.
-\end{inparaenum}
-We want to verify the participation of a protest, but not identifying 
-individuals who participated.
-E.g.\ we want to compute the number of participants to verify the scale of the 
-protest.
-This can be useful for e.g.\ the UN to verify protests happening in a country; 
-the country cannot deny it and the UN can apply pressure if needed.
+As we pointed out earlier, the main goal of the stage after a protest is to 
+provide verifiable data.
+For instance, how can we ensure that photos from a demonstration are authentic?
+We can probably recognize the place the photo is portraying, however, the time 
+data of the file can be manipulated.
+Similarly, how can we determine the number of participants of a demonstration?
+We might be able to estimate the number given photos of the demonstration, but 
+this might not give an accurate number, especially since the authenticity of 
+the photos can be questioned.
+We will discuss two problems in this section:
+\begin{enumerate}
+  \item ensuring data authenticity related to a demonstration, e.g.\ so that 
+    the data can be correctly tied to the demonstration;
+  %\item the possibilities for the organizers to verify the participation and 
+  %use it as feedback into a reputation system;
+  \item third-party verification of the authenticity of the participation of 
+    a protest, e.g.\ compute the number of participants.
+\end{enumerate}
 
-Purely online protests are essentially petitions.
-This can be compared to electronic voting --- to vote for or against something.
-For this purpose we should be able to adapt existing electronic voting 
-protocols.
-In this case all participants and third-parties can verify the authenticity of 
-the result, but cannot verify the vote of an individual.
+The first problem will be discussed in \cref{DataAuthenticicty} and the second 
+in \cref{ParticipationAuthenticity}.
 
-For real-world protests we need to bind participants to the same physical 
-location at a reasonably similar time (within the duration of the protest).
-\citet{PROPS} developed a decentralized location-proof system which provides 
-a participant with a proof of being at the location.
-However, we would like that any participant can prove the demonstration's 
-authenticity to a third-party, the scenario for this would be that only one 
-demonstrator survives and manages to flee the country.
+\subsection{Ensuring Data Authenticity}
+\label{DataAuthenticicty}
 
-This location-proof system should be possible to combine with the scheduling 
-system in \cref{BeforeProtest} for feedback into a reputation system.
-One problem in these distributed systems is the possibility for the 
-intelligence services to create multiple identities and thus perform a Sybil 
-attack~\cite{SybilAttack} on the activists.
+\input{DataAuthenticity.tex}
 
-\citet{PPACforPubFS} presents work done in the area of privacy-preserving 
-access control in distributed storage systems.
-This is important since it outlines some possibilities and limits for such 
-systems.
-The problem in this scenario is that we don't want to be identifiable as 
-a demonstrator, as this might yield repercussions.
-Thus we can to share the data anonymously, no one can tell with whom we've 
-shared what or if they've read it.
-However, we still want to verify authenticity as it might otherwise be the 
-regime spreading disinformation.
+\subsection{Third-Party Verification of Protest Participation}
+\label{ParticipationAuthenticity}
 
-In this case it is also not straight forward to just apply the techniques in 
-\cite{OTPKX} to achieve deniability.
-
+\input{ProtestAuth.tex}

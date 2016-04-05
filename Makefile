@@ -15,6 +15,8 @@ SRC+=	during.tex
 SRC+=	AdhocNetworks.tex
 # after
 SRC+=	after.tex
+SRC+=	DataAuthenticity.tex
+SRC+=	ProtestAuth.tex
 
 protesting.pdf: ${SRC}
 protesting.pdf: libbib.sty
