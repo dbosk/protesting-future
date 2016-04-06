@@ -1,11 +1,24 @@
-Due to decentralization we must also handle the problem of \emph{one} person 
-having \emph{multiple identities}.
-This is a problem present in reputation systems and is generally known as the 
-problem of Sybil attacks.
-In many of the topcis we will treat throughout the chapter, this problem must 
-be solved.
-So we will first give an overview of the results relating to this problem.
+The lack of a trusted third-party when taking away the central provider in a decentralized 
+network is susceptible to \emph{Sybil} attacks. 
+In such situation, a rather small number of people in the network control a big 
+set of the identities compromising a large portion of the network in order to gain 
+a disproportionate amount of influence~\cite{SybilAttack}.
 
-It has been proven impossible to solve without \emph{logically} central control 
-of the creation of identities~\cite{SybilAttack}.
+The problem of \emph{Sybil} attacks can not be trivially solved by having the people 
+who are already in the network to vouch for other identities, in a network of trust 
+manner. The attack itself aims at compromising a considerable portion of the identities 
+in the space reducing the vouching chain.
+
+Although the \emph{Sybil} attack problem remains unsolved to date without a central trusted 
+broker that acts as an identification authority establishing a one-to-one correspondence 
+between an identity and a user, there are methods and techniques in the literature 
+to mitigate its effect. 
+
+% TODO Reprhase and complete the following
+%In a large-scale scenario, like a decentralized network, is nearly impossible to 
+%establish distinct identities without a central authority vouching for these identities.
+%Entities can validate in two ways:
+%Direct identity validation
+%Indirect identity validation
+
 \dots
