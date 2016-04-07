@@ -1,88 +1,98 @@
 \section{Introduction}
 \label{Introduction}
+%Online technologies have become an essential part of millions of people all over the world. 
+The rapid development of technology in the last decades of the 20\textsuperscript{th} 
+century and its increasing prevalence in everyday life has helped society reach 
+the 21\textsuperscript{st} century with a high standard of living, for example, 
+real-time secure communication was a science-fiction notion a century ago while 
+its a popular means for communication for people and businesses. However, the success 
+of such development has come with some trade offs, for example, in data collection.
+Better storage technologies has allowed for longer data retention policies for both 
+private and public entities not only to provide new services but also to endanger 
+the privacy of citizens, and sometimes the safety, usually in oppressive regimes.
 
-Online technologies have become an essential part of the lives of millions of people 
-all over the world. The increasing prevalence of technology has helped society reach 
-the 21\textsuperscript{st} century with a high standard of living, for example, real-time 
-secure communication was a science-fiction notion a century ago. However, the success 
-of such development has come with some trade offs, for example in data collection, 
-used by private and public entities not only to provide new services but also to 
-endanger the privacy of citizens, and sometimes the safety, usually in oppressive 
-regimes.
+Among these technological advances, \acp{OSN} stand out as a popular computer-mediated 
+tool allowing people and other entities to interact by sharing and exchanging information 
+of any kind. Computation power and network communication are combined to make social 
+interactions between people possible at any time and in any place lessening political, 
+economical and geographical boundaries.
 
-Among the technologies developed to date, \acp{OSN} are a popular application in 
-the last couple of decades. Computation power and network communication are combined 
-to make social interactions between people possible at any time and in any place 
-lessening political, economical and geographical boundaries.
+Many \acp{OSN} are run in a centralized manner --- the provider of the service acts 
+as a communication channel between the users of the \ac{OSN}. Such structure allows 
+providers to oversee a large portion of the data, if not all, exchanged between 
+the users. Bearing in mind that in the case of \acp{OSN}, much of it is of personal 
+and sensitive kind, for example, posting a picture in the network may reveal the 
+physical geolocation as this information can be embedded in the meta-data of the 
+image.
 
-Many of the services 
-offering a \ac{OSN} are run in a centralized manner --- the providers of the service 
-act as a communication channel between the users of the service. Such structure 
-allows the providers to oversee a large, if not all, portion of the data exchanged 
-between the users. In the case of \acp{OSN}, much of it is of personal and sensititive 
-kind, for example, posting a picture in the network may reveal the physical geolocation 
-as it can be embedded in the meta-data of the image.
-
-Moreover, the large collection of data in these networks makes them an ideal target 
+Moreover, the massive collection of data in these networks makes them an ideal target 
 for attackers such as competitors or even governmental agencies. For example, in 
 the recent years, intelligence and security agencies of some countries have targeted 
 these services to gain personal information about their citizens, enemies and even 
 allies~\cite{Prism}.
 
-We can conclude that we need strong privacy properties for online technologies 
-to protect citizens in all countries of the world.
-One interesting branch of research is decentralized \acp{PET}.
-Decentralized solutions yield provider independence and censorship resistance.
-Privacy-preserving solutions provide data protection by prevention, e.g.\ by 
-cryptographic means rather than that some organization must maintain a secure 
-system.
+While we acknowledge the benefits of such technological advances like \acp{OSN}, 
+we also point out the costs to personal privacy suggesting the need to develop privacy-enhancing 
+technologies that can co-exist with all other technologies. For example, decentralized 
+solutions try to achieve provider independence and, in some cases, they also offer 
+censorship resistance. Privacy-preserving solutions provide data protection by prevention, 
+for example,by means of cryptographic techniques an organization could enforce certain 
+policies instead of relying on the security of the system and its maintenance.
 
-This chapter focuses on technical tools that can be useful for protesting.
-We focus on privacy-preserving tools that exist in the research literature of 
-the security and privacy field but have not yet seen widespread use in practice 
-and some future research directions.
-Protesting can be done physically, as we have known protests traditionally, 
-they can also be done purely online in the form of \enquote{petitions} or, more 
-generally, by expressing support for an expressed opinion.
-The petitions can be seen as the problem of electronic voting, we can transform 
-the petition into a vote.
-This would not be straight-forward and would include interesting research 
-problems to be solved, however, we will not discuss this in the chapter.
-The more general case of expressing support for an expressed opinion is 
-something that can be done using social media, which is more related to the 
-\ac{OSN} mechanisms that we will discuss.
-We will focus on the latter, and especially its use related to physical 
-protests.
+Despite the conventional and long-established form of protesting physically, online 
+technologies have also opened the possibility to alternative ways, such as virtual 
+\enquote{petitions}, or in general, expressing support for an opinion in the form 
+of an encouraging comment or simply admiration. 
 
-We categorize the topics we will cover as useful before, under or after 
-a protest.
-The before stage treats problems related to how to organize a public protest, 
-this is discussed in \cref{BeforeProtest}.
-The problems in the during the protest, e.g.\ how the organizers and 
-participants can communicate securely within the group or to the outside world, 
-is treated in \cref{DuringProtest}.
-Finally, in the after stage we are interested in achieving different 
-authenticity and verifiability properties, e.g.\ possibly following up an event 
-by verifying the participation and computing verifiable statistics, such as how 
-many participants and in what area.
-This is treated in \cref{AfterProtest}.
-Some tools are of course useful in more than one stage, so the categorization 
-is not strict in that sense.
-Furthermore, some tools that are useful afterwards requires us to perform some 
-action during the protest, we will cover such a topic as a unit and simply 
-point out what must be performed during and what must be done after the 
-protest.
+The more general case of expressing support for an opinion can be done in a hybrid 
+manner using both physical contact and social media, such as \acp{OSN}. Petitions 
+can be considered a particular case of electronic voting, a field of its own that 
+is out of the scope of this chapter. 
 
+In this chapter we focus on describing some privacy-enhancing tools in the context 
+of \acp{OSN} that we believe can be useful in a protest and have not yet seen a 
+widespread use in practice. Although a protest itself relies mainly in the traditional 
+physical act of gathering, we believe that it would benefit from some of the developments 
+originated in the fields of information security and privacy.
+
+We categorize the topics of this chapter in a time-event manner in respect of the 
+stages of a protest, namely: before, during and after.
+\begin{itemize}
+    \item[Before] Organization is the foremost task prior to the protest itself. 
+    For example, decisions on the aim of the protest or the target audience that 
+    is expected to participate in the protest.\\
+    We take some of these issues in our scenario of \acp{OSN} in \cref{BeforeProtest}.
+    \item[During] Communication during the protest is probably another essential 
+    need for both the participants and the organizers of the protest. For example, 
+    the organizers may need to get in touch with the press over the phone during 
+    the protest.\\
+    We discuss how these communications can be better protected in \cref{DuringProtest}.
+    \item[After] Following up a protest is a relevant task for the organizers, not 
+    only to assess their success but also to correct the flaws for the next time. 
+    For example, the organizers may want to obtain reliable statistics on the number 
+    of attendees per area.\\
+    We discuss different authenticity and verifiability properties of use for this 
+    stage in \cref{AfterProtest}.
+\end{itemize}
+
+Note that some of the tools and techniques we describe may be useful in more than 
+one stage. Furthermore, there are some prerequisites for some of the tools that 
+require either the protesters to perform some action in a stage prior to the one 
+where the tool is actually used, for example, an invited participant must confirm 
+the attendance before receiving details about the location of the protest.
+
+\subsection{TODO: Give me a nice title}
+% TODO Frame the following two problems. How do they fit (and help) in our scenario?
 Before we begin our treatment of what was just outlined, there are two 
 fundamental problems that we must discuss.
 These are the problem of double agents and the problem of Sybil attacks.
 
-\subsection{The Double Agent Problem}
+\subsubsection{The Double Agent Problem}
 \label{DoubleAgentProblem}
 
 \input{DoubleAgentProblem.tex}
 
-\subsection{The Sybil Attack}
+\subsubsection{The Sybil Attack}
 \label{SybilAttacks}
 
 \input{sybil.tex}
