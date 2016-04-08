@@ -1,44 +1,55 @@
 \section{Before a Protest}
 \label{BeforeProtest}
-Organizing a protest in a privacy-preserving manner comes at a cost. For example, 
-assume that Alice wants to organize a protest, at least, she must solve the following 
-issues,
-\begin{itemize}
-    \item \textbf{Participation}\\
-    Alice must find interested people such as potential fellow organizers.
-    
-    \item \textbf{Communication}\\
-    Alice and the other organizers should be able to communicate with each other.
-    
-    \item \textbf{Promotion}\\
-    Alice and the organizers should spread the word about the protest to other people, 
-    most likely to potential participants.
-    
-    \item \textbf{Agreement}\\
-    Alice and the organizers, and every participant interested should agree on a 
-    time and a place to have the protest.
-\end{itemize}
+Organizing a protest in a privacy-preserving manner does not come for free. There 
+are many trade-offs to consider in our decentralized scenario for Alice, who wants 
+to organize a protest, but also for the potential co-organizers and participants.
 
-While finding people with similar interests can be a difficult task in general, 
-doing so when the interests are not socially accepted can even be much more difficult 
-if not impossible. For example, diversity of sexuality and gender identity are denied 
-and even severely punished in some totalitarian regimes, making Alice very reluctant 
-to reveal such condition when trying to organize a protest against the regime. The 
-plausible severe consequences for Alice to find a co-organizer, Bob, who deliberately 
-supports and reports to the government of the regime such circumstance may enforce 
-Alice to censor herself. In \cref{UserSearch} we discuss a technical solution that 
-can make the task of find co-organizers in a privacy-preserving manner for all parties.
+\paragraph{Participation}
+Assuming that Alice will want to protest in a collective manner (not alone), she 
+will have to find interested people whom she can co-organize the event with. Later 
+on, to participate in the protest itself.
 
-However, there is no technology or solution to ensure that Bob is not lying to Alice 
-about his interests, hence, we will use the term \enquote{expressed interest} when 
-referring to the common interest between Alice and Bob revealed by the latter to 
-the former. 
+% TODO 'socially' is not the right word I think (gurc)
+Although finding people with similar interests can be a difficult task in general, 
+doing so when the interests are not socially or legally accepted can be much more 
+difficult if not impossible. For example, diversity of sexuality and gender identity 
+are denied and even severely punished in some totalitarian regimes, making Alice 
+very reluctant to reveal such condition when trying to organize a protest against 
+the regime. The plausible severe consequences for Alice to find a co-organizer, 
+Bob, who deliberately supports and reports to the government of the regime such 
+circumstance may oblige Alice to censor herself. 
 
-Moreover, Alice will want to communicate with Bob by means of a secure channel because 
-she does not want any third party, for example, the governmental intelligence agency, 
-to eavesdrop on the conversation. Such two-parties secure communications we discuss 
-in \cref{Communicating}, while in the case of more than two participants we describe 
-in \cref{Discussions}.
+In \cref{UserSearch} we discuss a technical solution that can make the task of finding
+co-organizers and potentially interested participants in a privacy-preserving manner 
+for all parties. However, there is no technology nor solution to ensure that Bob 
+is not lying to Alice about his interests. Therefore, we will use the term \enquote{expressed 
+interest} when referring to the common interest between Alice and Bob revealed by 
+the latter to the former. 
+
+\paragraph{Communication}
+Alice and the other co-organizers will have to communicate with each other. Moreover, 
+Alice and the co- organizers will want to spread the word about the protest to other 
+potential participants.
+
+A trivial solution to the communication problem is the traditional face to face 
+meeting. Though one of the main trade-offs is the need for synchronisation between 
+the invited attendants should be able to meet at the same time in the same place. 
+If the synchronicity requirement is not that strict, then a way to communicate the 
+outcome of the meeting to those who did not attend is necessary (and vice versa).
+
+The physical communication can be supplemented using some sort of channel that provides 
+both off-line and real time communication capabilities, and guarantees the identity 
+of each party using the channel.
+
+Thus we assume that Alice will also want to communicate with Bob by means of a secure 
+channel to avoid any non-verified third party, for example, the governmental intelligence 
+agency, to eavesdrop on her conversations. Such two-parties secure communications 
+we discuss in \cref{Communicating}, while in the case of more than two participants 
+we describe in \cref{Discussions}.
+
+\paragraph{Agreement}
+Alice and the organizers, and every participant interested should agree on a 
+time and a place to have the protest.
 
 Eventually it is time for the protest.
 None of the organizers and none of the participants want to show up for 
@@ -48,6 +59,7 @@ We will discuss the different aspects of scheduling the event in
 \cref{Scheduling}, i.e.\ choosing a time and a place, committing to participate 
 etc.
 
+\paragraph{Authentication}
 Finally, many of these techniques requires the user to authenticate in some 
 way.
 This means that a user must keep their credentials.
