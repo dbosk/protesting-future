@@ -1,4 +1,76 @@
-\citet{otr2004} \dots
+We will now focus on the communication.
+Specifically we will focus on communication between pairs of people, e.g.\ 
+Alice talking to Bob.
+\citeauthor{otr2004} designed a secure protocol for two people communication, 
+the \ac{OTR} protocol.
+They desired an electronic equivalent of face-to-face conversations, i.e.\ that 
+they leave no proofs of any kind behind:
+if Alice and Bob has had a conversation, Bob cannot go to Eve afterwards and 
+prove anything about what Alice has said --- the same as in a face-to-face 
+conversation.
+This property is not true for email or when a centralized communications 
+service is used.
+
+The standard email system does not provide any security.
+A suitable analogy would be that each message is a postcard, i.e.\ it has no 
+envelope, so the content and address are visible on it.
+This means that the postman can read the cards' contents, their recipients' and
+senders' addresses.
+(Yes, unlike real postcards these also include the sender's address.)
+Furthermore, most postmen use transparent sacks to carry the postcards, so 
+everyone along the way can also read the sender's and recipient's address and 
+the contents.
+However, some postmen have started using non-transparent sacks, i.e.\ encrypted 
+connections between the servers, so those postcards can only be read by the 
+staff in the post-office.
+Thus the email system provides no confidentiality: each email server can read 
+the messages, each network operator along the transport route can also read 
+(and make a copy of) each email.
+However, it is actually worse than that, because the email system provides no 
+integrity either.
+This mean that the postman, or anyone along the way, can do arbitrary 
+modifications to the messages without anyone noticing the difference.
+We can safely say that we cannot rely on the email system for neither security 
+nor privacy when planning a protest.
+
+When using a centralized communications service, such as Facebook, the level of
+security and privacy we can achieve is that the postman carries non-transparent
+sacks.
+The business model of most such services is to read peoples postcards to better
+profile their interests and thus deliver better suiting advertising.
+This hides from third parties who is communicating with whom, but this 
+information is available internally to the service.
+This means that there are ways of learning this, through PRISM~\cite{Prism} for 
+example.
+
+Secure email works by employing cryptography: we encrypt the contents of the 
+postcard, providing confidentiality, and then add a digital signature to 
+prevent modifications.
+Thus the recipient is the only one who can read the message and the recipient 
+can also verify that the message has not been modified along the way.
+To make key management easy, most schemes use public-key cryptography.
+This means that we have two keys, one which is public and another which is kept
+private.
+For encryption, the public key can transform a message to a ciphertext, i.e.\ 
+a random-looking text string.
+The private key can be used to transform the ciphertext back to the message.
+Given only the public key, it is \enquote{impossible} to find the private key.
+For signatures, we can use the private key to compute a signature of a message 
+and then send the message and its signature.
+The recipient can then use the public key to verify the signature of the 
+message.
+This signature depends on the entire message, so it is impossible to move 
+a signature to another message --- as is possible with signatures on paper.
+And since it is impossible to find the private key given only the public key, 
+no one can create fake signatures.
+
+The problem with the approach to secure email is that the digital signatures 
+used provides a property called non-repudiation.
+Say that Alice securely sent an email to Bob, if Eve would compromise Bob's 
+private key, as many government agencies can, then she would learn that Alice 
+--- and no one else --- has sent that message to Bob.
+Bob might even give the message and his key to Eve voluntarily or under threat.
+This is exactly the property that \citeauthor{otr2004} wanted to remove with 
+\ac{OTR}.
 
 \citet{OTPKX} \dots
-
