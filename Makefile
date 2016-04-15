@@ -10,7 +10,9 @@ SRC+=	sybil.tex
 # before
 SRC+=	before.tex
 SRC+=	UserSearch.tex Gossple.tex
+SRC+=	PairwiseComm.tex
 SRC+=	OTPKX.tex
+SRC+=	discussions.tex
 SRC+=	DecentAC.tex
 SRC+=	EventInvitations.tex
 SRC+=	passwd.tex
