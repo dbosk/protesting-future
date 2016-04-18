@@ -87,18 +87,26 @@ In addition, Alice and Bob do not use the same \ac{MAC} key throughout their
 conversation, then continuously exchange new keys, one for each message.
 However, in this situation, Eve still has two candidates as the author of the 
 message: Alice and Bob, since they both have access to the shared keys.
-To remediate this problem Alice and Bob publishes the \ac{MAC} keys after use, 
+To remedy this problem Alice and Bob publishes the \ac{MAC} keys after use, 
 i.e.\ when they no longer need them.
 This gives everyone the possibility of generating messages that verifies under 
-Alice and Bob's key, so Eve now has a larger set of candidates for the 
-authorship of a message.
+Alice and Bob's key, so now Alice and Bob can argue that someone (Eve included) 
+could have modified the ciphertext.
 
 The \ac{OTR} protocol became widely spread after the 2013 revelations about the
 mass surveillance of the \ac{NSA} and \ac{GCHQ}, many derivatives of the 
-protocol emerged.
+protocol emerged in smartphone apps.
 Among the most wide-spread derivatives of \ac{OTR} is Signal (formerly 
 TextSecure)~\cite{SignalApp}.
+The Signal protocol has, unlike many other of the derivatives, been formally 
+analysed and proven that it indeed provides its claimed security 
+properties~\cite{TextSecureAnalysis}.
+One improvement over \ac{OTR} is the deniability.
+In Signal the authentication is set up in such a way that any person knowing 
+the public key of Alice and Bob can generate a fake transcript of 
+a conversation.
+This results in Eve having many more candidates for authoring a conversation.
 
-\subsubsection{Better Deniability}
+\subsubsection{When the Adversary Controls the Network}
 
 \input{OTPKX.tex}
