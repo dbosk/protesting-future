@@ -1,1 +1,38 @@
-\citet{OTPKX} \dots
+\citet{OTPKX} argue that if the adversary controls the entire network, then the
+approach to deniability taken by \ac{OTR} and Signal does not suffice.
+The problem is that the adversary can record a transcript of all communications
+that have taken place.
+We know that the \ac{NSA} did exactly that~\cite{XKeyscore}, and specifically 
+saved all ciphertexts for later when the decryption key might be 
+available~\cite{NSAsavesCiphertexts}.
+In this setting it does not matter if anyone can generate a false transcript of
+a conversation between Alice and Bob, the regime knows exactly what Alice has 
+sent and Bob received and vice versa.
+There are more than one way to approach this problem.
+
+The first approach would be to use an anonymizing service, such as 
+Tor~\cite{Tor}.
+However, for all low-latency solutions, when the entry point and exit from the 
+anonymizing network are both controlled by the adversary, then the adversary 
+can perform a correlation attack and essentially render the anonymization 
+service useless~\cite{AnonymousCommunicationSystems}.
+This is in fact the case if the regime controls the nation-wide network while 
+critics of the regime, all located in the country, want to communicate in 
+real-time.
+To make this attack more difficult for the regime's surveillance agency we must 
+introduce random delays in our communication.
+
+The second approach would be to ensure deniability even against this strong 
+adversary.
+This would not hide who communicates with whom, as in our first approach, but 
+it provides deniability for the conversations.
+The scheme suggested by \citet{OTPKX} makes use of one practical instance of 
+deniable encryption~\cite{DeniableEncryption}.
+They construct a scheme where Alice and Bob can create \enquote{false 
+witnesses} for their conversation.
+Basically Alice can create a decryption key such that when used to decrypt the 
+ciphertext recorded on the network it will decrypt to a plaintext of Alice's 
+choice.
+This way she can \enquote{prove} her innocense.
+However, the question whether anyone would accept such a \enquote{proof}, 
+knowing it can equally well be false, remains open.
