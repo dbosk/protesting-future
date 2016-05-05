@@ -37,6 +37,7 @@ protesting.pdf: privacy.bib
 protesting.pdf: surveillance.bib
 protesting.pdf: depend.bib
 protesting.pdf: anon.bib
+protesting.pdf: be.bib
 
 wc: ${SRC}
 

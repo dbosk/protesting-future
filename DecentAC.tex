@@ -1,19 +1,65 @@
 \citet{PPACforPubFS} analysed two dichotomous models of communication.
-The first was the pull model, where a sender writes the message to a previously 
-determined place.
-When the recipients later check for new messages they go to the place and look 
-for new messages.
-A suitable analogy would be that of magazines published by sales in kiosks: 
-people go to the kiosk to get the latest publications.
+The first was the pull model, where the recipients fetch (i.e.\ pull) new 
+messages from the sender.
+A suitable analogy would be that of magazines published through sales in 
+kiosks: people go to the kiosk to get the latest publications.
 The second model was the push model, here a sender sends the message directly 
 to the recipients.
 Thus it is more like magazine subscriptions: the next issue arrives in the 
 mailbox shortly after publication.
 This is the model of the communication described in \cref{GroupProperties}.
 \citeauthor{PPACforPubFS} found that achieving privacy in the pull model is 
-easier than in the push model.
+technically easier than in the push model.
 In fact, achieving privacy in the push model is very difficult.
 
+\paragraph{Pull Model}
 We can start by looking at the pull model for communication.
+Alice wants to distribute a message to the participants in a discussion.
+In the pull model the participants actively ask Alice or a mediary for new 
+messages at regular intervals.
+To form a protocol around this model, Alice and the participants can agree on 
+a location for the messages.
+When Alice wants to send a new message, she writes it to this particular 
+location.
+When the other participants want to, they can read from the location to see if 
+there are any new messages.
 
+We can assume that the network that Alice uses is controlled by the regime's 
+agents.
+We can also assume that the storage where the messages are stored is publicly 
+readable, because it is probable that the regime's agents can compromise it.
+Thus Alice does not want to be associated with the message, not authorship nor 
+posting it.
+
+The first thing we can say about this is that Alice would like to have 
+confidentiality for the message contents, so the regime's agents cannot read 
+it.
+She would also like to have integrity for the message, so that the recipients 
+can be sure that the regime's agents have not modified it.
+Many systems provide these two properties, e.g.\ \ac{PGP} which is used for 
+email.
+However, Alice also wants to hide the sender and recipients, a property which 
+\ac{PGP} and others do not provide.
+There is a class of encryption schemes called \ac{ANOBE} schemes.
+This type of scheme provides confidentiality while hiding the sender and the 
+intended recipients.
+If Alice can write the message anonymously to the storage and the message is 
+encrypted using \iac{ANOBE} scheme, then it will be difficult to determine the 
+sender.
+Furthermore, if the recipients fetch the messages anonymously too, then the 
+recipients are also hidden.
+Now the problem of integrity remains.
+If Alice and the other participants agree on a commonly shared \ac{MA} key, 
+then they can use \acp{MAC} to ensure integrity.
+The reason \acp{MAC} are more desirable than digital signatures in this 
+situations is that anyone who can verify the authenticity of \iac{MAC} can also 
+create one.
+With digital signatures on the other hand, if Alice signs a message it is clear 
+that Alice is the only one who could have signed it.
+With \acp{MAC}, any of the other participants could also be the author of the 
+message.
+This means that for a discussion, any of the participants would be equally 
+likely to be the author of a given message.
+
+\paragraph{Push Model}
 Now to the push model, \dots
