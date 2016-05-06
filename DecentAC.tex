@@ -12,7 +12,7 @@ This is the model of the communication described in \cref{GroupProperties}.
 technically easier than in the push model.
 In fact, achieving privacy in the push model is very difficult.
 
-\paragraph{Pull Model}
+\paragraph{The Pull Model}
 We can start by looking at the pull model for communication.
 Alice wants to distribute a message to the participants in a discussion.
 In the pull model the participants actively ask Alice or a mediary for new 
@@ -60,6 +60,35 @@ With \acp{MAC}, any of the other participants could also be the author of the
 message.
 This means that for a discussion, any of the participants would be equally 
 likely to be the author of a given message.
+However, this relies on the anonymity of the actors.
 
-\paragraph{Push Model}
-Now to the push model, \dots
+\paragraph{The Push Model}
+In the push model Alice will send the message to all recipients directly.
+The problems with the push model is that it reveals more meta-information.
+Say that all participants have an inbox, similarly as in the email system.
+
+Assume that the regime's agents monitor the network on a national level.
+In this situation they can see one message originating from Alice, going to 
+a server beyond the agency's reach, and soon \(n\) equally-sized messages 
+return from the server near-simultaneously addressed to \(n\) people.
+This is what is called a time-correlation attack.
+The agency can then relate Alice with the people she is talking to.
+
+Now let us remove some information to make this more difficult for the agency.
+Say that the sender and recipients are anonymous, so the agency can only track 
+which messages ends up in which inboxes and when.
+Despite the anonymity they can still do a time-correlation attack on the 
+incoming messages.
+This means that they learn which messages are related and in turn which inboxes 
+are related and how.
+This means that the agency have the structure, they only need to fill in the 
+identities.
+If one of the participants makes a mistake, then the regime's agents will have 
+a starting point to target.
+For example if this participant uses the same inbox for communication with all 
+his friends, and not only the participants in the plot against the regime, then 
+one of his other contacts might not be as concerned with staying anonymous.
+The consequence is that the regime can see the identity of someone sending 
+messages to an inbox of their interest.
+Then they can target this person and learn which friend owns that inbox.
+Then they can proceed to targeting one of the protest organizers.
