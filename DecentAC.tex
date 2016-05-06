@@ -73,6 +73,10 @@ a server beyond the agency's reach, and soon \(n\) equally-sized messages
 return from the server near-simultaneously addressed to \(n\) people.
 This is what is called a time-correlation attack.
 The agency can then relate Alice with the people she is talking to.
+This is the situation when using text-messaging apps such as Signal, because 
+there all messages go through a central server.
+This also has the side-effect that the operator of the central server can 
+perform the same attack.
 
 Now let us remove some information to make this more difficult for the agency.
 Say that the sender and recipients are anonymous, so the agency can only track 
@@ -92,3 +96,5 @@ The consequence is that the regime can see the identity of someone sending
 messages to an inbox of their interest.
 Then they can target this person and learn which friend owns that inbox.
 Then they can proceed to targeting one of the protest organizers.
+This type of attack will not work when the communication is according to the 
+pull model, since there the agency must attack each anonymous connection.
