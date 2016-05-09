@@ -2,12 +2,19 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[british]{babel}
-\usepackage[defblank]{paralist}
+%\usepackage[defblank]{paralist}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
-\usepackage[capitalize]{cleveref}
-\usepackage{csquotes}
 
+\usepackage[inline]{enumitem}
+\newlist{properties}{enumerate}{5}
+\setlist[properties]{label*=\arabic*.,ref=\arabic*}
+
+\usepackage[capitalize]{cleveref}
+\crefname{propertiesi}{property}{properties}
+\Crefname{propertiesi}{Property}{Properties}
+
+\usepackage{csquotes}
 \usepackage{authblk}
 \usepackage{xparse}
 \DeclareDocumentCommand{\keywords}{m}{%
@@ -43,7 +50,7 @@
 \theoremstyle{definition}
 \newtheorem{example}{Example}
 
-\usepackage[crypto,std,surveillance]{libbib}
+\usepackage[crypto,std,organizations,location]{libbib}
 
 \title{%
   Future Technologies for\\

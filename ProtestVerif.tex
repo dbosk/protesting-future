@@ -1,0 +1,59 @@
+One problem in physical protesting that has not yet been solved satisfactorily 
+is the verification of the participation in a protest.
+After many protests the counts of demonstrators of police and the organizers 
+differ, in some instances the difference can be up to hundreds of 
+thousands~\cite{ExampleProtestCount}.
+
+Many of the current methods to count the participants are based on computer 
+vision, i.e.\ object recognition through image analysis.
+A demonstration is very similar to voting, both are many individuals expressing 
+their opinion.
+Hence it is desirable to have similar properties for verifying the 
+participation in a protest.
+Instead of votes we could have participation proofs and the following 
+properties:
+\begin{properties}
+  \item\label{VerifEligibility} Everyone can verify that every participation 
+    proof is correct.
+  \item\label{VerifIndividual} Every participant can verify that its 
+    participation proof is included in the count.
+  \item\label{VerifUniversal} Everyone can verify that the count is according 
+    to the participation proofs.
+\end{properties}
+This is difficult to accomplish with computer vision methods.
+The properties outlined above are indeed desirable, e.g.\ then the \ac{UN} can 
+verify protests happening in a country and the country cannot deny it, thus the 
+\ac{UN} can apply pressure if needed.
+
+Additionally, in voting, the cast votes are not linkable to the identity of the 
+casters.
+Thus it is not a problem to reveal the identites of those who participated in 
+the vote, since they could have voted for any alternative.
+We would also like to have the corresponding property in verifying the 
+protest.
+The very nature of a protest is different though, we do not have any choice: if 
+we participate we support the cause of the protest.
+Consequently we want to verify the participation of a protest without 
+identifying individuals who participated.
+Otherwise the regime's agents can identity all the participants and simply 
+\enquote{make them disappear}.
+
+For real-world protests we need to bind participants to the same physical 
+location at a reasonably similar time, i.e.\ within the area and duration of 
+the protest.
+\citet{PROPS} developed a decentralized \ac{LPS} which provides a participant 
+with a verifiable proof of having been at a location at a certain time, 
+something we call \iac{LP}.
+It is decentralized because there is no central authority that verifies the 
+location, instead peers act as witnesses.
+Then a third-party can verify the authenticity of the \ac{LP}, by verifying the 
+witnesses signatures, and can thus be sure that the person has indeed been in 
+the location.
+
+Bosk, Gambs and Buchegger are currently exploring (work in progress) the 
+possibility of turning such \iac{LPS} into a system for verifying the 
+participation in protests.
+The idea is that each participant generates \iac{LP} during the protest, where 
+(some of) the other protesters act as witnesses, then the \acp{LP} can be used 
+to compute the participation count.
+
