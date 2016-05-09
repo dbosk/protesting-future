@@ -46,6 +46,12 @@
 \let\noparencite\cite%
 \let\cite\parencite%
 
+\usepackage{acro}
+\acsetup{%
+  group-citation = true,
+  group-cite-cmd = {\noparencite},
+}
+
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{example}{Example}
