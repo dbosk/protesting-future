@@ -1,12 +1,11 @@
 \section{Introduction}
 \label{Introduction}
-%Online technologies have become an essential part of millions of people all over the world. 
 The rapid development of technology in the latter half of the
-20\textsuperscript{th} century and its increasing prevalence in
+20th century and its increasing prevalence in
 everyday life has helped large parts of the world to reach the
-21\textsuperscript{st} century with a means of having real-time secure
+21st century with a means of having real-time secure
 communications.  However, the success of such development has come
-with some trade offs, for example, in data collection. Better storage
+with some trade-offs, for example in data collection. Better storage
 technologies have allowed for longer data retention policies for both
 the private and public sectors, not only providing new and better
 services and combat crime, but also compromising the privacy of
@@ -30,8 +29,9 @@ that in the case of \acp{OSN}, much of it is of personal and sensitive
 kind, for example, posting a picture in the network may reveal the
 physical geolocation as this information can be embedded in the
 meta-data of the image. This has proved to be problematic for
-political activisim in several ways. A centralized ownership and
+political activism in several ways. A centralized ownership and
 control make it easier to shut down (cf.\ the banning of Twitter in
+% XXX Add reference to some news article about this
 Turkey for several days). Governments can subpoena 
 information from the service provider.  Moreover, the massive
 collection of data in these networks makes them an ideal target for
@@ -40,13 +40,13 @@ example, in the recent years, intelligence and security agencies of
 some countries have targeted these services to gain personal
 information about their citizens, enemies and even
 allies~\cite{Prism}. Since a centralized system can log not just data
-the users upload but also meta-information about their behavior, such
+the users upload but also meta-information about their behaviour, such
 as online times, whom they communicate with, their location and social
 ties, there is a wealth of information to connect a person to a cause.
 
 While we acknowledge the benefits of such technological advances like
 \acp{OSN}, we also point out the costs to personal privacy and
-advocate for the need to develop privacy-enhancing technologies that
+advocate for the need to develop \acp{PET} that
 can co-exist with these technologies. For example, decentralized
 solutions try to achieve provider independence and, in some cases,
 they also offer censorship resistance. Privacy-preserving solutions
@@ -61,11 +61,6 @@ have also opened the possibility to alternative ways, such as virtual
 \enquote{petitions}, or in general, expressing support for an opinion
 in the form of an encouraging comment or simply affirmation.
 
-% The more general case of expressing support for an opinion can be done in a hybrid 
-% manner using both physical contact and social media, such as \acp{OSN}. Petitions 
-% can be considered a particular case of electronic voting, a field of its own that 
-% is out of the scope of this chapter. 
-
 In this chapter we focus on describing some privacy-enhancing tools in
 the context of \acp{OSN} that we believe can be useful in a protest
 and that have not yet seen a widespread use in practice. Although a
@@ -74,47 +69,71 @@ gathering, we believe that it would benefit from some of the
 developments originated in the fields of information security and
 privacy.
 
-We categorize the topics of this chapter in a time-event manner with respect to the 
-stages of a protest, namely: before, during and after.
+\subsection{The Protesting Problem}
+
+The topic of protesting is rather wide.
+As suggested above, it could take the form of showing support for a statement 
+in \iac{OSN}.
+It could also take the form of people joining together in the streets for 
+a demonstration.
+For this chapter we will consider the following scenario:
+Alice lives in a country under the rule of an authoritarian regime.
+Alice wants to organize the opposition and lead a public protest to show that 
+the people want a democratically reformed government.
+As expected the authoritarian regime wants to prevent this from happening.
+The regime's goal is to oppress the opposition so that they cannot ever reach 
+a big-enough protest to show the majority's dissatisfaction with the regime.
+They will try to stop Alice as early as possible, before her ideas spread 
+throughout the population.
+
+Although our scenario is set in an authoritarian regime, the tools and 
+techniques described below are also useful in democracies --- because public 
+protest and demonstrations are of importance also in democracies, to keep them 
+democracies and not just to form them.
+
+There are some limitations to what the technical solutions can achieve.
+In particular we face two problems.
+The first one, the double agent problem, is due to humans ability to deceive 
+each other, and consequently cannot easily be solved by technology.
+The second one, the Sybil attack, is due to the unlimited ability of creating 
+arbitrary identities in online systems such as social networks.
+
+\label{DoubleAgentProblem}
+The double agent problem is the problem of one of the regime's agents 
+infiltrating the opposition by acting as if part of the opposition.
+We cannot solve this problem, however, we might be able to reduce the damage.
+One design principle for privacy is data minimization, this strategy will help 
+Alice reduce the information that the double agent (and anyone else) can learn.
+
+\label{SybilAttacks}
+\input{sybil.tex}
+
+\subsection{Outline}
+\label{Outline}
+
+In this chapter we will describe some privacy-enhancing tools that we have 
+developed and that we believe are useful in the context of protesting.
+We will describe them in relation to how they can be used, more specifically we 
+categorize them as useful before, during or after a protest:
 \begin{description}
   \item[Before]
     Organization, for example, decisions on the aim of the protest or the 
     target audience that is expected to participate in the protest.
-    We address some of these issues in our scenario of \acp{OSN} in \cref{BeforeProtest}.
+    We address some of these issues in our scenario of \acp{OSN} in 
+    \cref{BeforeProtest}.
 
   \item[During]
     Communication during the protest, for example, the organizers may need to 
     get in touch with the press over the phone during the protest.
-    We discuss how these communications can be better protected in \cref{DuringProtest}.
+    We discuss how these communications can be better protected in 
+    \cref{DuringProtest}.
 
   \item[After]
     Following up a protest by the organizers, not only to assess their success 
     but also to correct the flaws for the next time.  For example, the 
     organizers may want to obtain reliable statistics on the number of 
     attendees per area.
-    We discuss different authenticity and verifiability properties of use for this 
-    stage in \cref{AfterProtest}.
+    We discuss different authenticity and verifiability properties of use for 
+    this stage in \cref{AfterProtest}.
 \end{description}
-
-Note that some of the tools and techniques we describe may be useful in more than 
-one stage. Furthermore, there are some prerequisites for some of the tools that 
-require either the protesters to perform some action in a stage prior to the one 
-where the tool is actually used, for example, if an invited participant must confirm 
-the attendance before receiving details about the location of the protest.
-
-\subsection{TODO: Give me a nice title}
-% TODO Frame the following two problems. How do they fit (and help) in our scenario?
-Before we begin our treatment of what was just outlined, there are two 
-fundamental problems that we must discuss.
-These are the problem of double agents and the problem of Sybil attacks.
-
-\subsubsection{The Double Agent Problem}
-\label{DoubleAgentProblem}
-
-\input{DoubleAgentProblem.tex}
-
-\subsubsection{The Sybil Attack}
-\label{SybilAttacks}
-
-\input{sybil.tex}
 

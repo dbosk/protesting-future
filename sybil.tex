@@ -1,18 +1,38 @@
-The lack of a trusted third-party when taking away the central provider in a decentralized 
-network is susceptible to \emph{Sybil} attacks. 
-In such situation, a rather small number of people in the network control a big 
-set of the identities compromising a large portion of the network in order to gain 
-a disproportionate amount of influence~\cite{SybilAttack}.
+The Sybil attack is somewhat related to the double agent problem, but is only 
+a problem in electronic systems.
+The problem occurs when there is nothing that limits the creation of new 
+identities, thus the adversary can create multiple unlinkable identities.
+Usually the attack is aimed at reputation systems, where the adversary can use 
+its many identities to vouch for each other to falsely gain in reputation.
+In general, the problem can be summarized as that a rather small number of 
+people in the network control a large part of the identities in the network in 
+order to gain a disproportionate amount of influence~\cite{SybilAttack}.
 
-The problem of \emph{Sybil} attacks can not be trivially solved by having the people 
-who are already in the network to vouch for other identities, in a network of trust 
-manner. The attack itself aims at compromising a considerable portion of the identities 
-in the space reducing the vouching chain.
+\Citet{SybilAttack} proved that this problem cannot be solved without 
+a \emph{logically} central control of the the creation of identities.
+This means that we can not handle identity creation by letting the people who 
+are already in the network vouch for other identities, i.e.\ to build a network 
+of trust.
+The Sybil attack itself aims at compromising a considerable portion of the 
+identities, and thus, the more identities the attacker gains, the more new 
+identities it can create and vouch for.
+To prevent this kind of behaviour we rather need something like the national 
+identification systems present in most countries, where the state has ensured 
+a one-to-one correspondence between identities and physical persons.
+Fortunately, there are techniques that can mitigate the effects of the Sybil 
+attack without forcing us to use such a centralized identity system.
+We will return to these where relevant in the text.
 
-Although the \emph{Sybil} attack problem remains unsolved to date without a central trusted 
-broker that acts as an identification authority establishing a one-to-one correspondence 
-between an identity and a user, there are methods and techniques in the literature 
-to mitigate its effect. 
+%This is, however, less desirable in the scenario we consider here.
+%Fortunately, if we use techniques like \ac{MPC}, then we can overcome the 
+%limitation of having a central authority.
+%With \ac{MPC} we can construct a logical trusted third-party by having the 
+%participants run a certain protocol, i.e.\ all participants constitute the.
+
+%The Sybil attack problem remains unsolved without a central trusted broker that 
+%acts as an identification authority, but there are methods and techniques in 
+%the literature to mitigate its effect.
+%We will return to these where it is relevant in the rest of the text.
 
 % TODO Reprhase and complete the following
 %In a large-scale scenario, like a decentralized network, is nearly impossible to 
@@ -21,4 +41,4 @@ to mitigate its effect.
 %Direct identity validation
 %Indirect identity validation
 
-\dots
+%\dots
