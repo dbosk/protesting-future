@@ -1,85 +1,101 @@
 \section{Before a Protest}
 \label{BeforeProtest}
-Organizing a protest in a privacy-preserving manner does not come for free. There 
-are many trade-offs to consider in our decentralized scenario for Alice, who wants 
-to organize a protest, but also for the potential co-organizers and participants.
+
+Organizing a protest in a privacy-preserving manner does not come for free.  
+There are many trade-offs to consider, both for Alice the organizer and the 
+potential co-organizers and participants.
 
 \paragraph{Participation}
-Assuming that Alice will want to protest in a collective manner (not alone), she 
-will have to find interested people whom she can co-organize the event with. Later 
-on, to participate in the protest itself.
 
-% TODO 'socially' is not the right word I think (gurc)
-Although finding people with similar interests can be a difficult task in general, 
-doing so when the interests are not socially or legally accepted can be much more 
-difficult if not impossible. For example, diversity of sexuality and gender identity 
-are denied and even severely punished in some totalitarian regimes, making Alice 
-very reluctant to reveal such condition when trying to organize a protest against 
-the regime. The plausible severe consequences for Alice to find a co-organizer, 
-Bob, who deliberately supports and reports to the government of the regime such 
+We assume that Alice wants to protest in a collective manner (not alone).
+She will have to find interested people with whom she can co-organize the event
+and, later on, also to participate in the protest itself.
+
+Finding people with similar interests can be a difficult task in general, doing 
+so when the interests are stigmatized or not legally accepted can be much more 
+difficult --- if not impossible.
+For example, diversity of sexuality and gender identity are denied and even 
+severely punished in some totalitarian regimes.
+If Alice wants to arrange a protest for those rights, she might be very 
+reluctant to reveal such ideas.
+The plausible severe consequences for Alice to find a co-organizer, Bob, who 
+deliberately supports and reports to the government of the regime such 
 circumstance may oblige Alice to censor herself. 
 
-In \cref{UserSearch} we discuss a technical solution that can make the task of finding
-co-organizers and potentially interested participants in a privacy-preserving manner 
-for all parties. However, there is no technology nor solution to ensure that Bob 
-is not lying to Alice about his interests. Therefore, we will use the term \enquote{expressed 
-interest} when referring to the common interest between Alice and Bob revealed by 
-the latter to the former. 
+In \cref{UserSearch} we discuss a technical solution that can make the task of 
+finding co-organizers and potentially interested participants in 
+a privacy-preserving manner for all parties.
+However, there is no technology nor solution to ensure that Bob is not lying to 
+Alice about his interests.
+Therefore, we will use the term \enquote{expressed interest} when referring to 
+the common interest Bob has revealed to Alice.
 
 \paragraph{Communication}
-Alice and the other co-organizers will have to communicate with each other. Moreover, 
-Alice and the co- organizers will want to spread the word about the protest to other 
-potential participants.
 
-A trivial solution to the communication problem is the traditional face to face 
-meeting. Though one of the main trade-offs is the need for synchronisation between 
-the invited attendants should be able to meet at the same time in the same place. 
-If the synchronicity requirement is not that strict, then a way to communicate the 
-outcome of the meeting to those who did not attend is necessary (and vice versa).
+Alice and the other co-organizers will have to communicate with each other.
+Moreover, Alice and the co-organizers will want to spread the word about the 
+protest to other potential participants.
 
-The physical communication can be supplemented using some sort of channel that provides 
-both off-line and real time communication capabilities, and guarantees the identity 
-of each party using the channel.
-
-Thus we assume that Alice will also want to communicate with Bob by means of a secure 
-channel to avoid any non-verified third party, for example, the governmental intelligence 
-agency, to eavesdrop on her conversations. Such two-parties secure communications 
-we discuss in \cref{Communicating}, while in the case of more than two participants 
-we describe in \cref{Discussions}.
+A trivial solution to the communication problem is the traditional face-to-face 
+meeting --- with the trade-off that the invited attendants should be able to 
+meet at the same time in the same place.
+If the requirement for synchronous communication is not that strict, then we 
+need a way to communicate the outcome of the meeting to those who did not 
+attend.
+%
+%The physical communication can be supplemented using some sort of channel that 
+%provides both off-line and real-time communication capabilities, and guarantees 
+%the identity of each party using the channel.
+%
+Thus we assume that Alice will also want to communicate with Bob by means of 
+a secure channel to avoid any non-verified third party, for example the 
+governmental intelligence agency, to eavesdrop on her conversations.
+Such two-parties secure communications we discuss in \cref{Communicating}, 
+while in the case of more than two participants we describe in 
+\cref{Discussions}.
 
 \paragraph{Agreement}
-Alice and the co-organizers, and possibly interested participants, have to agree 
-on a time and a place in order to have the protest.
 
-In \cref{Scheduling} we discuss some aspects related to the scheduling of the event 
-in a privacy-preserving manner. For example, the organizers may be interested in 
-having assurances on how many invited participants are really committed to attend 
-the event in such a way that they do not reveal the details about the protest, such 
-as the location, to those have not committed to attend. At the same time, the participants 
-who have committed to attend may want to have assurances that they will be told 
-the details of the protest if they express their commitment to the organizers.
+Alice and the co-organizers must agree on a time and place to hold the 
+protest.
+This can also be extended to interested participants.
+For example, the organizers may be interested in having assurances on how many 
+invited participants are really committed to attend the event in such a way 
+that they do not reveal the details about the protest, such as the location, to 
+those have not committed to attend.
+At the same time, the participants who have committed to attend may want to 
+have assurances that they will be told the details of the protest if they 
+express their commitment to the organizers.
+This type of property can be interesting to use in combination with 
+a reputation system.
+This way we can limit the extent of the regime's possible Sybil attacks.
 
-\paragraph{Authentication}
-Alice, Bob and the remaining participants have to rely on some credentials that 
-they can use to authenticate themselves when using most of the technical means to 
-participate, communicate, and agree. How these credentials are assigned securely 
-to each identity is out of the scope of this chapter.
+In \cref{Scheduling} we discuss some aspects related to the scheduling of the 
+event in a privacy-preserving manner.
 
-Moreover, each participant should be responsible of keeping its credentials, and 
-possibly its data, stored safely. For example, Alice can choose to store her credentials 
-in her smartphone, however, should this device get lost --- or stolen intentionally, 
-she may be pose a risk to herself, and possibly to others, particularly if she 
-is under the radar of the regime~\cite{AppleVsFBI,iPhoneBackdoor}.
-
-We discuss in \cref{passwd} how to protect the credentials and the data linked to 
-it in our decentralized scenario.
+%\paragraph{Authentication}
+%
+%Alice, Bob and the remaining participants have to rely on some credentials that 
+%to authenticate themselves to be able to use most of the technical means to 
+%participate, communicate, and agree.
+%How these credentials are assigned securely to each identity depends on the 
+%design.
+%However, each participant should be responsible for safely storing its 
+%credentials and possibly its data.
+%For example, Alice can choose to store her credentials in her smartphone, 
+%however, should this device get lost --- or stolen --- she may pose a risk to 
+%herself, and possibly to others, particularly if she is of interest to the 
+%regime's surveillance agents~\cite[cf.][]{AppleVsFBI,iPhoneBackdoor}.
+%
+%We discuss in \cref{passwd} how to protect the credentials and the data linked 
+%to it in our decentralized scenario.
 
 \subsection{Searching for Your Friends}
 \label{UserSearch}
 
 \input{UserSearch.tex}
 
-\input{Gossple.tex}
+%\input{Gossple.tex}
 
 \subsection{Communication between People}
 \label{Communicating}
@@ -134,6 +150,6 @@ This would help against the problem of announcing the location in advance.
 % Event Invitations
 \input{EventInvitations.tex}
 
-\subsection{Having a Decentralized Account}
-\label{passwd}
-\input{passwd.tex}
+%\subsection{Having a Decentralized Account}
+%\label{passwd}
+%\input{passwd.tex}
