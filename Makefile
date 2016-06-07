@@ -23,6 +23,8 @@ SRC+=	AdhocNetworks.tex
 SRC+=	after.tex
 SRC+=	DataAuthenticity.tex
 SRC+=	ProtestVerif.tex
+# appendix
+SRC+=	bios.tex
 
 protesting.pdf: ${SRC}
 protesting.pdf: libbib.sty
