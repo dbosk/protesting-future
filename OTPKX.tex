@@ -3,15 +3,19 @@ approach to deniability taken by \ac{OTR} and Signal does not suffice.
 The problem is that the adversary can record a transcript of all communications
 that have taken place.
 We know that the \ac{NSA} did exactly that~\cite{XKeyscore}, and specifically 
-saved all ciphertexts for later when the decryption key might be 
-available~\cite{NSAsavesCiphertexts}.
+saved ciphertexts for later when the decryption key might be available.
+%~\cite{NSAsavesCiphertexts}.
 In this setting it does not matter if anyone can generate a false transcript of
 a conversation between Alice and Bob, the regime knows exactly what Alice has 
 sent and Bob received and vice versa.
-There are more than one way to approach this problem.
+The argument of \ac{OTR}-like schemes is that Alice and Bob has the possibility 
+to deny anything about the conversation since it cannot be decrypted.
 
+There are more than one way to approach this problem.
 The first approach would be to use an anonymizing service, such as 
 Tor~\cite{Tor}.
+This way, the regime would not know that Alice communicates with Bob, only that
+Alice communicates with someone.
 However, for all low-latency solutions, when the entry point and exit from the 
 anonymizing network are both controlled by the adversary, then the adversary 
 can perform a correlation attack and essentially render the anonymization 
@@ -21,6 +25,8 @@ critics of the regime, all located in the country, want to communicate in
 real-time.
 To make this attack more difficult for the regime's surveillance agency we must 
 introduce random delays in our communication.
+And despite all this, the regime can still ask Alice to decrypt the 
+conversations --- either she complies or claims she do not know the key.
 
 The second approach would be to ensure deniability even against this strong 
 adversary.
@@ -31,8 +37,8 @@ deniable encryption~\cite{DeniableEncryption}.
 They construct a scheme where Alice and Bob can create \enquote{false 
 witnesses} for their conversation.
 Basically Alice can create a decryption key such that when used to decrypt the 
-ciphertext recorded on the network it will decrypt to a plaintext of Alice's 
-choice.
+ciphertext recorded by the regime from the network it will decrypt to 
+a plaintext of Alice's choice.
 This way she can \enquote{prove} her innocense.
-However, the question whether anyone would accept such a \enquote{proof}, 
-knowing it can equally well be false, remains open.
+However, the question whether the regime would actually accept such 
+a \enquote{proof}, knowing it can equally well be false, remains open.
