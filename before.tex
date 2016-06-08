@@ -110,42 +110,44 @@ event in a privacy-preserving manner.
 \subsection{Scheduling a Protest}
 \label{Scheduling}
 
-For the scheduling of a protest, there are in turn several problems that must 
-be addressed.
-From the organizer Alice's perspective, she wants to protect herself from being 
-arrested for organizing a protest.
-So Alice needs to protect herself from the possible participants, as one of 
-them can be agent Eve of the intelligence services of the regime.
-From the participant Bob's perspective, he wants to protect himself from being 
-arrested for committing to participate in a protest.
-So Bob needs to protect himself from the organizer and the other participants, 
-as any of them can be Eve.
-
-When organizing a protest, what Alice and Bob want to agree on is a time, 
-a place and to ensure enough people will show up at that time and place.
-Alice and Bob also want Eve to learn as little as possible of the plans so 
-that she cannot curtail the protest.
-
-\citet{EventsInvitations} presented a distributed protocol without the need of 
-\iac{TTP}.
-This protocol allows for different privacy settings:
-\begin{itemize}
-\item Alice discloses nothing to Bob, except the time and the place;
-\item Alice discloses everything --- who the invitees are, who of those have 
-  already committed etc.;
-\item and every combination of settings in between.
-\end{itemize}
-Further, if Alice doesn't keep her promises, Bob has a proof which he can 
-publish to everyone to show that Alice cheated.
-Likewise, if Bob commits to attending, Alice has proof that Bob has done so and 
-can show to everyone that Bob isn't present although he said he would.
-
-One topic that must be explored is to adapt this protocol to introduce 
-deniability.
-Another interesting feature to include would be the choice of location.
-With this, all participants can jointly agree on not only a time, but also 
-a location.
-This would help against the problem of announcing the location in advance.
+%For the scheduling of a protest, there are in turn several problems that must 
+%be addressed.
+%From the organizer Alice's perspective, she wants to protect herself from being 
+%arrested for organizing a protest.
+%So Alice needs to protect herself from the possible participants, as one of 
+%them can be agent Eve of the intelligence services of the regime.
+%From the participant Bob's perspective, he wants to protect himself from being 
+%arrested for committing to participate in a protest.
+%So Bob needs to protect himself from the organizer and the other participants, 
+%as any of them can be Eve.
+%
+%When organizing a protest, what Alice and Bob want to agree on is a time, 
+%a place and to ensure enough people will show up at that time and place.
+%Alice and Bob also want Eve to learn as little as possible of the plans so 
+%that she cannot curtail the protest.
+%
+%\citet{EventsInvitations} presented a distributed protocol for event 
+%invitations.
+%This protocol does not require any \ac{TTP} and allows for different privacy 
+%settings:
+%\begin{itemize}
+%\item Alice discloses nothing to Bob, except the time and the place;
+%\item Alice discloses everything --- who the invitees are, who of those have 
+%  already committed etc.;
+%\item and every combination of settings in between.
+%\end{itemize}
+%Further, if Alice breaks her promises, Bob has a proof which he can publish to 
+%everyone to show that Alice cheated.
+%Likewise, if Bob commits to attending, Alice has proof that Bob has done so and 
+%can show to everyone that Bob isn't present although he said he would.
+%This is useful input to a reputation system.
+%
+%One topic that must be explored is to adapt this protocol to introduce 
+%deniability.
+%Another interesting feature to include would be the choice of location.
+%With this, all participants can jointly agree on not only a time, but also 
+%a location.
+%This would help against the problem of announcing the location in advance.
 
 % Event Invitations
 \input{EventInvitations.tex}
