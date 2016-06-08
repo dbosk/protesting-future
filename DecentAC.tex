@@ -7,16 +7,18 @@ The second model was the push model, here a sender sends the message directly
 to the recipients.
 Thus it is more like magazine subscriptions: the next issue arrives in the 
 mailbox shortly after publication.
-This is the model of the communication described in \cref{GroupProperties}.
+This is the model of the communication described in \cref{GroupProperties}, 
+i.e.\ the communication model for email.
 \citeauthor{PPACforPubFS} found that achieving privacy in the pull model is 
 technically easier than in the push model.
-In fact, achieving privacy in the push model is very difficult.
+In fact, achieving strong privacy in the push model is very difficult.
 
 \paragraph{The Pull Model}
+
 We can start by looking at the pull model for communication.
 Alice wants to distribute a message to the participants in a discussion.
-In the pull model the participants actively ask Alice or a mediary for new 
-messages at regular intervals.
+In the pull model the participants actively ask Alice or an intermediary for 
+new messages at regular intervals.
 To form a protocol around this model, Alice and the participants can agree on 
 a location for the messages.
 When Alice wants to send a new message, she writes it to this particular 
@@ -52,21 +54,23 @@ Now the problem of integrity remains.
 If Alice and the other participants agree on a commonly shared \ac{MA} key, 
 then they can use \acp{MAC} to ensure integrity.
 The reason \acp{MAC} are more desirable than digital signatures in this 
-situations is that anyone who can verify the authenticity of \iac{MAC} can also 
-create one.
+situation is that anyone who can verify the authenticity of \iac{MAC} can also 
+create one (as was pointed out above).
 With digital signatures on the other hand, if Alice signs a message it is clear 
 that Alice is the only one who could have signed it.
+This would provide the regime's agents with something to track messages by, all 
+messages signed by the same key are related.
 With \acp{MAC}, any of the other participants could also be the author of the 
-message.
+message and the regime cannot determine which messages are related either.
 This means that for a discussion, any of the participants would be equally 
 likely to be the author of a given message.
 However, this relies on the anonymity of the actors.
 
 \paragraph{The Push Model}
+
 In the push model Alice will send the message to all recipients directly.
 The problems with the push model is that it reveals more meta-information.
 Say that all participants have an inbox, similarly as in the email system.
-
 Assume that the regime's agents monitor the network on a national level.
 In this situation they can see one message originating from Alice, going to 
 a server beyond the agency's reach, and soon \(n\) equally-sized messages 
@@ -78,7 +82,8 @@ there all messages go through a central server.
 This also has the side-effect that the operator of the central server can 
 perform the same attack.
 
-Now let us remove some information to make this more difficult for the agency.
+Now let us try to remove some information to make this more difficult for the 
+agency.
 Say that the sender and recipients are anonymous, so the agency can only track 
 which messages ends up in which inboxes and when.
 Despite the anonymity they can still do a time-correlation attack on the 
@@ -89,12 +94,13 @@ This means that the agency have the structure, they only need to fill in the
 identities.
 If one of the participants makes a mistake, then the regime's agents will have 
 a starting point to target.
-For example if this participant uses the same inbox for communication with all 
-his friends, and not only the participants in the plot against the regime, then 
-one of his other contacts might not be as concerned with staying anonymous.
+For example if a participant uses the same inbox for communication with all his 
+friends, and not only the participants in the plot against the regime, then one 
+of his other contacts might not be as concerned with staying anonymous.
 The consequence is that the regime can see the identity of someone sending 
 messages to an inbox of their interest.
-Then they can target this person and learn which friend owns that inbox.
+Then they can target this person and learn which friend owns the inbox of 
+interest.
 Then they can proceed to targeting one of the protest organizers.
 This type of attack will not work when the communication is according to the 
 pull model, since there the agency must attack each anonymous connection.

@@ -1,17 +1,19 @@
 So far we have treated only two-party conversations, i.e.\ Alice and Bob 
 talking to each other.
-To plan a protest however, you usually want to be more than two people 
-organizing it.
+However, there are usually more than two people organizing a protest, and so we 
+need to hold discussions with more than only two people at a time.
 In this situation there are two approaches to solving the communication:
-pair-wise communication between all participants or true group communication.
+simultaneous pair-wise communication between all participants or true group 
+communication.
 Furthermore, how the messages are distributed is also important, because the 
 adversary can learn who the participants are.
 
 \subsubsection{Group Communication Properties}
 \label{GroupProperties}
 
-In pair-wise communication everyone will set up a pair-wise communication with 
-everyone in the group, as described in \cref{Communicating}.
+When a group uses pair-wise communication, every member of the group will set 
+up a pair-wise channel to each other member of the group.
+Each pair-wise channel is as described above, in \cref{Communicating}.
 Then for every message Alice wants to send to the group she has to send it to 
 every participant.
 This would allow Alice to cheat, e.g.\ she can send \enquote{Who wants to 
@@ -28,8 +30,8 @@ in itself a desirable property from Alice's perspective --- she would like to
 lie to suspected regime agents --- this property can at the same time be 
 undesirable due to the Byzantine Generals' problem.
 For this reason group communication must provide better properties, namely that 
-everyone hears who said what and when.
-Thus forcing Alice to say the same thing to all participants.
+everyone hears who said what and when, thus forcing Alice to say the same thing 
+to all participants.
 In such a scheme, when Bob replies \enquote{I do, shall we say tonight?} the 
 others will see that Bob is replying to something they did not see and not to 
 the question \enquote{Who wants to overthrow the regime?}.
@@ -55,7 +57,11 @@ This means that the message digest included in Bob's reply and the one computed
 by the other participants above would differ, thus everyone learns that the 
 conversation history is inconsistent and should no longer be trusted.
 Due to the unpredictable property of the one-way function, Alice cannot phrase 
-the messages in such a way that they yield the same message digest either.
+the two different messages in such a way that they yield the same message 
+digest in the history either.
+But despite this, the other participants cannot determine if it is Alice or Bob
+who is lying about the message history --- Alice could send the same message to
+everyone and still Bob could try to frame her.
 
 \subsubsection{Message Distribution}
 
