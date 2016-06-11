@@ -1,30 +1,31 @@
 \section{After a Protest}
 \label{AfterProtest}
 
-As we pointed out earlier, the main goal of the stage after a protest is to 
-provide verifiable data.
+The main goal after a protest is to provide verifiable data.
 For instance, how can we ensure that photos from a demonstration are authentic?
-We can probably recognize the place the photo is portraying, however, the time 
-data of the file can be manipulated.
+We can probably recognize the place the photo is portraying, however, the 
+meta-data such as time-stamps of the file can be manipulated.
+So the only thing we can say is that the photo was taken at the latest at the 
+time of publication.
 Similarly, how can we determine the number of participants of a demonstration?
-We might be able to estimate the number given photos of the demonstration, but 
-this might not give an accurate number, especially since the authenticity of 
-the photos can be questioned.
-We will discuss two problems in this section:
-\begin{enumerate}
-  \item ensuring data authenticity related to a demonstration, e.g.\ so that 
-    the data can be correctly tied to the demonstration;
-  %\item the possibilities for the organizers to verify the participation and 
-  %use it as feedback into a reputation system;
-  \item third-party verification of the authenticity of the participation of 
-    a protest, e.g.\ compute the number of participants.
-\end{enumerate}
+Many techniques used today estimate the number given photos of the 
+demonstration, but this might not give an accurate number.
+And, as mentioned, the source of the photo must be trusted, otherwise the 
+authenticity of the photo can be questioned.
 
-These problems will be discussed in \cref{DataAuthenticicty,ProtestVerif}, 
-respectively.
+We will discuss these two problems in this section.
+First we will discuss the problem of data authenticity in 
+\cref{DataAuthenticity}, i.e.\ that the data can be correctly tied to the 
+demonstration.
+Then we will discuss verification of the participation of a protest in 
+\cref{ProtestVerif}, i.e.\ the ability to compute and verify the number of 
+participants.
 
-\subsection{Ensuring Data Authenticity}
-\label{DataAuthenticicty}
+%\item the possibilities for the organizers to verify the participation and 
+%use it as feedback into a reputation system;
+  
+\subsection{Data Authenticity}
+\label{DataAuthenticity}
 
 \input{DataAuthenticity.tex}
 

@@ -1,14 +1,48 @@
-\citet{PPACforPubFS} presents work done in the area of privacy-preserving 
-access control in distributed storage systems.
-This is important since it outlines some possibilities and limits for such 
-systems.
-The problem in this scenario is that we don't want to be identifiable as 
-a demonstrator, as this might yield repercussions.
-Thus we can to share the data anonymously, no one can tell with whom we've 
-shared what or if they've read it.
-However, we still want to verify authenticity as it might otherwise be the 
-regime spreading disinformation.
+The problem of authentically associating data with a physical event is 
+difficult.
+We can essentially divide it into the following requirements:
+\begin{requirements}
+  \item\label{CreatedBeforeEnd} Prove that the data was created before the end 
+    of the event.
+  \item\label{CreatedAfterStart} Prove that the data was created after the 
+    start of the event.
+  \item\label{SpatiallyRelated} Prove that the data is spatially related to 
+    the physical location of the event.
+\end{requirements}
+\Cref{CreatedBeforeEnd,CreatedAfterStart} together bind the data to the time of 
+the event whereas \cref{SpatiallyRelated} binds the data spatially to the 
+event.
 
-In this case it is also not straight forward to just apply the techniques in 
-\cite{OTPKX} to achieve deniability.
+Now, consider the scenario of Alice taking a photo during the demonstration and 
+posting it online.
+What can we say about this photo?
+First, we can say that it was created before we viewed it, so 
+\cref{CreatedBeforeEnd} is fulfilled if we view it in relation to the event.
+If it was submitted to a service that we trust, then we can also trust the 
+time-stamp of the service.
+Furthermore, we can also consider it spatially related to the physical location
+(\cref{SpatiallyRelated}) if we can convince ourselves that the photo is 
+depicting the physical location and not any kind of \enquote{reconstruction}, 
+e.g.\ it is computer generated or a photo of a similarly looking location.
 
+\Cref{CreatedAfterStart} is more difficult to achieve.
+In the above scenario, there is nothing preventing the photo from being much 
+older than the event yet spatially related to the physical location.
+In the security field \cref{CreatedAfterStart} is captured by a property called 
+\emph{freshness}.
+The freshness property is usually achieved by requiring that the data depend on
+an unpredictable value.
+The unpredictable value is commonly a value chosen randomly by the verifier, 
+but the main basic requirement is that it is not under the prover's control, 
+i.e.\ Alice in this scenario.
+For example, we might require Alice to include the front-page of a particular 
+newspaper in the photo, since the exact front-page is difficult for Alice to 
+predict in advance.
+There is a subfield of digital forensics that work with image manipulation 
+detection, so there are methods that would prevent at least Alice's easiest 
+manipulation attempts.
+
+We can see that the techniques to achieve 
+\cref{CreatedBeforeEnd,CreatedAfterStart,SpatiallyRelated} depends on the type 
+of data.
+We used as an example above a photo, next we will look at another type of data.
