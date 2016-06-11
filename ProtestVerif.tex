@@ -1,35 +1,48 @@
 One problem in physical protesting that has not yet been solved satisfactorily 
-is the verification of the participation in a protest.
-After many protests the counts of demonstrators of police and the organizers 
-differ, in some instances the difference can be up to hundreds of 
-thousands~\cite{ExampleProtestCount}.
-
-Many of the current methods to count the participants are based on computer 
-vision, i.e.\ object recognition through image analysis.
+is the crowd counting problem, or more generally, the verification of the 
+participation in a protest.
+% XXX I would like a reference for this
+After many protests the demonstrator count by police and that by organizers 
+differ, in some instances the difference can be hundreds of thousands.
+Many of the methods to count the participants in the literature are based on 
+computer vision, i.e.\ object recognition through image analysis.
+With this type of technique a third party has no way of verifiying that the 
+count is correct, hence the dispute between organizers and police over these 
+counts.
 A demonstration is very similar to voting, both are many individuals expressing 
 their opinion.
 Hence it is desirable to have similar properties for verifying the 
-participation in a protest.
-Instead of votes we could have participation proofs and the following 
-properties:
+participation in a protest, where this verification step is at the core.
+
+In the context of voting protocols, in particular e-voting protocols, there are 
+three desirable properties for verification:
 \begin{properties}
-  \item\label{VerifEligibility} Everyone can verify that every participation 
-    proof is correct.
-  \item\label{VerifIndividual} Every participant can verify that its 
-    participation proof is included in the count.
-  \item\label{VerifUniversal} Everyone can verify that the count is according 
-    to the participation proofs.
+\item\label{UniversalVerif} Anyone can verify that the result is according to 
+  the cast votes.
+\item\label{EligibilityVerif} Anyone can verify that each vote cast is 
+  legitimate.
+\item\label{IndividualVerif} Every voter can verify that its vote is included 
+  in the result.
 \end{properties}
-This is difficult to accomplish with computer vision methods.
-The properties outlined above are indeed desirable, e.g.\ then the \ac{UN} can 
-verify protests happening in a country and the country cannot deny it, thus the 
-\ac{UN} can apply pressure if needed.
+We can transfer these properties to the case of protest participation, then 
+each vote would be replaced by a proof of participation.
+\Cref{EligibilityVerif} would in this case mean that anyone can verify that 
+each participation proof belongs to a unique individual, i.e.\ to prevent any 
+Sybil attack (\cref{SybilAttacks}).
+
+The three verifiability properties above are indeed desirable, e.g.\ then the 
+\ac{UN} can verify protests happening in a country and the country cannot deny 
+it, thus the \ac{UN} can apply pressure if needed.
+However, the properties are difficult to accomplish with computer vision 
+methods, especially if nobody from the \ac{UN} has been on location to collect 
+the image material for the analysis --- since then the authenticity can be 
+questioned as outlined in \cref{DataAuthenticity}.
 
 Additionally, in voting, the cast votes are not linkable to the identity of the 
 casters.
 Thus it is not a problem to reveal the identites of those who participated in 
 the vote, since they could have voted for any alternative.
-We would also like to have the corresponding property in verifying the 
+We would also like to have the corresponding property when verifying the 
 protest.
 The very nature of a protest is different though, we do not have any choice: if 
 we participate we support the cause of the protest.
@@ -38,22 +51,26 @@ identifying individuals who participated.
 Otherwise the regime's agents can identity all the participants and simply 
 \enquote{make them disappear}.
 
-For real-world protests we need to bind participants to the same physical 
-location at a reasonably similar time, i.e.\ within the area and duration of 
-the protest.
-\citet{PROPS} developed a decentralized \ac{LPS} which provides a participant 
-with a verifiable proof of having been at a location at a certain time, 
-something we call \iac{LP}.
-It is decentralized because there is no central authority that verifies the 
+Finally, for real-world protests we need to bind participants to the same 
+physical location at a reasonably similar time, i.e.\ within the area and 
+duration of the protest.
+This means that for a system like this to work, we also need the requirements 
+from \cref{DataAuthenticity}: proof that the data was created after the start 
+of the protest, proof that it was created before the end, and proof of spatial 
+relation to the location.
+For the last property, \citet{PROPS} developed a decentralized \ac{LPS} which 
+provides a participant with a verifiable proof of having been at a location at 
+a certain time, something we call \iac{LP}.
+It is decentralized because there is no central authority that vouches for the 
 location, instead peers act as witnesses.
 Then a third-party can verify the authenticity of the \ac{LP}, by verifying the 
 witnesses signatures, and can thus be sure that the person has indeed been in 
 the location.
-
 Bosk, Gambs and Buchegger are currently exploring (work in progress) the 
-possibility of turning such \iac{LPS} into a system for verifying the 
-participation in protests.
-The idea is that each participant generates \iac{LP} during the protest, where 
-(some of) the other protesters act as witnesses, then the \acp{LP} can be used 
-to compute the participation count.
+possibility of combining such \iac{LPS} with the verifiability properties for 
+voting protocols into a system for verifying the participation in protests.
+The overall idea is that each participant generates \iac{LP} during the 
+protest, where (some of) the other protesters act as witnesses, then the 
+\acp{LP} can be used to compute the participation count with all the 
+verifiability properties above.
 
