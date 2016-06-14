@@ -8,7 +8,7 @@ communications.  However, the success of such development has come
 with some trade-offs, for example in data collection. Better storage
 technologies have allowed for longer data retention policies for both
 the private and public sectors, not only providing new and better
-services and combat crime, but also compromising the privacy of
+services to combat crime, but also compromising the privacy of
 citizens, and sometimes their safety in oppressive regimes.
 
 Among these technological advances, \acp{OSN} stand out as a popular
@@ -18,8 +18,8 @@ and network communication are combined to make social interactions
 between people possible at any time and in any place lessening
 political, economical and geographical boundaries. Such social media
 are increasingly used for political activism ranging from showing
-one's interests, fo example, by liking something, to supporting a protest, 
-such as organizing it. 
+one's leanings by liking something to actual support and organization
+of protests.
 
 Many \acp{OSN} are run in a centralized manner --- the service
 provider acts as a communication channel between the users of the
@@ -35,13 +35,13 @@ Turkey for several days \cite{TwitterBanTurkey}, or public institutions
 can subpoena information from the service provider. Moreover, the massive
 collection of data in these networks makes them an ideal target for
 attackers such as competitors or even governmental agencies. For
-example, in the recent years, intelligence and security agencies of
+example, in recent years, intelligence and security agencies of
 some countries have targeted these services to gain personal
 information about their citizens, enemies and even
 allies~\cite{Prism}. Since a centralized system can log not only data
 the users upload but also meta-information about their behaviour, such
 as online times, whom they communicate with, their location and social
-ties, there can be sufficient information to associate a person to a cause.
+ties, there is a wealth of information to connect a person to a cause.
 
 While we acknowledge the benefits of such technological advances like
 \acp{OSN}, we also point out the costs to personal privacy and
@@ -76,8 +76,10 @@ in \iac{OSN}.
 It could also take the form of people joining together in the streets for 
 a demonstration.
 For this chapter we will consider the following scenario:
-Alice lives in a country under the rule of an authoritarian regime.
-Alice wants to lead the opposition and organize a public protest to show that 
+Alice\footnote{We use the nomenclature of the Computer Security field,
+  where Alice tries to securely communicate with Bob and others,
+  so-called adversaries, interfere.} lives in a country under the rule of an authoritarian regime.
+Alice wants to organize the opposition and lead a public protest to show that 
 the people want a democratically reformed government.
 As expected, the authoritarian regime wants to prevent this from happening.
 The regime's goal is to oppress the opposition so that they cannot ever reach 
@@ -85,17 +87,20 @@ a big-enough protest to show the majority's dissatisfaction with the regime.
 They will try to stop Alice as early as possible to avoid her ideas spread 
 throughout the population.
 
-Although our scenario is set in an authoritarian regime, the tools and 
-techniques described below are also useful in other systems of governance, such 
-as democracies --- because public 
-protest and demonstrations are of importance also in democracies, to keep the 
-principles of social equality active and not just to create them.
+Although our scenario is set in an authoritarian regime, the tools and
+techniques described below are also useful in other systems of
+governance, such as democracies --- because public protest and
+demonstrations are of importance also in democracies, to keep them
+democracies and not just to form them. More broadly, privacy
+preservation is needed also in ostensible democracies, as illustrated
+by whistleblowers such as Edward Snowden. A technical solution can
+potentially prevent privacy breaches and thus enforce legal solutions.
 
-There are some limitations to what the technical solutions can achieve.
+There are, however, some limitations to what a technical solutions can achieve.
 In particular we face two problems.
-The first one, the double agent problem is caused by humans ability to deceive 
+The first one, the double agent problem, is caused by humans ability to deceive 
 each other, and consequently cannot easily be solved by technology.
-The second one, the Sybil attack is a consequence of the unlimited ability of creating 
+The second one, the Sybil attack, is a consequence of the unlimited ability of creating 
 arbitrary identities in online systems such as social networks.
 
 \label{DoubleAgentProblem}
