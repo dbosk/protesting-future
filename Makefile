@@ -23,6 +23,8 @@ SRC+=	AdhocNetworks.tex
 SRC+=	after.tex
 SRC+=	DataAuthenticity.tex
 SRC+=	ProtestVerif.tex
+# conclusion
+SRC+=   conclusion.tex
 # appendix
 SRC+=	bios.tex
 
