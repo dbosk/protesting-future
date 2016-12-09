@@ -172,5 +172,3 @@ sprmindx.sty
 # libbib: biblatex
 biblatex-lncs-src
 
-# we don't use PDF figures
-*.pdf
