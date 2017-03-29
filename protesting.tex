@@ -48,11 +48,12 @@
 \addbibresource{anon.bib}
 \addbibresource{be.bib}
 \addbibresource{mpc.bib}
+\addbibresource{stats.bib}
 
 \let\noparencite\cite%
 \let\cite\parencite%
 
-\usepackage{acro}
+\usepackage[single]{acro}
 \acsetup{%
   group-citation = true,
   group-cite-cmd = {\noparencite},
@@ -61,6 +62,8 @@
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{example}{Example}
+
+\usepackage[binary-units]{siunitx}
 
 \usepackage[crypto,std,organizations,location,mpc,distrib]{libbib}
 

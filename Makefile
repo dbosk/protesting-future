@@ -7,6 +7,7 @@ SRC+=	abstract.tex
 SRC+= 	intro.tex
 SRC+=	DoubleAgentProblem.tex
 SRC+=	sybil.tex
+SRC+=	terrorists.tex
 # before
 SRC+=	before.tex
 SRC+=	UserSearch.tex Gossple.tex
@@ -43,6 +44,7 @@ protesting.pdf: depend.bib
 protesting.pdf: anon.bib
 protesting.pdf: be.bib
 protesting.pdf: mpc.bib
+protesting.pdf: stats.bib
 
 wc: ${SRC}
 
