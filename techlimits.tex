@@ -1,0 +1,45 @@
+\section{Technical limitations}
+
+We can only do so much with technology, and, of course, there are some 
+limitations to what technical solutions can achieve.
+In particular, we face two problems.
+The first one is the double agent problem.
+It is caused by humans ability to deceive each other, and consequently cannot 
+easily be solved by technology.
+\label{DoubleAgentProblem}
+In out context it is the problem of one of the regime's agents infiltrating the 
+opposition by acting as if part of the opposition.
+We cannot solve this problem, however, we might be able to reduce the damage.
+One design principle for privacy is data minimization, this strategy will help 
+Alice reduce the information that the double agent, and anyone else, can learn.
+
+The second problem is the Sybil attack.
+This problem is a consequence of the unlimited ability of creating arbitrary 
+identities in online systems such as social networks.
+\label{SybilAttacks}
+The Sybil attack is somewhat related to the double agent problem, but is only 
+a problem in electronic systems.
+The problem occurs when there is nothing that limits the creation of new 
+identities, thus the adversary can create multiple unlinkable identities.
+Usually the attack is aimed at reputation systems, where the adversary can use 
+its many identities to vouch for each other to falsely gain in reputation.
+In general, the problem can be summarized as that a rather small number of 
+people in the network control a large part of the identities in the network in 
+order to gain a disproportionate amount of influence~\cite{SybilAttack}.
+A concrete example is Trump's use of Twitter bots in the US 
+election~\cite{BotsAndAutomationDuringUSElection}.
+
+\Citet{SybilAttack} proved that this problem cannot be solved without 
+a \emph{logically} central control of the creation of identities.
+This means that we can not handle identity creation by letting the people who 
+are already in the network vouch for other identities, i.e.\ to build a network 
+of trust.
+The Sybil attack itself aims at compromising a considerable portion of the 
+identities, and thus, the more identities the attacker gains, the more new 
+identities it can create and vouch for.
+To prevent this kind of behaviour we rather need something like the national 
+identification systems present in most countries, where the state has ensured 
+a one-to-one correspondence between identities and physical persons.
+Fortunately, there are techniques that can mitigate the effects of the Sybil 
+attack without forcing us to use such a centralized identity system.
+We will return to these where relevant in the text.
