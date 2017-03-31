@@ -1,21 +1,22 @@
 \section{Introduction}
 \label{Introduction}
-The rapid development of technology in the latter half of the
+The rapid development of information and communication technology (ICT) in the latter half of the
 20th century and its increasing prevalence in
-everyday life has helped large parts of the world to reach the
+everyday life has helped a considerable part of the world to reach the
 21st century with a means of having real-time secure
-communications.  However, the success of such development has come
-with some trade-offs, for example in data collection. Better storage
+communications.  These developments, however,  have come
+with some side effects, for example in data collection. Better storage
 technologies have allowed for longer data retention policies for both
 the private and public sectors, not only providing new and better
-services to combat crime, but also compromising the privacy of
+services to users, or means to combat crime, but also compromising the privacy of
 citizens, and sometimes their safety in oppressive regimes.
 
-Among these technological advances, \acp{OSN} stand out as a popular
+Among these technological advances, \acp{OSN} (in the broadest sense,
+any kind of online social media) stand out as a popular
 computer-mediated tool allowing people and other entities to interact
 by sharing and exchanging information of any kind. Computation power
 and network communication are combined to make social interactions
-between people possible at any time and in any place lessening
+between people possible at any time and in any place, lessening
 political, economical and geographical boundaries. Such social media
 are increasingly used for political activism ranging from showing
 one's leanings by liking something to actual support and organization
@@ -27,32 +28,37 @@ provider acts as a communication channel between the users of the
 of the data, if not all, exchanged between the users. Bearing in mind
 that in the case of \acp{OSN}, much of it is of personal and sensitive
 kind, for example, posting a picture in the network may reveal the
-physical geolocation as this information can be embedded in the
-meta-data of the image. This has proved to be problematic for
-political activism in several ways: a centralized ownership and
-control make it easier to shut down, for example, the governmental block of Twitter in
-Turkey for several days~\cite{TurkeyBansTwitter}, or public institutions
-can subpoena information from the service provider. Moreover, the massive
-collection of data in these networks makes them an ideal target for
-attackers such as competitors or even governmental agencies. For
-example, in recent years, intelligence and security agencies of
-some countries have targeted these services to gain personal
-information about their citizens, enemies and even
-allies~\cite{Prism}. Since a centralized system can log not only data
-the users upload but also meta-information about their behaviour, such
-as online times, whom they communicate with, their location and social
-ties, there is a wealth of information to connect a person to a cause.
+physical geolocation of the poster as this information can be embedded
+in the meta-data of the image or even inferred by image processing for
+place recognition. This has proved to be problematic for political
+activism in several ways: a centralized ownership and control make it
+easier to shut down, for example, the governmental block of Twitter in
+Turkey for several days~\cite{TurkeyBansTwitter}, or public
+institutions can subpoena (at best) or just seize information from the
+service provider. Moreover, the massive collection of data in these
+networks makes them an ideal target for attackers such as competing
+service providers or even governmental agencies. For example, in
+recent years, intelligence and security agencies of some countries
+have targeted these services to gain personal information about their
+citizens, enemies and even allies~\cite{Prism}. Since a centralized
+system can log not only data the users upload but also
+meta-information about their behaviour, such as online times, whom
+they communicate with, their location and social ties, there is a
+wealth of information to connect a person to a cause.
 
 While we acknowledge the benefits of such technological advances like
 \acp{OSN}, we also point out the costs to personal privacy and
-advocate for the need to develop \acp{PET} that
-can co-exist with these technologies. For example, decentralized
-solutions try to achieve provider independence and, in some cases,
-they also offer censorship resistance. Privacy-preserving solutions
-provide data protection by prevention, for example, by means of
-cryptographic techniques an organization could enforce certain
-policies instead of relying on the security of the system and its
-maintenance.
+advocate for the need to develop \acp{PET} that can co-exist with
+these technologies. A prominent example is TOR~\cite{Tor}, a routing
+mechanism for online anonymity and censorship
+resistance. Decentralized solutions try to achieve provider
+independence and, in some cases, they also offer censorship
+resistance. Privacy-preserving technologies aim at providing data
+protection by prevention, i.e., making privacy breeches and data leaks
+technically impossible. For example, by means of cryptographic
+techniques, an organization could enforce certain policies instead of
+relying on compliance by insiders and on the security of the system and its
+maintenance to protect from intrusions. %TODO: good example with reference
 
 Besides providing technological support to the conventional and
 long-established form of protesting physically, online technologies
@@ -78,9 +84,11 @@ a demonstration.
 For this chapter we will consider the following scenario:
 Alice\footnote{%
   We use the nomenclature of the Computer Security field,
-  where Alice tries to securely communicate with Bob and, so-called, 
-  adversaries interfere.
-  The adversary usually assumes the name Eve.
+  where one user of the system (usually called Alice) tries to securely communicate
+  with another (usually called Bob) and others (the so-called adversaries, usually
+  named Eve) are trying to interfere, eavesdrop or otherwise attack the
+  system. 
+
 } lives in a country under the rule of an authoritarian regime.
 Alice wants to organize the opposition and lead a public protest to show that 
 the people want a democratically reformed government.
@@ -90,14 +98,14 @@ a big-enough protest to show the majority's dissatisfaction with the regime.
 They will try to stop Alice as early as possible to avoid her ideas spread 
 throughout the population.
 
-Although our scenario is set in an authoritarian regime, the tools and
-techniques described below are also useful in other systems of
-governance, such as democracies --- because public protest and
-demonstrations are of importance also in democracies, to keep them
-democracies and not just to form them. More broadly, privacy
+Although our scenario is set in an authoritarian regime, privacy
 preservation is needed also in ostensible democracies, as illustrated
-by whistle-blowers such as Edward Snowden. A technical solution can
-potentially prevent privacy breaches and thus enforce legal solutions.
+by whistle-blowers such as Edward Snowden. 
+%, the tools and techniques described below are also useful in other systems of
+%governance, such as democracies.  
+A technical solution can potentially prevent privacy breaches and be
+used to enforce data protection mandated by law as well as offer
+additional privacy protection where such protection is insufficient.
 
 \input{terrorists.tex}
 
@@ -125,7 +133,8 @@ categorize them as useful before, during or after a protest:
     Following up a protest by the organizers, not only to assess their success 
     but also to correct the flaws for the next time.  For example, the 
     organizers may want to obtain reliable statistics on the number of 
-    attendees per area.
+    attendees per area, but protect that data from unauthorized
+    entities, for example the police.
     We discuss different authenticity and verifiability properties of use for 
     this stage in \cref{AfterProtest}.
 \end{description}
