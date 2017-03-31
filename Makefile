@@ -5,12 +5,11 @@ SRC+=	protesting.tex
 SRC+=	abstract.tex
 # intro
 SRC+= 	intro.tex
-SRC+=	DoubleAgentProblem.tex
 SRC+=	sybil.tex
 SRC+=	terrorists.tex
 # before
 SRC+=	before.tex
-SRC+=	UserSearch.tex Gossple.tex
+SRC+=	UserSearch.tex
 SRC+=	PairwiseComm.tex
 SRC+=	OTPKX.tex
 SRC+=	discussions.tex
