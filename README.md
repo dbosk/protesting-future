@@ -16,15 +16,18 @@ files.
 Compilation
 -------------------------------------------------------------------------------
 
-To compile the document, simply clone the repo, update all submodules and then 
-run `make`:
+To compile the document, you must have cloned the repository and checked out 
+all its submodules:
 ```sh
 git clone --recursive git@github.com:dbosk/protesting.git
-cd protesting
-make
 ```
-
-If you have already cloned it without the `--recursive` option, run
+Or, if you have already cloned it without the `--recursive` option, run
 ```sh
 git submodule update --init --recursive
 ```
+
+To compile the document, simply type `make` in the terminal. There are usually 
+options to compile using make in e.g. TeXmaker too.
+
+To check the number of words, run `make wc`. This uses detex(1) and wc(1) to 
+estimate the number of words.
