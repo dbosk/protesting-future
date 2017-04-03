@@ -5,10 +5,13 @@ Alice talking to Bob.
 the \ac{OTR} protocol.
 They desired an electronic equivalent of face-to-face conversations, i.e.\ that 
 they leave no proofs of any kind behind:
-if Alice and Bob has had a conversation, Bob cannot go to Eve afterwards and 
+if Alice and Bob have had a conversation, Bob cannot go to Eve afterwards and 
 prove anything about what Alice has said --- the same as in a face-to-face 
 conversation.
-This property is not true for email or most centralized communication services.
+This property is not true for email or most centralized communication
+services.
+%TODO: one reviewer says to revise language, but it's not clear where
+%around here.
 
 \subsubsection{Standard Email}
 
@@ -23,7 +26,9 @@ everyone along the way can also read the sender's and recipient's address and
 the contents.
 However, some postmen have started using non-transparent sacks, i.e.\ encrypted 
 connections between the servers, so those postcards can only be read by the 
-staff in the post-office.
+staff in the post-office. %TODO reviewer question: no confidentiality
+                          %at all?
+
 Thus the email system provides no confidentiality: each email server can read 
 the messages, each network operator along the transport route can also read 
 (and make a copy of) each email.
@@ -34,21 +39,28 @@ modifications to the messages without anyone noticing the difference.
 We can safely say that we cannot rely on the email system for neither security 
 nor privacy when planning a protest.
 
-When using a centralized communications service, such as Facebook, the level of
-security and privacy we can achieve is that the postman carries non-transparent
-sacks.
-The business model of most such services is to read peoples postcards to better
-profile their interests and thus deliver better suiting advertising.
-Here, third parties cannot directly see who is communicating with whom.
-They can only see that something goes to and from the service.
-However, all information is available internally to the service.
-This means that there are ways of learning this, for example through 
-PRISM~\cite{Prism} of the \ac{NSA}.
+When using a centralized communications service, such as Facebook, the
+level of security and privacy we can achieve is that the postman
+carries non-transparent sacks.  The business model of most such
+services is to read peoples postcards to better profile their
+interests and thus deliver better suiting advertising.  Here, third
+parties such as advertisers or surveillance entities cannot directly
+see who is communicating with whom.  They can only see that something
+goes to and from the service.  However, all information is available
+internally to the service.  This means that there are ways of learning
+this, for example through PRISM~\cite{Prism} of the
+\ac{NSA}.%TODO: explain how %TODO address this question even more:
+         %Which kind of third parties are these, when compared to the
+         %case of e-mail? Advertisers? Or other parties? And
+         %canadvertisers read the content in e-mail systems? Google
+         %lets them advertise on keywords, but not read the mail
+         %itself for instance. Or hackers? 
+%TODO: other reviewer: annotate, give context.
 
 \subsubsection{Secure Email and Text Messaging}
 
-Secure email works by employing cryptography: we encrypt the contents of the 
-postcard, providing confidentiality, and then add a digital signature to 
+Secure email works by employing cryptography:  encrypting the contents of the 
+postcard, thus providing confidentiality, and then adding a digital signature to 
 prevent modifications.
 Thus the recipient is the only one who can read the message and the recipient 
 can also verify that the message has not been modified along the way.
