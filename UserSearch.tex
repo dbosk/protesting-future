@@ -1,7 +1,8 @@
 So the challenge is to protect user data from malicious adversaries but
 at the same time making users findable for other legitimate users.
-To distinguish between these two cases, we assume that legitimate users
-possess more information about a target user than the adversary.
+To distinguish between these two cases, we assume (at least in the
+context of social networks) that legitimate users
+possess more information about a target user than the adversary. 
 Then a knowledge threshold can be enforced using cryptographic techniques, to
 guarantee that a user can only be found if the party searching for her
 can present enough details about her (\enquote{find me if you know enough about
@@ -9,10 +10,12 @@ me}).
 
 Two protocols' implementations are presented by \citet{ThresholdUserSearch} 
 that have different advantages and disadvantages.
-Neither rely on any central repository of user data but are suitable to be 
-implemented in a completely decentralized way using \iac{DHT}.
+Neither of them relies on any central repository of user data.
 This avoids the biggest risk to user data: the leakage of a central database 
-with sensitive information about a large number of people.
+with sensitive information about a large number of
+people. Practically, the protocols can be implemented in a completely
+decentralized way using a \iac{DHT}, which is a standard component of
+decentralized systems to store, locate, and retrieve data.
 
 The proposed protocols allow users to register their identifiers (e.g.\ 
 links to their profile pages, e-mail addresses or other contact

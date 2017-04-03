@@ -11,7 +11,8 @@ This is the model of the communication described in \cref{GroupProperties},
 i.e.\ the communication model for email.
 \citeauthor{PPACforPubFS} found that achieving privacy in the pull model is 
 technically easier than in the push model.
-In fact, achieving strong privacy in the push model is very difficult.
+In fact, achieving strong privacy in the push model is very
+difficult. %TODO: explain why
 
 \paragraph{The Pull Model}
 
@@ -52,7 +53,7 @@ Furthermore, if the recipients fetch the messages anonymously too, then the
 recipients are also hidden.
 Now the problem of integrity remains.
 If Alice and the other participants agree on a commonly shared \ac{MA} key, 
-then they can use \acp{MAC} to ensure integrity.
+then they can use \acp{MAC} to ensure integrity. %TODO: MA v. MAC
 The reason \acp{MAC} are more desirable than digital signatures in this 
 situation is that anyone who can verify the authenticity of \iac{MAC} can also 
 create one (as was pointed out above).
@@ -104,3 +105,4 @@ interest.
 Then they can proceed to targeting one of the protest organizers.
 This type of attack will not work when the communication is according to the 
 pull model, since there the agency must attack each anonymous connection.
+%TODO: reviewer: explain what you mean by attack here
