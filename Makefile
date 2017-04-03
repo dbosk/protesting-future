@@ -46,8 +46,10 @@ protesting.pdf: mpc.bib
 protesting.pdf: stats.bib
 
 wc: ${SRC}
+todo: ${SRC}
 
 INCLUDE_MAKEFILES=makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
+include ${INCLUDE_MAKEFILES}/doc.mk
 INCLUDE_LIBBIB=libbib
 include ${INCLUDE_LIBBIB}/libbib.mk
