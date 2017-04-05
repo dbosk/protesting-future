@@ -6,18 +6,6 @@
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 
-\usepackage[inline]{enumitem}
-\newlist{properties}{enumerate}{5}
-\setlist[properties]{label*=\arabic*.,ref=\arabic*}
-\newlist{requirements}{enumerate}{5}
-\setlist[requirements]{label*=\arabic*.,ref=\arabic*}
-
-\usepackage[capitalize]{cleveref}
-\crefname{propertiesi}{property}{properties}
-\Crefname{propertiesi}{Property}{Properties}
-\crefname{requirementsi}{requirement}{requirements}
-\Crefname{requirementsi}{Requirement}{Requirements}
-
 \usepackage{csquotes}
 \usepackage{authblk}
 \usepackage{xparse}
@@ -27,6 +15,37 @@
 \DeclareDocumentCommand{\email}{m}{%
   \texttt{#1}%
 }
+
+\usepackage[inline]{enumitem}
+\newlist{properties@}{enumerate}{5}
+\setlist[properties@]{label*=P\arabic*.,ref=P\arabic*}
+\newlist{requirements@}{enumerate}{5}
+\setlist[requirements@]{label*=R\arabic*.,ref=R\arabic*}
+
+\DeclareDocumentEnvironment{properties}{o}{%
+  \IfValueTF{#1}{%
+    \begin{properties@}[label*=#1\arabic*.,ref=#1\arabic*.]%
+  }{%
+    \begin{properties@}%
+  }
+}{%
+  \end{properties@}%
+}
+\DeclareDocumentEnvironment{requirements}{o}{%
+  \IfValueTF{#1}{%
+    \begin{requirements@}[label*=#1\arabic*.,ref=#1\arabic*.]%
+  }{%
+    \begin{requirements@}%
+  }
+}{%
+  \end{requirements@}%
+}
+
+\usepackage[capitalize]{cleveref}
+\crefname{properties@i}{property}{properties}
+\Crefname{properties@i}{Property}{Properties}
+\crefname{requirements@i}{requirement}{requirements}
+\Crefname{requirements@i}{Requirement}{Requirements}
 
 % Taylor & Francis
 %\usepackage{parskip}
