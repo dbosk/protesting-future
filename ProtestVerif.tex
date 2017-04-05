@@ -1,19 +1,26 @@
-One problem in physical protesting that has not yet been solved satisfactorily 
-is the crowd counting problem, or more generally, the verification of the 
-participation in a protest.
-% XXX I would like a reference for this
+One problem in real-world demonstrations that has not yet been entirely solved 
+is the crowd counting problem, i.e.\ the verification of the participation in 
+a protest.
 After many protests the demonstrator count by police and that by organizers 
 differ, in some instances the difference can be hundreds of thousands.
-Many of the methods to count the participants in the literature are based on 
-computer vision, i.e.\ object recognition through image analysis.
-With this type of technique a third party has no way of verifiying that the 
-count is correct, hence the dispute between organizers and police over these 
-counts.
-A demonstration is very similar to voting, both are many individuals expressing 
-their opinion.
+There are numerous examples, e.g.\ the demonstrations in South 
+Korea~\cite{2016DemonstrationsInSeoul} or the women's maches in the 
+US~\cite{2017WomensMarchesInUS}, where there is difficulty in establishing the 
+actual number of participants.
+The methods for counting the crowds vary.
+There are some techniques using computer vision found in the research 
+literature, e.g.\ by~\textcite{CVCrowdCounting}.
+These require images from the demonstration and provide no way to verify the 
+authenticity of the count (except re-running the algorithm on one's own input 
+data).
+However, as is illustrated by 
+\textcite{2016DemonstrationsInSeoul,2017WomensMarchesInUS}, the methods applied
+are manual and prone to errors.
+
+In general, a demonstration is very similar to voting: both are many 
+individuals expressing their opinion.
 Hence it is desirable to have similar properties for verifying the 
 participation in a protest, where this verification step is at the core.
-
 In the context of voting protocols, in particular e-voting protocols, there are 
 three desirable properties for verification:
 \begin{properties}
@@ -25,18 +32,19 @@ three desirable properties for verification:
   in the result.
 \end{properties}
 We can transfer these properties to the case of protest participation, then 
-each vote would be replaced by a proof of participation.
+each vote would be replaced by a proof of participation (in either the protest 
+or any counter-protest).
 \Cref{EligibilityVerif} would in this case mean that anyone can verify that 
 each participation proof belongs to a unique individual, i.e.\ to prevent any 
-Sybil attack (\cref{SybilAttacks}).
+Sybil attack (as discussed in \cref{SybilAttacks}).
 
 The three verifiability properties above are indeed desirable, e.g.\ then the 
 \ac{UN} can verify protests happening in a country and the country cannot deny 
 it, thus the \ac{UN} can apply pressure if needed.
 However, the properties are difficult to accomplish with computer vision 
 methods, especially if nobody from the \ac{UN} has been on location to collect 
-the image material for the analysis --- since then the authenticity can be 
-questioned as outlined in \cref{DataAuthenticity}.
+the image material for the analysis --- otherwise the authenticity can be 
+questioned (as discussed in \cref{DataAuthenticity}).
 
 Additionally, in voting, the cast votes are not linkable to the identity of the 
 casters.
