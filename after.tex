@@ -1,26 +1,27 @@
 \section{After a Protest}
 \label{AfterProtest}
 
-The main goal after a protest is to provide verifiable data.
-For instance, how can we ensure that photos from a demonstration are authentic?
+The main goal for Alice after a protest is to provide verifiable data.
+For instance, how can she ensure that photos from a demonstration are 
+authentic?
 We can probably recognize the place the photo is portraying, however, the 
 meta-data such as time-stamps of the file can be manipulated.
-So the only thing we can say is that the photo was taken at the latest at the 
-time of publication.
+So the only thing we can say for sure is that the photo was taken at the latest 
+at the time of publication.
 Similarly, how can we determine the number of participants of a demonstration?
 Many techniques used today estimate the number given photos of the 
 demonstration, but this might not give an accurate number.
-And, as mentioned, the source of the photo must be trusted, otherwise the 
-authenticity of the photo can be questioned.
-
-We will discuss these two problems in this section.
-First we will discuss the problem of data authenticity in 
-\cref{DataAuthenticity}, i.e.\ that the data can be correctly tied to the 
-demonstration.
-Then we will discuss verification of the participation of a protest in 
-\cref{ProtestVerif}, i.e.\ the ability to compute and verify the number of 
-participants.
-%TODO: relate this to surveillance
+And, as mentioned, the source of each photo must be trusted, otherwise the 
+authenticity of the photos can be questioned.
+Alice also has another problem.
+Assume that she can provide this verifiable data.
+Alice and Bob do not want that Eve can use this data to tie Alice
+and Bob to the demonstration and arrest them.
+Thus, what Alice and Bob need is a system which can provide data authenticity, 
+i.e.\ that the data can be correctly tied to the demonstration.
+Then we will discuss verification of the participation of a protest, i.e.\ the 
+ability to compute and verify the number of participants while preserving the 
+privacy of Alice and Bob.
 
 %\item the possibilities for the organizers to verify the participation and 
 %use it as feedback into a reputation system;
