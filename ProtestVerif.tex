@@ -21,19 +21,19 @@ In general, a demonstration is very similar to voting: both are many
 individuals expressing their opinion.
 Hence it is desirable to have similar properties for verifying the 
 participation in a protest, where this verification step is at the core.
-In the context of voting protocols, in particular e-voting protocols, there are 
-three desirable properties for verification:
-\begin{properties}
-\item\label{UniversalVerif} Anyone can verify that the result is according to 
-  the cast votes.
-\item\label{EligibilityVerif} Anyone can verify that each vote cast is 
-  legitimate.
-\item\label{IndividualVerif} Every voter can verify that its vote is included 
-  in the result.
-\end{properties}
-We can transfer these properties to the case of protest participation, then 
-each vote would be replaced by a proof of participation (in either the protest 
-or any counter-protest).
+In the context of (electronic) voting protocols, there are three desirable 
+properties for verification:
+\begin{requirements}[V]
+\item\label{EligibilityVerif} Eligibility: anyone can verify that each vote 
+  cast is legitimate.
+\item\label{UniversalVerif} Universal verifiability: anyone can verify that the 
+  result is according to the cast votes.
+\item\label{IndividualVerif} Individual verifiability: every voter can verify 
+  that its vote is included in the result.
+\end{requirements}
+We can translate these properties to requirements for the case of protest 
+participation, then each vote would be replaced by a proof of participation (in 
+either the protest or any counter-protest).
 \Cref{EligibilityVerif} would in this case mean that anyone can verify that 
 each participation proof belongs to a unique individual, i.e.\ to prevent any 
 Sybil attack (as discussed in \cref{SybilAttacks}).
@@ -46,6 +46,25 @@ methods, especially if nobody from the \ac{UN} has been on location to collect
 the image material for the analysis --- otherwise the authenticity can be 
 questioned (as discussed in \cref{DataAuthenticity}).
 
+We also need privacy in addition to the verification requirements.
+In voting, we have the properties:
+\begin{requirements}[P]
+\item\label{VotePrivacy} Vote privacy: the vote does not reveal any individual 
+  vote.
+\item\label{ReceiptFreeness} Receipt freeness: the voting system does not 
+  provide any data that can be used as a proof of how the voter voted.
+\item\label{CoercionResistance} Coercion resistance: a voter cannot cooperate 
+  with a coercer to prove the vote was cast in any particular way.
+\end{requirements}
+\Textcite{VerifyingPrivacyPropertiesOfVotingProtocols} showed that 
+\cref{CoercionResistance} implies \cref{ReceiptFreeness}, which in turn implies
+\cref{VotePrivacy}.
+We can see that \cref{VotePrivacy,ReceiptFreeness} would be interesting in the 
+context of a demonstration: there should not be any proof which binds Alice to 
+the participation of the demonstration (\cref{ReceiptFreeness}), because she 
+does not want to explicitly reveal her opinions to the government 
+(\cref{VotePrivacy}) due to the risk of reprimands.
+
 Additionally, in voting, the cast votes are not linkable to the identity of the 
 casters.
 Thus it is not a problem to reveal the identites of those who participated in 
@@ -53,8 +72,8 @@ the vote, since they could have voted for any alternative.
 We would also like to have the corresponding property when verifying the 
 protest.
 The very nature of a protest is different though, we do not have any choice: if 
-we participate we support the cause of the protest. %TODO: what about
-                                %counterprotests in the same location
+we participate we support the cause of the protest.
+%TODO: what about counterprotests in the same location
 Consequently we want to verify the participation of a protest without 
 identifying individuals who participated.
 Otherwise the regime's agents can identity all the participants and simply 
