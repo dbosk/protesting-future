@@ -1,28 +1,48 @@
 \section{After a Protest}
 \label{AfterProtest}
 
+One problem in real-world demonstrations that has not yet been entirely solved 
+is the crowd-counting problem, i.e.\ the verification of the participation in 
+a demonstration.
+After many demonstrations the count by police and that by the organizers 
+differ, in some instances the difference can be hundreds of thousands.
+There are numerous examples, e.g.\ the demonstrations in South 
+Korea~\cite{2016DemonstrationsInSeoul} or the women's marches in the 
+US~\cite{2017WomensMarchesInUS}, where there is difficulty in establishing the 
+actual number of participants.
+The methods for counting the crowds vary.
+There are some techniques using computer vision found in the research 
+literature, e.g.\ by~\textcite{CVCrowdCounting}.
+These require images from the demonstration and provide no way to verify the 
+authenticity of the count (except re-running the algorithm on one's own input 
+data).
+However, as is illustrated by 
+\textcite{2016DemonstrationsInSeoul,2017WomensMarchesInUS}, the methods used in 
+practice are manual and prone to errors.
+
 The main goal for Alice after a protest is to provide verifiable data.
-For instance, how can she ensure that photos from a demonstration are 
-authentic?
-We can probably recognize the place the photo is portraying, however, the 
-meta-data such as time-stamps of the file can be manipulated.
+For example, how can she ensure that photos from a demonstration are authentic?
+We can probably recognize the place the photo is portraying, however, this 
+might just as well be a reconstruction or entirely computer generated.
+We cannot trust the meta-data of the photo, such as time-stamps of the file, 
+because these can easily be manipulated.
 So the only thing we can say for sure is that the photo was taken at the latest 
 at the time of publication.
-Similarly, how can we determine the number of participants of a demonstration?
-Many techniques used today estimate the number given photos of the 
-demonstration, but this might not give an accurate number.
-And, as mentioned, the source of each photo must be trusted, otherwise the 
-authenticity of the photos can be questioned.
+Now, if we cannot trust these photos, how can we determine the number of 
+participants of a demonstration?
+Many of the techniques require photos for doing this.
+Furthermore, as is shown by 
+\textcite{2016DemonstrationsInSeoul,2017WomensMarchesInUS}, the numbers 
+determined by these techniques have rather large margins.
+
 Alice also has another problem.
 Assume that she can provide this verifiable data.
-Alice and Bob do not want that Eve can use this data to tie Alice
-and Bob to the demonstration and arrest them.
+Alice and Bob do not want that this data ties them to the demonstration, 
+because then Eve can use this data to find out about Alice and Bob and arrest 
+them.
 Thus, what Alice and Bob need is a system which can provide data authenticity 
 and user privacy, i.e.\ that the data can be correctly tied to the 
 demonstration without outing Alice and Bob as supporters.
-Then we will discuss verification of the participation of a protest, i.e.\ the 
-ability to compute and verify the number of participants while preserving the 
-privacy of Alice and Bob.
 
 %\item the possibilities for the organizers to verify the participation and 
 %use it as feedback into a reputation system;
