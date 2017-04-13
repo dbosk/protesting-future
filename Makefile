@@ -46,6 +46,7 @@ protesting.pdf: mpc.bib
 protesting.pdf: stats.bib
 protesting.pdf: protests.bib
 protesting.pdf: voting.bib
+protesting.pdf: adhocnets.bib
 
 wc: ${SRC}
 todo: ${SRC}
