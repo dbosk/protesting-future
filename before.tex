@@ -10,16 +10,9 @@ minimizes the risk of interference.
 In this section we will focus on two aspects: the communication between the 
 activists and their agreement on the details of the demonstration event.
 
-
-As we discussed in \cref{TechnicalLimitations}, it is difficult for Alice to 
-protect herself against double agents.
-The goal in this section is to reduce the damage of infiltration attacks.
-If the regime's agents compromise Alice's device, they can monitor everything 
-she does, and we do not protect against that.
-
 \paragraph{Communication}
 
-Alice and her co-organizers will have to communicate with each other.
+Alice and her co-organizers must communicate with each other.
 A trivial solution to the communication problem is the traditional face-to-face 
 meeting --- with the trade-off that the invited attendants should be able to 
 meet at the same time in the same place.
@@ -28,10 +21,13 @@ electronic communications.
 Thus Alice wants to communicate with Bob by means of a secure channel to 
 prevent the regime's agents from eavesdropping on their conversations.
 
+Secure communication can be divided into two problems: bootstrapping and the 
+actual communication.
 There are several tools that we will discuss related to this.
-First, in \cref{UserSearch}, we will discuss how Alice and Bob can find each 
-other in \iac{DOSN}.
-Then we discuss two-party secure communications in \cref{Communicating}.
+In \cref{UserSearch}, we will discuss how Alice and Bob can find each other in 
+\iac{DOSN}, this relates to the bootstrapping problem.
+Then we discuss security and privacy properties of the communication problem, 
+we focus on two-party secure communications in \cref{Communicating}.
 There is also the case where Alice wants to talk to more people than just Bob, 
 and this case is discussed in \cref{Discussions}.
 
