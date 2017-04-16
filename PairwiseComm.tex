@@ -1,60 +1,78 @@
-We will now focus on the communication.
-Specifically we will focus on communication between pairs of people, e.g.\ 
-Alice talking to Bob.
+We will now focus on communication between pairs of people, e.g.\ Alice talking 
+to Bob.
 \citeauthor{otr2004} designed a secure protocol for two-people communication, 
 the \ac{OTR} protocol.
-They desired an electronic equivalent of face-to-face conversations, i.e.\ that 
-they leave no proofs of any kind behind:
-if Alice and Bob have had a conversation, Bob cannot go to Eve afterwards and 
-prove anything about what Alice has said --- the same as in a face-to-face 
-conversation.
+This protocol was used as the base and has now been replaced by the Signal 
+protocol\footnote{%
+  The protocol used in popular messaging apps such as Signal and WhatsApp.
+}.
+\citeauthor{otr2004} desired an electronic equivalent of face-to-face 
+conversations, i.e.\ a protocol which yield no binding proofs:
+if Alice and Bob have had a conversation, Bob cannot prove anything to Eve 
+about what Alice has said --- the same as in a face-to-face conversation.
 This property is not true for email or most centralized communication
 services.
-%TODO: one reviewer says to revise language, but it's not clear where
-%around here.
 
-\subsubsection{Standard Email}
+\subsubsection{Email and Centralized Services}
 
-The standard email system does not provide any security.
-A suitable analogy would be that each message is a postcard, i.e.\ it has no 
-envelope, so the content and address are visible on it.
-This means that the postman can read the cards' contents, their recipients' and
-senders' addresses.
-(Yes, unlike real postcards these also include the sender's address.)
-Furthermore, most postmen use transparent sacks to carry the postcards, so 
-everyone along the way can also read the sender's and recipient's address and 
-the contents.
-However, some postmen have started using non-transparent sacks, i.e.\ encrypted 
-connections between the servers, so those postcards can only be read by the 
-staff in the post-office. %TODO reviewer question: no confidentiality
-                          %at all?
+The standard email system does not provide any confidentiality or 
+integrity.
+A suitable analogy would be that of a postcard.
+Alice writes her message to Bob on a postcard without any envelope, i.e.\ her 
+message and Bob's address are visible on it\footnote{%
+  She must write her full return address on it too.
+}.
+This means that the postman can read everything.
+Furthermore, most postmen use transparent sacks\footnote{%
+  Some postmen have started using non-transparent sacks, so those postcards can 
+  only be read by the staff in the post-office.
+} to carry the postcards, so everyone along the way can also read the sender's 
+and recipient's address and the contents.
+This means that Eve can read the contents of these messages too.
 
-Thus the email system provides no confidentiality: each email server can read 
-the messages, each network operator along the transport route can also read 
-(and make a copy of) each email.
-However, it is actually worse than that, because the email system provides no 
-integrity either.
-This means that the postman, or anyone along the way, can do arbitrary 
-modifications to the messages without anyone noticing the difference.
-We can safely say that we cannot rely on the email system for neither security 
-nor privacy when planning a protest.
+Thus the email system provides no confidentiality: both the server used for 
+sending and the server used for receiving and storing the email can read the 
+contents in plain text.
+If these servers do not use an encrypted connection, which is not mandatory, 
+each network operator along the route can also read (and make a copy of) each 
+email --- in plain text.
+In 2013, \textcite{Fibretap} published that \ac{GCHQ} did exactly this on 
+a worldwide scale.
+Clearly, this is undesirable for Alice and Bob, since Eve can do exactly this 
+too.
+
+It is actually worse than that: the email system provides no integrity either.
+This means that the postman, or Eve\footnote{%
+  Or any network operator along the way.
+}, can do arbitrary modifications to the messages without anyone noticing the 
+difference.
+This means that Eve can modify Alice's messages to Bob and Bob will not notice.
 
 When using a centralized communications service, such as Facebook, the
 level of security and privacy we can achieve is that the postman
 carries non-transparent sacks.  The business model of most such
-services is to read peoples postcards to better profile their
-interests and thus deliver better suiting advertising.  Here, third
-parties such as advertisers or surveillance entities cannot directly
-see who is communicating with whom.  They can only see that something
-goes to and from the service.  However, all information is available
+services is to read people's postcards to better profile their
+interests and thus deliver better suiting advertising.
+In this case, Eve can cannot directly see who is communicating with whom.
+She can only see that something goes to and from the service.
+However, all information is available
 internally to the service.  This means that there are ways of learning
-this, for example through PRISM~\cite{Prism} of the
-\ac{NSA}.%TODO: explain how %TODO address this question even more:
-         %Which kind of third parties are these, when compared to the
-         %case of e-mail? Advertisers? Or other parties? And
-         %canadvertisers read the content in e-mail systems? Google
-         %lets them advertise on keywords, but not read the mail
-         %itself for instance. Or hackers? 
+this.
+One approach was illustrated by \acg{NSA} PRISM programme~\cite{Prism}, where 
+the \ac{NSA} could systematically fetch user data from the major centralized 
+services (Facebook, Google, Microsoft, Yahoo etc.) and could query this data at 
+their own discretion.
+This might not work for governments like China, since these services are 
+located outside China.
+Since they are centralized, they are easy to censor.
+This forces services to be located inside China where this type of access is 
+possible.
+%TODO address this question even more:
+%Which kind of third parties are these, when compared to the
+%case of e-mail? Advertisers? Or other parties? And
+%can advertisers read the content in e-mail systems? Google
+%lets them advertise on keywords, but not read the mail
+%itself for instance. Or hackers? 
 %TODO: other reviewer: annotate, give context.
 
 \subsubsection{Secure Email and Text Messaging}
