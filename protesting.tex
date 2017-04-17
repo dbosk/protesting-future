@@ -5,6 +5,8 @@
 %\usepackage[defblank]{paralist}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
 
 \usepackage[inline]{enumitem}
 \newlist{properties}{enumerate}{5}
@@ -50,6 +52,7 @@
 \addbibresource{mpc.bib}
 \addbibresource{stats.bib}
 \addbibresource{adhocnets.bib}
+\addbibresource{hr.bib}
 
 \let\noparencite\cite%
 \let\cite\parencite%
@@ -59,6 +62,24 @@
   group-citation = true,
   group-cite-cmd = {\noparencite},
 }
+\ProvideAcroEnding{possessive}{'s}{'s}
+\ExplSyntaxOn
+\NewAcroCommand \acg
+{
+  \acro_possessive:
+  \acro_use:n {#1}
+}
+\NewAcroCommand \acsg
+{
+  \acro_possessive:
+  \acro_short:n {#1}
+}
+\NewAcroCommand \aclg
+{
+  \acro_possessive:
+  \acro_long:n {#1}
+}
+\ExplSyntaxOff
 
 \usepackage[binary-units]{siunitx}
 

@@ -45,6 +45,10 @@ protesting.pdf: be.bib
 protesting.pdf: mpc.bib
 protesting.pdf: stats.bib
 protesting.pdf: adhocnets.bib
+protesting.pdf: hr.bib
+
+protesting.pdf: FullMeshNetwork.eps
+FullMeshNetwork.eps: FullMeshNetwork.svg
 
 wc: ${SRC}
 todo: ${SRC}
