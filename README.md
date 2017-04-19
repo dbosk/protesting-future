@@ -27,7 +27,7 @@ git submodule update --init --recursive
 ```
 
 To compile the document, simply type `make` in the terminal. There are usually 
-options to compile using make in e.g. TeXmaker too.
+options to compile using make(1) in e.g. TeXmaker too.
 
 To check the number of words, run `make wc`. This uses detex(1) and wc(1) to 
 estimate the number of words.

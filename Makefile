@@ -49,6 +49,8 @@ protesting.pdf: voting.bib
 protesting.pdf: adhocnets.bib
 
 wc: ${SRC}
+$(foreach f,${SRC},$(eval PREWC-${f}=detex))
+
 todo: ${SRC}
 
 INCLUDE_MAKEFILES=makefiles
