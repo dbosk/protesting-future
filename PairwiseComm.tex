@@ -129,11 +129,10 @@ Eve, thus he cannot prove to Eve what Alice has said --- since he could have
 created this \enquote{proof} himself.
 However, in this situation, Eve still has only two candidates as the author of 
 the message: Alice and Bob, since they both have access to the shared keys.
-%In addition, Alice and Bob do not use the same \ac{MA} key throughout their 
+%In addition, Alice and Bob do not use the same \ac{MAC} key throughout their 
 %conversation, they continuously exchange new keys, one for each message.
-To remedy this problem Alice and Bob uses a new \ac{MA} key for each 
-message.
-When a message has been confirmed as received they publish the \ac{MA} key for 
+To remedy this problem Alice and Bob uses a new \ac{MAC} key for each message.
+When a message has been confirmed as received they publish the \ac{MAC} key for 
 that message, i.e.\ when they no longer need them.
 This gives \enquote{everyone} the possibility of generating messages that 
 verifies under Alice and Bob's key, so now Alice and Bob can argue that someone 
