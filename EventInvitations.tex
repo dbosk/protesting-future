@@ -63,49 +63,64 @@ this problem with a fully decentralized scheme.
 %Preferably, all this should be possible in a privacy-preserving
 %fashion. %TODO: reviewer: unclear
 
+In a centralized scheme (like Facebook), there is a third party (Facebook) who 
+must be trusted to keep secrets and adhere to the protocol.
+There is not such need in a decentralized scheme, with a decentralized protocol
+Alice, Bob and Carol must only trust themselves --- not even each other.
+This means that there is no central authority who has all invitation data that 
+Eve can compel to give it up.
+
 Realizing this standard feature of \acp{OSN} in a decentralized manner is not 
-trivial, because there is no trusted third party which both organizers and 
-invitees can rely on. %TODO: reviewer comment: give more concrete
-                      %examples, like FB, analyze why FB has flaws
-Since they %TODO: who?
- all depend on only themselves, an implementation of this feature 
-must provide security properties that guarantee fairness to all parties 
-involved, e.g.\  a protester can verify that the invitation she received was 
-actually sent by the organizers.
-Moreover, the implementation should also provide privacy settings to protect 
-personal information such as the identities of the participants, e.g.\ the 
-organizers can restrict to only the invited participants to learn how many 
-others have been invited, and only after a protester has agreed and committed 
-formally to attend the event, she can learn the identities of other invited 
-protesters.
+trivial, just because there is no trusted third party which both organizers and 
+invitees can rely on.
+In this situation, Alice, Bob and Carol depend only on themselves.
+This means that the protocol must guarantee fairness to all parties involved, 
+e.g.\ that Bob can verify that the invitation he received was actually sent by 
+Alice.
+Moreover, the protocol must also provide privacy settings to protect personal 
+information, such as the identities of Bob and Carol.
+E.g.\ Alice can restrict that only the invited participants learn how many 
+others have been invited, and only after Bob has agreed and formally committed 
+to attend the event, he can learn the identities of other invited protesters 
+(Carol).
 
 The challenge of implementing this feature without a trusted third party 
-becomes greater when the organizers want to allow different types of 
-information about the event to be shared with different groups of protesters in 
-a secure way because any participant should be able to verify the results to 
-detect any possible cheating.
-For example, a neutral trusted broker, such as the organizers, could keep 
-certain information secret, such as the identities of the invited protesters, 
-and only disclose it to those ones who commit to attend the protest. 
+becomes greater when Alice want to allow different types of information about 
+the event to be shared with different groups of participants, e.g.\ Alice might 
+trust Bob less than Carol.
+The difficulty is Bob and Carol should be able to verify the results to detect 
+if Alice tries to cheat.
 
-In the scheme by \citet{EventsInvitations}, they describe and formalize the 
+In the scheme by \textcite{EventsInvitations}, they describe and formalize the 
 security and privacy properties outlined above.
-More specifically, that the organizer is able to configure who can learn the 
-identities of the invited or attending participants, or a more restrictive 
-version where only the number of invitees or attendees are revealed.
+More specifically, Alice is able to configure who can learn the identities of 
+the invited or attending participants, or a more restrictive version where only 
+the number of invitees or attendees are revealed.
 There is also an attendee-only property that guarantees exclusive access to 
-some data, e.g.\ the location of the protest.
+some data, e.g.\ the location of the demonstration.
 These properties are accomplished using several simple primitives:
-storage location indirection, controlled ciphertext inference and 
+storage-location indirection\footnote{%
+  This means that Alice stores a secret in location \(A\), then she stores this
+  location encrypted in location \(B\).
+  She can reveal \(B\) to Bob and Carol, but they cannot find \(A\) without the
+  decryption key.
+  Later, Alice might give Bob or Carol the key and they can find \(A\).
+},
+controlled ciphertext-inference and
 a commit-disclose protocol.
-Storage location indirection allows the organizer to control not only who can 
-read some the contents of some encrypted data, but also who can access the 
-ciphertext.
-% XXX Why is this interesting?
-Controlled ciphertext inference can be used by the organizer to allow for 
-controlled information leaks.
-This is needed to achieve properties such as revealing the number of invitees 
-but keeping their identities secret.
+Storage-location indirection allows Alice to control not only who can read the 
+contents of some encrypted data, but also who can access the ciphertext.
+Alice can use controlled ciphertext-inference to allow for controlled 
+information leaks.
+E.g.\ Alice can use this to reveal the number of invitees but to keep their 
+identities secret\footnote{%
+  The identities are encrypted, but if Bob and Carol count the ciphertexts they
+  learn the number of identities, e.g.\ the number of invitees or attendees.
+}.
 Finally, the commit-disclose protocol can make some secret available for only 
-those participants who committed to attend the protest while, at the same time, 
-detect any misbehaving party.
+those invitees who committed to attend the demonstration while, at the same 
+time, detect any misbehaving party.
+If Alice tries to cheat Bob, then this protocol have provided Bob with data 
+that he can show to Carol to prove that Alice tries to cheat.
+Consequently, Alice, Bob and Carol can use this to build a reputation for 
+Alice.
