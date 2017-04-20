@@ -1,52 +1,60 @@
-So the challenge is to protect user data from malicious adversaries but
-at the same time making users findable for other legitimate users.
-To distinguish between these two cases, we assume (at least in the
-context of social networks) that legitimate users
-possess more information about a target user than the adversary. 
-Then a knowledge threshold can be enforced using cryptographic techniques, to
-guarantee that a user can only be found if the party searching for her
-can present enough details about her (\enquote{find me if you know enough about
+\subsection{Searching for Your Friends}
+\label{UserSearch}
+
+For Alice and Bob to be able to communicate, they must have a way to set-up 
+their secure communication.
+The particular instance we will cover here is how Alice can find Bob's profile 
+in \iac{DOSN}, yet prevent the regime from also finding it.
+
+Let us assume that Alice knows more about Bob than the regime does.
+Then a knowledge threshold can be enforced using cryptographic techniques, 
+i.e.\ to guarantee that Bob can only be found if the party searching for him 
+can present enough details about him (\enquote{find me if you know enough about
 me}).
 
-Two protocols' implementations are presented by \citet{ThresholdUserSearch} 
-that have different advantages and disadvantages.
+\Textcite{ThresholdUserSearch} presents two protocols that have different 
+advantages and disadvantages.
 Neither of them relies on any central repository of user data.
 This avoids the biggest risk to user data: the leakage of a central database 
-with sensitive information about a large number of
-people. Practically, the protocols can be implemented in a completely
-decentralized way using a \iac{DHT}, which is a standard component of
+with sensitive information about a large number of people.
+Practically, the protocols can be implemented in a completely decentralized way 
+using \iac{DHT}, which is a standard component of
 decentralized systems to store, locate, and retrieve data.
 
-The proposed protocols allow users to register their identifiers (e.g.\ 
-links to their profile pages, e-mail addresses or other contact
-information) and specify the required knowledge that is needed to find
-this information (e.g.\  name, city, workplace and date of birth).
-One implementation guarantees this knowledge-threshold by encoding the
-storage location of the registered user identifiers using the required
-knowledge attributes.
+The proposed protocols allow Alice and Bob to register their identifiers, e.g.\ 
+links to their profile pages, e-mail addresses or other contact information.
+They can also specify the required knowledge that is needed to find this data,  
+e.g.\ name, city, workplace and date of birth.
+One protocol guarantees this knowledge-threshold by encoding the storage 
+location of Bob's identifier using the required knowledge attributes.
 Only users that know these attributes can construct a valid lookup request for 
-the \ac{DHT} that will return the desired user identifier.
-The other protocol stores user identifiers encrypted in the \ac{DHT} and uses 
-threshold secret-sharing techniques to guarantee that no user with less than 
-the required number of attributes can decrypt a stored identifier.
+the \ac{DHT} that will return Bob's identifier.
+The other protocol stores Bob's identifier encrypted in the \ac{DHT} and uses 
+threshold secret-sharing techniques\footnote{%
+  This is a cryptographic technique where a secret value is split in \(n\) 
+  shares.
+  Without at least \(t\leq n\) of these shares, the secret cannot be 
+  reconstructed.
+} to guarantee that no user with less than the required number of attributes 
+can decrypt a stored identifier.
 
 Neither protocol can provide perfect protection.
 In the worst-case of a targeted attack, an adversary with profound background 
-knowledge about the target user will likely succeed.
-For example, we cannot protect the user identifier if the adversary knows as 
-many attributes about the target user as legitimate users do.
-At the same time, both schemes protect the users fairly well from large-scale 
-crawling attacks as the search space of all possible attribute combinations is 
-too large to brute-force and the protocols transform the registered user data 
-in such a way that inferences from the publicly stored data are infeasible.
+knowledge about Bob will likely succeed.
+For example, we cannot protect Bob's identifier if the adversary knows as many 
+attributes about him as Alice does.
+At the same time, both protocols protect Bob fairly well from large-scale 
+crawling attacks, as the search space of all possible attribute combinations is 
+too large and the protocols transform the registered user data in such a way 
+that inferences from the publicly stored data are infeasible.
 Even if the adversary focuses her effort to only crawl the data of a specified 
-subset of the user-base (e.g.\ all persons working at a specific organization), 
+subset of the user-base, e.g.\ all persons working at a specific organization, 
 the proposed protocols offer good protection. 
 
 The knowledge-threshold is an individual user parameter, so users that
 consider themselves to be more exposed to risks can choose a higher
-knowledge-threshold to increase their protection at the cost of a lower
-usability, as a higher threshold makes it harder for other legitimate
+knowledge-threshold to increase their protection at the cost of lower
+usability --- as a higher threshold makes it harder for other legitimate
 users to find them.
 In that sense, the presented protocols allow users to individually balance 
 their findability and privacy requirements.

@@ -43,10 +43,14 @@ DEPEND+=anon.bib
 DEPEND+=be.bib
 DEPEND+=mpc.bib
 DEPEND+=stats.bib
+DEPEND+=protests.bib
+DEPEND+=voting.bib
 DEPEND+=adhocnets.bib
+DEPEND+=hr.bib
 
 protesting.pdf: ${SRC}
 protesting.pdf: ${DEPEND}
+
 
 wc: ${SRC}
 $(foreach f,${SRC},$(eval PREWC-${f}=detex))
