@@ -28,23 +28,25 @@ SRC+=   conclusion.tex
 # appendix
 SRC+=	bios.tex
 
+DEPEND+=libbib.sty
+DEPEND+=crypto.bib otrmsg.bib
+DEPEND+=ppes.bib
+DEPEND+=ac.bib
+DEPEND+=location.bib
+DEPEND+=reputation.bib
+DEPEND+=auth.bib
+DEPEND+=osn.bib
+DEPEND+=privacy.bib
+DEPEND+=surveillance.bib
+DEPEND+=depend.bib
+DEPEND+=anon.bib
+DEPEND+=be.bib
+DEPEND+=mpc.bib
+DEPEND+=stats.bib
+DEPEND+=adhocnets.bib
+
 protesting.pdf: ${SRC}
-protesting.pdf: libbib.sty
-protesting.pdf: crypto.bib otrmsg.bib
-protesting.pdf: ppes.bib
-protesting.pdf: ac.bib
-protesting.pdf: location.bib
-protesting.pdf: reputation.bib
-protesting.pdf: auth.bib
-protesting.pdf: osn.bib
-protesting.pdf: privacy.bib
-protesting.pdf: surveillance.bib
-protesting.pdf: depend.bib
-protesting.pdf: anon.bib
-protesting.pdf: be.bib
-protesting.pdf: mpc.bib
-protesting.pdf: stats.bib
-protesting.pdf: adhocnets.bib
+protesting.pdf: ${DEPEND}
 
 wc: ${SRC}
 $(foreach f,${SRC},$(eval PREWC-${f}=detex))
