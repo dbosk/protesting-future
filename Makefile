@@ -28,26 +28,29 @@ SRC+=   conclusion.tex
 # appendix
 SRC+=	bios.tex
 
+DEPEND+=libbib.sty
+DEPEND+=crypto.bib otrmsg.bib
+DEPEND+=ppes.bib
+DEPEND+=ac.bib
+DEPEND+=location.bib
+DEPEND+=reputation.bib
+DEPEND+=auth.bib
+DEPEND+=osn.bib
+DEPEND+=privacy.bib
+DEPEND+=surveillance.bib
+DEPEND+=depend.bib
+DEPEND+=anon.bib
+DEPEND+=be.bib
+DEPEND+=mpc.bib
+DEPEND+=stats.bib
+DEPEND+=protests.bib
+DEPEND+=voting.bib
+DEPEND+=adhocnets.bib
+DEPEND+=hr.bib
+
 protesting.pdf: ${SRC}
-protesting.pdf: libbib.sty
-protesting.pdf: crypto.bib otrmsg.bib
-protesting.pdf: ppes.bib
-protesting.pdf: ac.bib
-protesting.pdf: location.bib
-protesting.pdf: reputation.bib
-protesting.pdf: auth.bib
-protesting.pdf: osn.bib
-protesting.pdf: privacy.bib
-protesting.pdf: surveillance.bib
-protesting.pdf: depend.bib
-protesting.pdf: anon.bib
-protesting.pdf: be.bib
-protesting.pdf: mpc.bib
-protesting.pdf: stats.bib
-protesting.pdf: protests.bib
-protesting.pdf: voting.bib
-protesting.pdf: adhocnets.bib
-protesting.pdf: hr.bib
+protesting.pdf: ${DEPEND}
+
 
 wc: ${SRC}
 $(foreach f,${SRC},$(eval PREWC-${f}=detex))
@@ -55,8 +58,18 @@ $(foreach f,${SRC},$(eval PREWC-${f}=detex))
 todo: ${SRC}
 	@grep "\(XXX\|TODO\|FIXME\)" $^
 
+
+.PHONY: all
+all: ${PKG_TARBALL}
+
+PKG_NAME=camera-ready-src
+PKG_TARBALL=${PKG_NAME}.zip
+PKG_TARBALL_FILES=README.camera-ready ${SRC} ${DEPEND}
+
+
 INCLUDE_MAKEFILES=makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
 include ${INCLUDE_MAKEFILES}/doc.mk
+include ${INCLUDE_MAKEFILES}/pkg.mk
 INCLUDE_LIBBIB=libbib
 include ${INCLUDE_LIBBIB}/libbib.mk
