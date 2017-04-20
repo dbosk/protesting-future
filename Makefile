@@ -50,6 +50,7 @@ wc: ${SRC}
 $(foreach f,${SRC},$(eval PREWC-${f}=detex))
 
 todo: ${SRC}
+	@grep "\(XXX\|TODO\|FIXME\)" $^
 
 INCLUDE_MAKEFILES=makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
