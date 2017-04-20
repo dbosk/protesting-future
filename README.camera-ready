@@ -1,0 +1,13 @@
+The main TeX-file is `protesting.tex`.
+
+That file contains the preamble and the `document` environment. The actual 
+contents is then `\input`ed from the other files.
+
+The document uses `biblatex` and `biber` for the references and bibliography.
+
+The document can be compiled as it is using
+```
+latexmk protesting.tex
+```
+and the latest version of TeXLive in Ubuntu. (More specifically, the acro 
+package must be v2.3 or later, we used v2.7. The others should be fine.)
