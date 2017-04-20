@@ -44,7 +44,10 @@ protesting.pdf: anon.bib
 protesting.pdf: be.bib
 protesting.pdf: mpc.bib
 protesting.pdf: stats.bib
+protesting.pdf: protests.bib
+protesting.pdf: voting.bib
 protesting.pdf: adhocnets.bib
+protesting.pdf: hr.bib
 
 wc: ${SRC}
 $(foreach f,${SRC},$(eval PREWC-${f}=detex))

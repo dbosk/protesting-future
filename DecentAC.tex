@@ -1,48 +1,61 @@
-\citet{PPACinPubFS} analysed two dichotomous models of communication.
-The first was the pull model, where the recipients fetch (i.e.\ pull) new 
-messages from the sender.
-A suitable analogy would be that of magazines published through sales in 
-kiosks: people go to the kiosk to get the latest publications.
-The second model was the push model, here a sender sends the message directly 
-to the recipients.
-Thus it is more like magazine subscriptions: the next issue arrives in the 
-mailbox shortly after publication.
-This is the model of the communication described in \cref{GroupProperties}, 
-i.e.\ the communication model for email.
-\citeauthor{PPACinPubFS} found that achieving privacy in the pull model is 
-technically easier than in the push model.
-In fact, achieving strong privacy in the push model is very
-difficult. %TODO: explain why
+\textcite{PPACinPubFS} analysed two dichotomous models of communication: the 
+pull model and the push model.
+Alice wants to send a message to Bob and Carol.
+In the pull model, Alice would publish her message in a place known to Bob and 
+Carol.
+Bob and Carol visits this place periodically to check if Alice has published 
+any new messages.
+(If there is a new message, they make a copy for themselves.)
+In the push model, Alice drops her message in Bob's and Carol's letter boxes.
+(One copy for each.)
+Email and text-messaging are best modelled using the push model (see 
+\cref{GroupCommunication}).
+For both models, Eve can analyse the communication patterns to infer (a part 
+of) the social graph unless Alice, Bob and Carol use some countermeasures.
+
+%\citeauthor{PPACinPubFS} found that achieving privacy in the pull model is 
+%technically easier than in the push model.
+%In fact, achieving strong privacy in the push model is very
+%difficult. %TODO: explain why (move to end)
 
 \paragraph{The Pull Model}
 
 We can start by looking at the pull model for communication.
-Alice wants to distribute a message to the participants in a discussion.
-In the pull model the participants actively ask Alice or an intermediary for 
-new messages at regular intervals.
-To form a protocol around this model, Alice and the participants can agree on 
-a location for the messages.
+Alice wants to distribute a message to Bob and Carol, the participants in 
+a discussion.
+In the pull model they actively ask Alice (or an intermediary) for new messages 
+at regular intervals.
+To form a protocol around this model, Alice, Bob and Carol can agree on 
+a location where Alice puts her messages\footnote{%
+  Technically, this can be implemented in a similar fashion as the \ac{DHT}, as 
+  mentioned in \cref{UserSearch}.
+  This would make it more difficult for Eve to censor it compared to the 
+  centralized systems.
+}.
 When Alice wants to send a new message, she writes it to this particular 
 location.
-When the other participants want to, they can read from the location to see if 
-there are any new messages.
+When Bob and Carol want to, they can read from the location to see if there are 
+any new messages.
 
-We can assume that the network that Alice uses is controlled by the regime's 
-agents.
-We can also assume that the storage where the messages are stored is publicly 
-readable, because it is probable that the regime's agents can compromise it.
-Thus Alice does not want to be associated with the message, not authorship nor 
-posting it.
+Suppose that Eve controls the network that Alice uses\footnote{%
+  This is reasonable considering that we saw earlier that the \ac{NSA} and 
+  \ac{GCHQ} achieve similar results in free countries.
+}.
+Since we have a decentralized system in mind, we can also assume that anyone 
+(especially Eve) can read anything from the storage.
+%This is why Alice encrypts all her messages for the recipients' keys.
+%Also, Alice does not want to be associated with the message, not authorship nor 
+%posting it.
 
-The first thing we can say about this is that Alice would like to have 
-confidentiality for the message contents, so the regime's agents cannot read 
-it.
-She would also like to have integrity for the message, so that the recipients 
-can be sure that the regime's agents have not modified it.
-Many systems provide these two properties, e.g.\ \ac{PGP} which is used for 
-email.
-However, Alice also wants to hide the sender and recipients, a property which 
-\ac{PGP} and others do not provide.
+The first thing we can say about this situation is that Alice would like to 
+have confidentiality for the messages' contents, so that Eve cannot read her 
+messages.
+Alice would also like to have integrity for her messages, so that Bob and Carol 
+can be sure that they are from Alice and that Eve has not modified them.
+Many systems provide these two properties, e.g.\ \ac{PGP} does this for email 
+(and could be applied here as well).
+However, Alice also wants to hide the sender and recipients, which many systems 
+(including \ac{PGP}) do not provide.
 There is a class of encryption schemes called \ac{ANOBE} schemes.
 This type of scheme provides confidentiality while hiding the sender and the 
 intended recipients.
@@ -51,58 +64,106 @@ encrypted using \iac{ANOBE} scheme, then it will be difficult to determine the
 sender.
 Furthermore, if the recipients fetch the messages anonymously too, then the 
 recipients are also hidden.
-Now the problem of integrity remains.
-If Alice and the other participants agree on a commonly shared \ac{MA} key, 
-then they can use \acp{MAC} to ensure integrity. %TODO: MA v. MAC
-The reason \acp{MAC} are more desirable than digital signatures in this 
-situation is that anyone who can verify the authenticity of \iac{MAC} can also 
-create one (as was pointed out above).
+The idea is as follows: if Eve cannot distinguish between Bob and Carol 
+fetching a message, then it might just as well only be Bob who fetches messages 
+from this location --- Eve cannot tell the difference.
+(We will return to this problem later.)
+
+The problem of integrity remains.
+There are two approaches: digital signatures and \acp{MAC}.
+If Alice, Bob and Carol agree on a commonly shared \ac{MAC} key, then they can 
+use \acp{MAC} to ensure integrity.
+One advantage of \acp{MAC} is that anyone who can verify the authenticity of 
+\iac{MAC} can also create one (as was pointed out above).
 With digital signatures on the other hand, if Alice signs a message it is clear 
 that Alice is the only one who could have signed it.
-This would provide the regime's agents with something to track messages by, all 
-messages signed by the same key are related.
-With \acp{MAC}, any of the other participants could also be the author of the 
-message and the regime cannot determine which messages are related either.
+(It is important that only Bob and Carol know that Alice owns the private key, 
+and that it remains anonymous to Eve.)
+But this provides Eve with something to track messages by, all messages signed 
+by the same key are related.
+With \acp{MAC}, Bob and Carol could also have authored the message and Eve 
+cannot determine which messages are related either.
 This means that for a discussion, any of the participants would be equally 
 likely to be the author of a given message.
 However, this relies on the anonymity of the actors.
 
 \paragraph{The Push Model}
 
-In the push model Alice will send the message to all recipients directly.
-The problems with the push model is that it reveals more meta-information.
-Say that all participants have an inbox, similarly as in the email system.
-Assume that the regime's agents monitor the network on a national level.
-In this situation they can see one message originating from Alice, going to 
-a server beyond the agency's reach, and soon \(n\) equally-sized messages 
-return from the server near-simultaneously addressed to \(n\) people.
-This is what is called a time-correlation attack.
-The agency can then relate Alice with the people she is talking to.
-This is the situation when using text-messaging apps such as Signal, because 
-there all messages go through a central server.
-This also has the side-effect that the operator of the central server can 
-perform the same attack.
+In the push model, Bob and Carol have one location each where Alice will drop 
+her messages.
+(She can achieve confidentiality and integrity similarly as in the pull model.)
+One thing we can observe is that the recipients are not as hidden as in the 
+pull model, even if we assume anonymity.
+Eve can observe that someone (Alice, but Eve does not know that) puts two 
+messages at the same time.
+Eve can then observe these locations to see when someone (Bob or Carol, but Eve
+does not know that either) reads messages from those locations.
+The main problem with the push model is that it reveals more meta-information 
+than the pull model does.
+With the push model Eve can build herself a map of the social graph\footnote{%
+  Since Eve works with probability distributions, this would be an 
+  approximation of the social graph.
+  But her approximation can come very close to the real one.
+}.
+Then she only needs to map the real identities of Alice, Bob and Carol to these 
+anonymous identities.
 
-Now let us try to remove some information to make this more difficult for the 
-agency.
-Say that the sender and recipients are anonymous, so the agency can only track 
-which messages ends up in which inboxes and when.
-Despite the anonymity they can still do a time-correlation attack on the 
-incoming messages.
-This means that they learn which messages are related and in turn which inboxes 
-are related and how.
-This means that the agency have the structure, they only need to fill in the 
-identities.
-If one of the participants makes a mistake, then the regime's agents will have 
-a starting point to target.
-For example if a participant uses the same inbox for communication with all his 
-friends, and not only the participants in the plot against the regime, then one 
-of his other contacts might not be as concerned with staying anonymous.
-The consequence is that the regime can see the identity of someone sending 
-messages to an inbox of their interest.
-Then they can target this person and learn which friend owns the inbox of 
-interest.
-Then they can proceed to targeting one of the protest organizers.
-This type of attack will not work when the communication is according to the 
-pull model, since there the agency must attack each anonymous connection.
-%TODO: reviewer: explain what you mean by attack here
+\paragraph{Privacy}
+
+%Say that Alice, Bob and Carol have one inbox each, similarly as in the email 
+%system or Signal.
+%Eve monitors the network on a national level.
+%Now Eve can see one message originating from Alice, going to a server beyond 
+%Eve's reach, and soon two equally-sized messages return from the server 
+%near-simultaneously to Bob and Carol\footnote{%
+%  Or equivalently, Eve observes where these messages end up in the storage and 
+%  later observes Bob and Carol fetching these messages.
+%}.
+%(As we pointed out above, this is what is called a time-correlation attack.)
+%This is what happens when Alice, Bob and Carol do not have perfect anonymity, 
+%e.g.\ by using Tor or simply using Signal without any anonymizing service.
+%Eve can relate Alice, Bob and Carol to each other.
+%Now let us try to make this more difficult for Eve.
+%
+Say that Alice, Bob and Carol can access the storage system for messages 
+anonymously, i.e.\ Eve can only observe when Alice, Bob and Carol does 
+something --- but not what they do --- and when something happens in the 
+storage system --- but not who does it.
+Despite this anonymity, Eve can still do a correlation attack.
+For example, Eve can temporarily detain Bob (or turn off his network 
+connection) and observe the change in the distribution of reads from the 
+storage.
+In the push model, she will observe that someone stopped reading from one of 
+the locations, i.e.\ Bob's location.
+The same argument can be applied to the pull model case: when Eve detains Bob, 
+she can observe a change in the probability distribution of reads from where 
+Alice puts her messages.
+In fact, even if several people share locations, this simply slow Eve down.
+
+As was pointed out above (\cref{WhenAdversaryControlsNetwork}), the solution to 
+this type of attack is to add noise to make these changes in distribution 
+indistinguishable.
+\citeauthor{PPACinPubFS} suggested that differential privacy\footnote{%
+  Differential privacy guarantees that if we remove any \emph{one} data item, 
+  the distribution will change below a given threshold.
+} will probably be the best trade-off between privacy and efficiency.
+In fact, parallel to the work of \citeauthor{PPACinPubFS}, 
+\textcite{Vuvuzela,Alpenhorn} designed a protocol for one-to-one communication 
+based on differential privacy.
+There are still some limitations, e.g.\ everyone must be online and 
+participating in the protocol all the time --- 24 hours every day.
+
+%If one of the participants makes a mistake, then the regime's agents will have 
+%a starting point to target.
+%For example if a participant uses the same inbox for communication with all his 
+%friends, and not only the participants in the plot against the regime, then one 
+%of his other contacts might not be as concerned with staying anonymous.
+%The consequence is that the regime can see the identity of someone sending 
+%messages to an inbox of their interest.
+%Then they can target this person and learn which friend owns the inbox of 
+%interest.
+%Then they can proceed to targeting one of the protest organizers.
+%This type of attack will not work when the communication is according to the 
+%pull model, since there the agency must attack each anonymous connection.
+%%TODO: reviewer: explain what you mean by attack here
+%

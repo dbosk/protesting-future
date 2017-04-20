@@ -1,29 +1,32 @@
-So far we have treated only two-party conversations, i.e.\ Alice and Bob 
+\subsection{Holding Discussions}
+\label{Discussions}
+
+So far we have treated only one-to-one conversations, i.e.\ Alice and Bob 
 talking to each other.
 However, there are usually more than two people organizing a protest, and so we 
 need to hold discussions with more than only two people at a time.
 In this situation there are two approaches to solving the communication:
-simultaneous pair-wise communication between all participants or true group 
-communication.
-Furthermore, how the messages are distributed is also important, because the 
-adversary can learn who the participants are.
+simultaneous pairwise (one-to-one) communication between all participants or 
+multicast communication.
+Furthermore, how the messages are distributed is also important, because Eve 
+might be able to learn who the participants are.
 
-\subsubsection{Group Communication Properties}
-\label{GroupProperties}
+\subsubsection{Group Communication}
+\label{GroupCommunication}
 
-When a group uses pair-wise communication, every member of the group will set 
-up a pair-wise channel to each other member of the group.
-Each pair-wise channel is as described above, in \cref{Communicating}.
+When a group uses pairwise communication, every member of the group will set up 
+a one-to-one channel to each other member of the group.
+Each pairwise channel is as described above (\cref{Communicating}).
 Then for every message Alice wants to send to the group she has to send it to 
-every participant.
+every member.
 This would allow Alice to cheat, e.g.\ she can send \enquote{Who wants to 
   overthrow the regime?} to everyone except to Bob, to whom she instead sends 
 \enquote{Who wants to order pizza?}.
 This opens up for the Byzantine Generals' problem~\cite{ByzantineGenerals}, 
 where malicious actors can lie to honest actors to disrupt operation.
-\citet{ByzantineGenerals} in fact proved that it is impossible for the honest 
-parties to recover and identify the malicious parties if the malicious parties 
-exceed a third of the participants.
+\textcite{ByzantineGenerals} in fact proved that it is impossible for the 
+honest parties to recover from this and identify the malicious parties if the 
+malicious parties exceed a third of the participants.
   
 Although Alice's ability to say different things to different participants is 
 in itself a desirable property from Alice's perspective --- she would like to 
@@ -36,28 +39,34 @@ In such a scheme, when Bob replies \enquote{I do, shall we say tonight?} the
 others will see that Bob is replying to something they did not see and not to 
 the question \enquote{Who wants to overthrow the regime?}.
 
-\citet{multiotr2009} tried to extend the \ac{OTR} protocol to a multi-party 
-setting.
-This did not result in a concrete protocol implementation, and the resulting 
-protocol they suggested was also very complex.
-It also had some undesirable limitations, for instance, the scenario that Bob 
-receives a question which is different from everyone else's is only detected at 
-the very end of the conversation.
-As is pointed out by \citet{TSgroups}, asynchronous communication today has no 
-real end, which makes the approach of \citet{multiotr2009} even less appealing.
-Due to this, \citet{SignalApp} implements group chats as simple pair-wise 
-conversations.
-With additional meta-data they can ensure consistent history, however, this is 
-not yet implemented~\cite{TSgroups}.
-A technique that could be used for this is to include a message digest of the 
-entire conversation history with each message.
-A message digest is computed using a one-way function, i.e.\ its output is 
-unpredictable and its input is impossible to compute given only the
-output. %TODO: explain more clearly
-This means that the message digest included in Bob's reply and the one computed 
-by the other participants above would differ, thus everyone learns that the 
-conversation history is inconsistent and should no longer be trusted.
-Due to the unpredictable property of the one-way function, Alice cannot phrase 
+%\textcite{multiotr2009} tried to extend the \ac{OTR} protocol to a multi-party 
+%setting.
+%This did not result in a concrete protocol implementation, and the resulting 
+%protocol they suggested was also very complex.
+%It also had some undesirable limitations, for instance, the scenario that Bob 
+%receives a question which is different from everyone else's is only detected at 
+%the very end of the conversation.
+%As is pointed out by \textcite{TSgroups}, asynchronous communication today has 
+%no real end, which makes the approach of \citeauthor{multiotr2009} even less 
+%appealing.
+%Due to this,
+\textcite{SignalApp} implements group chats as simple pairwise conversations.
+With additional meta-data they can ensure consistent history~\cite{TSgroups}.
+A technique that could be used for this is to include a message 
+digest\footnote{%
+  A message digest is computed using a cryptographic hash function, i.e.\ 
+  a one-way function.
+  The output of such functions is unpredictable, e.g.\ finding two inputs that 
+  yield the same output is \enquote{impossible}.
+  It is also \enquote{impossible} to infer its input from its output.
+  By \enquote{impossible} we mean that the probability of success is close to 
+  \(\sfrac{1}{\sqrt{2^n}}\), where \(n\) usually is at least \(256\).
+} of the entire conversation history with each message.
+If Alice would cheat Bob as above, this means that the message digest included 
+in Bob's reply and the one computed by the other participants above would 
+differ, thus everyone learns that the conversation history is inconsistent and 
+should no longer be trusted.
+Due to the unpredictable property of the message digest, Alice cannot phrase 
 the two different messages in such a way that they yield the same message 
 digest in the history either.
 But despite this, the other participants cannot determine if it is Alice or Bob
@@ -65,6 +74,7 @@ who is lying about the message history --- Alice could send the same message to
 everyone and still Bob could try to frame her.
 
 \subsubsection{Message Distribution}
+\label{MessageDistribution}
 
 \input{DecentAC.tex}
 

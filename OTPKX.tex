@@ -1,45 +1,62 @@
-\citet{OTPKX} argue that if the adversary controls the entire network, then the
-approach to deniability taken by \ac{OTR} and Signal does not suffice.
-The problem is that the adversary can record a transcript of all communications
+\textcite{OTPKX} argue that if the adversary controls the entire network, then 
+the approach to deniability taken by \ac{OTR} and Signal does not suffice.
+The problem is that Eve can record a transcript of all communications
 that have taken place.
-We know that the \ac{NSA} did exactly that~\cite{XKeyscore}, and specifically 
-saved ciphertexts for later when the decryption key might be available.
-%~\cite{NSAsavesCiphertexts}.
-In this setting it does not matter if anyone can generate a false transcript of
-a conversation between Alice and Bob, the regime knows exactly what Alice has 
-sent and Bob received and vice versa.
-The argument of \ac{OTR}-like schemes is that Alice and Bob have the possibility 
-to deny anything about the conversation since it cannot be decrypted.
+We know that the \ac{NSA} did exactly that~\cite{XKeyscore} --- and more 
+specifically, saved ciphertexts for later when the decryption key might be 
+available.
+In this setting it does not matter if anyone can generate a false transcript of 
+a conversation between Alice and Bob, because Eve knows exactly what Alice has 
+sent, what Bob has received and vice versa.
+The argument of this class of protocol is that Alice and Bob have the 
+possibility to deny anything about the conversation since it cannot be 
+decrypted.
+This seems extra problematic when even the free countries in the world suggest 
+that there must be ways to break this 
+encryption~\cite{BackDoorEncryption}\footnote{%
+  We refer the reader to the text by \textcite{KeysUnderDoormats} for further 
+  reasons for why this is a bad idea.
+}.
 
 There are more than one way to approach this problem.
 The first approach would be to use an anonymizing service, such as 
 Tor~\cite{Tor}.
-This way, the regime would not know that Alice communicates with Bob, only that
+This way, Eve would not know that Alice communicates with Bob, only that
 Alice communicates with someone.
-However, for all low-latency solutions, when the entry point and exit from the 
-anonymizing network are both controlled by the adversary, then the adversary 
-can perform a correlation attack and essentially render the anonymization 
-service useless~\cite{SystemsForAnonymousCommunication}.
-This is in fact the case if the regime controls the nation-wide network while 
-critics of the regime, all located in the country, want to communicate in 
-real-time.
-To make this attack more difficult for the regime's surveillance
-agency, the system must 
-introduce random delays in our communication. %TODO: explain why
-And despite all this, the regime can still ask Alice to decrypt the 
-conversations --- either she complies or claims she do not know the key.
+However, Alice and Bob are located in the same country and Eve controls the 
+nationwide network.
+For all low-latency anonymizing networks (such as Tor) where the entry point 
+and exit are controlled by Eve, Eve can perform a time-correlation 
+attack\footnote{%
+  This means that Eve records the time of when each message enters the network 
+  (entry distribution) and the time when each message exits the network (exit 
+  distribution).
+  Due to the low-latency property, these distributions will be related and Eve 
+  can infer to whom Alice sent her message.
+} and essentially render the anonymization service 
+useless~\cite{SystemsForAnonymousCommunication}.
+To make this attack more difficult for Eve, the system must introduce random 
+delays in our communication\footnote{%
+  The delays must transform the exit distribution to a distribution more 
+  similar to the uniform distribution, then Eve's statistical analysis will 
+  become more difficult.
+}.
+(We will return to this topic in \cref{MessageDistribution}.)
+But despite all this, Eve can still ask Alice to decrypt the conversations, 
+either she complies or claims that she does not know the key.
 
 The second approach would be to ensure deniability even against this strong 
 adversary.
 This would not hide who communicates with whom, as in our first approach, but 
 it provides deniability for the conversations.
-The scheme suggested by \citet{OTPKX} makes use of one practical instance of 
+The scheme suggested by \textcite{OTPKX} makes use of one practical instance of 
 deniable encryption~\cite{DeniableEncryption}.
-They construct a scheme where Alice and Bob can create \enquote{false 
-witnesses} for their conversation.
-Basically Alice can create a decryption key such that when used to decrypt the 
-ciphertext recorded by the regime from the network it will decrypt to 
-a plaintext of Alice's choice.
-This way she can \enquote{prove} her innocence.
-However, the question whether the regime would actually accept such 
-a \enquote{proof}, knowing it can equally well be false, remains open.
+They construct a scheme where Alice and Bob can create \enquote{false proofs} 
+for their conversation.
+In essence, Eve records all traffic.
+When she approaches Alice and asks her to provide a key to decrypt the recorded 
+traffic, Alice can create a decryption key such that when Eve decrypts the 
+recorded traffic will receive a plaintext of Alice's choice.
+This way Alice can \enquote{prove her innocence}.
+However, the question whether Eve would actually accept such a \enquote{proof}, 
+knowing it might equally well be false, remains open.
