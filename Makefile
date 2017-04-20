@@ -60,7 +60,7 @@ todo: ${SRC}
 
 
 .PHONY: all
-all: ${PKG_TARBALL}
+all: camera-ready-src.zip
 
 PKG_NAME=camera-ready-src
 PKG_TARBALL=${PKG_NAME}.zip
