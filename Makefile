@@ -54,8 +54,18 @@ $(foreach f,${SRC},$(eval PREWC-${f}=detex))
 todo: ${SRC}
 	@grep "\(XXX\|TODO\|FIXME\)" $^
 
+
+.PHONY: all
+all: ${PKG_TARBALL}
+
+PKG_NAME=camera-ready-src
+PKG_TARBALL=${PKG_NAME}.zip
+PKG_TARBALL_FILES=README.camera-ready ${SRC} ${DEPEND}
+
+
 INCLUDE_MAKEFILES=makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
 include ${INCLUDE_MAKEFILES}/doc.mk
+include ${INCLUDE_MAKEFILES}/pkg.mk
 INCLUDE_LIBBIB=libbib
 include ${INCLUDE_LIBBIB}/libbib.mk
