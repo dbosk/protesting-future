@@ -45,9 +45,9 @@ A demonstration requires participants to have any effect, so Alice wants to
 invite Bob and Carol to participate in her demonstration.
 There is one major issue here: trust.
 Alice must ensure that Bob and Carol learn enough information to attend.
-In case Bob or Carol collaborates (voluntarily or involuntarily) with Eve, 
+In case Bob or Carol collaborate (voluntarily or involuntarily) with Eve, 
 neither should have enough information for Eve to prevent the demonstration.
-Bob and Carol on the other hand, they want to ensure that Alice is not 
+Bob and Carol on the other hand want to ensure that Alice is not 
 (collaborating with) Eve and that the invitation is not an attempt to trick 
 them to \enquote{incriminate} themselves as conspirators against the regime.
 \Textcite{EventsInvitations} has done some work in the direction of solving 
@@ -65,14 +65,14 @@ this problem with a fully decentralized scheme.
 
 In a centralized scheme (like Facebook), there is a third party (Facebook) who 
 must be trusted to keep secrets and adhere to the protocol.
-There is not such need in a decentralized scheme, with a decentralized protocol
-Alice, Bob and Carol must only trust themselves --- not even each other.
+In contrast, with a decentralized protocol
+Alice, Bob and Carol need only trust themselves --- not even each other.
 This means that there is no central authority who has all invitation data that 
 Eve can compel to give it up.
 
-Realizing this standard feature of \acp{OSN} in a decentralized manner is not 
-trivial, just because there is no trusted third party which both organizers and 
-invitees can rely on.
+Realizing this rather standard feature of \acp{OSN} in a decentralized manner is not 
+trivial, because there is no trusted third party for both organizers and 
+invitees to rely on.
 In this situation, Alice, Bob and Carol depend only on themselves.
 This means that the protocol must guarantee fairness to all parties involved, 
 e.g.\ that Bob can verify that the invitation he received was actually sent by 
@@ -120,7 +120,7 @@ identities secret\footnote{%
 Finally, the commit-disclose protocol can make some secret available for only 
 those invitees who committed to attend the demonstration while, at the same 
 time, detect any misbehaving party.
-If Alice tries to cheat Bob, then this protocol have provided Bob with data 
+If Alice tries to cheat Bob, then this protocol provides Bob with data 
 that he can show to Carol to prove that Alice tries to cheat.
 Consequently, Alice, Bob and Carol can use this to build a reputation for 
 Alice.
