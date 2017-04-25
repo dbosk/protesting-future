@@ -65,6 +65,7 @@ all: camera-ready-src.zip
 PKG_NAME=camera-ready-src
 PKG_TARBALL=${PKG_NAME}.zip
 PKG_TARBALL_FILES=README.camera-ready ${SRC} ${DEPEND}
+ZIP=-zip
 
 
 INCLUDE_MAKEFILES=makefiles
