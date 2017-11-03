@@ -1,11 +1,25 @@
-Protesting
+The Future of Protesting
 ===============================================================================
 
-A chapter on the technical possibilities of the future of "Protests in the 
-Information Age".
+This is a chapter on the technical possibilities of the future of "Protests in 
+the Information Age". It is a chapter in a book with the same title:
+```bibtex
+@inbook{FutureProtests,
+  title = {Applying Privacy-Enhancing Technologies: One Alternative Future of 
+    Protests},
+  author = {Daniel Bosk
+    and Guillermo Rodriguez-Cano
+    and Benjamin Greschbach
+    and Sonja Buchegger},
+  booktitle = {Protests in the Information Age: Social Movements, Digital 
+    Practices and Surveillance},
+  editor = {Lucas Melgaço and Jeffrey Monaghan},
+  publisher = {Routledge},
+  year = {2018},
+}
+```
 
-
-File structure
+Repo structure
 -------------------------------------------------------------------------------
 
 The main TeX-file is `protesting.tex`. This file contains the preamble and the 
