@@ -1,4 +1,4 @@
-The Future of Protesting
+One Alternative Future of Protesting
 ===============================================================================
 
 This is a chapter on the technical possibilities of the future of "Protests in 
@@ -22,9 +22,13 @@ the Information Age". It is a chapter in a book with the same title:
 Repo structure
 -------------------------------------------------------------------------------
 
+The chapter source is in the `chapter/` directory.
+
 The main TeX-file is `protesting.tex`. This file contains the preamble and the 
 `document` environment. The actual contents is then `\input`ed from other 
 files.
+
+There is a short set of slides in the `slides/` directory.
 
 
 Compilation
@@ -41,7 +45,7 @@ git submodule update --init --recursive
 ```
 
 To compile the document, simply type `make` in the terminal. There are usually 
-options to compile using make(1) in e.g. TeXmaker too.
+options to compile using make(1) in e.g. TeXmaker, TeX Studio etc. too.
 
 To check the number of words, run `make wc`. This uses detex(1) and wc(1) to 
 estimate the number of words.
