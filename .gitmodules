@@ -6,3 +6,6 @@
 	path = libbib
 	url = https://github.com/dbosk/libbib.git
 	branch = master
+[submodule "ProtestVerif"]
+	path = ProtestVerif
+	url = git@github.com:dbosk/ProtestVerif.git
