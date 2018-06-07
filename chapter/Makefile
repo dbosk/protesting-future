@@ -68,9 +68,9 @@ PKG_TARBALL_FILES=README.camera-ready ${SRC} ${DEPEND}
 ZIP=-zip
 
 
-INCLUDE_MAKEFILES=makefiles
+INCLUDE_MAKEFILES=../makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
 include ${INCLUDE_MAKEFILES}/doc.mk
 include ${INCLUDE_MAKEFILES}/pkg.mk
-INCLUDE_LIBBIB=libbib
+INCLUDE_LIBBIB=../libbib
 include ${INCLUDE_LIBBIB}/libbib.mk
