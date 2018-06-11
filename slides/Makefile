@@ -18,7 +18,6 @@ FIGS+= 	ProtestVerif-verified.png
 FIGS+= 	ProtestVerif-UN.png
 FIGS+= 	trump.jpg
 
-slides.pdf: 		${FIGS}
 ProtestVerif-join.png: ../ProtestVerif/art/ProtestVerif-join.png
 ProtestVerif-participating.png: ../ProtestVerif/art/ProtestVerif-participating.png
 ProtestVerif-endprotest.png: ../ProtestVerif/art/ProtestVerif-endprotest.png
@@ -30,10 +29,13 @@ trump.jpg: 			../ProtestVerif/fig/trump.jpg
 ${FIGS}:
 	${LN} $< $@
 
+slides.pdf: 		${FIGS}
+
 
 .PHONY: clean
 clean:
 	${RM} notes.pdf slides.pdf
+	${RM} ${FIGS}
 
 
 INCLUDE_MAKEFILES=../makefiles
